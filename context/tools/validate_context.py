@@ -36,6 +36,53 @@ orgroot=root/'product-system/04_ui/organisms'
 org=yaml.safe_load((orgroot/'organism-registry.yaml').read_text('utf8'))
 for item in org.get('organisms',[]):
  if not (orgroot/item['runtime_path']).is_file():errors.append('missing organism route: '+item['runtime_path'])
+# Engineering standards 05/06/07 contract. Do not leak full rules into product/prototype stages.
+eng_paths=[
+ 'product-system/06_engineering/engineering-standards.md',
+ 'product-system/06_engineering/component-structure-and-handoff.md',
+]
+frontend_profiles=('for_frontend_planning','for_frontend_implementation','for_frontend_review')
+nonengineering_profiles=('always','for_product_intent_and_brief','for_ux_solution',
+                         'for_visual_html_prototype','for_ux_sync','for_sdd_specification')
+loading=m.get('loading',{})
+for profile in frontend_profiles:
+ actual=loading.get(profile,[])
+ for path in eng_paths:
+  if path not in actual:errors.append('engineering rules missing from '+profile+': '+path)
+for profile in nonengineering_profiles:
+ for path in eng_paths:
+  if path in loading.get(profile,[]):errors.append('engineering rules loaded too early in '+profile)
+for path in eng_paths:
+ if path not in m.get('documents',{}).get('engineering_standards',[]):
+  errors.append('missing engineering document index: '+path)
+ if not (root/path).is_file():errors.append('missing canonical engineering standard: '+path)
+if m.get('loading',{}).get('on_demand',{}).get('engineering_standards')!='product-system/06_engineering/*.md':
+ errors.append('engineering standards on_demand route missing')
+for name in ('frontend-planner','frontend-implementer','frontend-reviewer'):
+ f=root.parent/'agent/.gigacode/agents'/f'{name}.md'
+ if not f.is_file():errors.append('missing engineering agent: '+name)
+ elif '06_engineering' not in f.read_text('utf8'):
+  errors.append('engineering agent does not load standard: '+name)
+for f in (root.parent/'agent/.gigacode/skills/05-07-frontend-standards').rglob('*.md'):
+ content=f.read_text('utf8')
+ if 'NORMaliz' in content or 'Проверяй реальные пути, версии, UI Kit' in content:
+  errors.append('damaged frontend rule: '+str(f))
+for path in eng_paths:
+ if not (root/path).is_file():continue
+ text=(root/path).read_text('utf8')
+ if len(text)<3500:errors.append('engineering standard unexpectedly short: '+path)
+ if any(token in text.lower() for token in ('sber','сбер')):
+  errors.append('corporate identifier in engineering standard: '+path)
+# Optional external evidence field must remain neutral and local-only.
+evidence=root.parent/'agent/.gigacode/product-evidence.yaml.example'
+if not evidence.exists():errors.append('missing evidence YAML sample')
+else:
+ sample=yaml.safe_load(evidence.read_text('utf8'))
+ for product in sample.get('products',{}).values():
+  fr=product.get('frontend_rules')
+  if not isinstance(fr,dict) or not all(k in fr for k in ('local_root','index_url','toolchain_root')):
+   errors.append('missing frontend_rules evidence mapping')
+  elif any(fr.values()):errors.append('filled frontend_rules paths in distributable example')
 for f in root.rglob('*.yaml'):
  try:yaml.safe_load(f.read_text('utf8'))
  except Exception as e:errors.append('YAML '+str(f)+': '+str(e))

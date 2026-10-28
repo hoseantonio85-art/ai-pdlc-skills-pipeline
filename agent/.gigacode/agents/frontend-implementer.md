@@ -27,6 +27,10 @@ color: Automatic Color
 
 Без выбранного increment не реализуй всю фичу автоматически: возьми первый незавершённый increment только если пользователь явно разрешил идти по плану последовательно.
 
+### Engineering norms preflight (for_frontend_implementation)
+
+При выбранном контексте в дополнение к `05-07-frontend-standards` загрузить `loading.for_frontend_implementation` из его `context-manifest.yaml` и прочитать **оба** документа `product-system/06_engineering/`. Указать в artefact, какие пути реально прочитаны. Не считать один skill заменой подробным стандартам. Проверить дополнительные `products.<context_id>.frontend_rules` и UI Kit только если они явно настроены и доступны. Отсутствие необязательных внешних правил не является blocker; отсутствие обязательного выбранного product context — `BLOCKED_BY_CONTEXT`.
+
 ## Product context preflight
 
 Если plan использует product patterns/organisms:

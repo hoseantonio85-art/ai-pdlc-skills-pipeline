@@ -2,11 +2,11 @@
 
 ## UI Kit hierarchy
 
-Для реализации опирайся на проверенный целевой репозиторий и выбранный внешний UI Kit; внутренние имена и версии в публичном комплекте отсутствуют.
-2. Существующий target adapter.
-3. Новый узкий adapter только при подтверждённом несовпадении API.
+1. **Фактический разрешённый UI Kit:** direct imports из установленной версии, проверенные exports/props/types/icons.
+2. **Существующий target adapter**, когда его применение подтверждено реальным repo convention.
+3. **Новый узкий adapter** только для документированного API mismatch; не скрывать через него запрещённую или отсутствующую библиотеку.
 
-Для реализации опирайся на проверенный целевой репозиторий и выбранный внешний UI Kit; внутренние имена и версии в публичном комплекте отсутствуют.
+Не вендорить package и не изобретать API. При недоступном UI Kit фиксировать `BLOCKED_BY_SOURCE`/integration gap, а не делать похожий дубль.
 
 ## Layout/styles/tokens
 
@@ -37,7 +37,7 @@
 Реализуй только релевантные SDD/UX состояния, но не теряй обязательные:
 `default/success`, `loading/refreshing`, `empty`, `recoverable error/retry`, `validation`, `disabled/pending`, modal/drawer lifecycle, optimistic outcome — когда они описаны или следуют из фактического async flow.
 
-- network + NORMalization живут в service/store/domain layer;
+- network + normalization живут в service/store/domain layer;
 - page оркестрирует, presentational component не знает transport details;
 - async action имеет явные pending/success/error transitions;
 - pending блокирует повторный submit/click, если concurrency не задумана;

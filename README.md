@@ -27,6 +27,7 @@ ai-pdlc-skills-pipeline/
 │   │   ├── 03_ux/                     # UX-правила
 │   │   ├── 04_ui/                     # foundation, patterns, runtime, visual, organisms, starter
 │   │   ├── 05_external/               # политика внешних источников
+│   │   ├── 06_engineering/            # полные frontend-нормативы stages 05–07
 │   │   └── context-manifest.yaml
 │   └── tools/validate_context.py
 └── README.md
@@ -82,6 +83,10 @@ products:
     design_references:
       local_root: ""     # одобренные визуальные референсы
       index_url: ""
+    frontend_rules:
+      local_root: ""     # доп. разрешённые engineering-правила
+      index_url: ""
+      toolchain_root: "" # фактические TS/Biome baseline
 ```
 
 В настоящем распространяемом пакете **не должно быть заполненных внутренних путей и URL**. Секреты/токены нельзя класть в YAML вообще. Путь не гарантирует доступ: GigaCode должен проверить файл, права, версию и действительно прочитать релевантный источник. При отсутствии источника — `NEEDS_SOURCE` или `BLOCKED_BY_SOURCE`.
@@ -132,3 +137,7 @@ python -X utf8 context/tools/validate_context.py
 ## Дополнительные локальные визуальные сцены
 
 Вернул две **синтетические standalone HTML-иллюстрации** из исходного контекста: `04_ui/references/html/norm-vertical-slice/index.html` и `04_ui/references/html/situational-overview/index.html`. Они дополняют полноценный starter, но не являются исходниками frontend-репозиториев, реальными инцидентами или нормативным HTML/API. Клик/данные в них не должны переопределять актуальную спецификацию Drawer.
+
+## Frontend Standards · восстановление нормы
+
+Скилл `05-07-frontend-standards` и три субагента теперь читают из выбранного context manifest два **встроенных** документа в `context/product-system/06_engineering/`: полный инженерный стандарт и компонентный/preview-handoff стандарт. Эти документы загружаются **только на stages 05–07**, а не при Intent/UX/HTML prototype/SDD. Реальные имена frontend repos, config packages, версии и UI Kit exports не вшиты в репозиторий — должны быть проверены в target repo и при необходимости подключены через опциональный `frontend_rules` в персональном YAML.

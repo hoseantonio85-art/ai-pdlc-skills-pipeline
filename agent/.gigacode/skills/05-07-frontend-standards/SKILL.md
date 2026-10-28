@@ -53,7 +53,7 @@ Standalone нельзя использовать как обход отсутс�
 - Business logic не живёт в route-level JSX.
 - Не скрывать несовместимости типами `any`, unsafe casts или подавлением TypeScript errors.
 - Async action имеет явные pending/success/error transitions; повторный submit во время pending блокируется, если конкуренция не задумана.
-- Новая/изменённая business logic в stores/helpers/NORMalizers покрывается релевантными тестами.
+- Новая/изменённая business logic в stores/helpers/normalizers покрывается релевантными тестами.
 - Недоступное новое ключевое действие — blocker.
 - Dependency credentials/tokens не коммитятся; корпоративный Nexus/registry используется только через разрешённую конфигурацию среды.
 
@@ -68,15 +68,19 @@ Standalone нельзя использовать как обход отсутс�
 - integration gaps явно фиксируются в 05/06/07 artifacts;
 - local package `.tgz` допустим как dependency source, но его source не копируется в приложение и file-path dependency не переносится в production handoff.
 
+## Подключение полного инженерного стандарта
+
+При выбранном product context после разрешения manifest для текущего `frontend-*` профиля прочитай **оба** документа:
+
+- `product-system/06_engineering/engineering-standards.md` — полный engineering standard.
+- `product-system/06_engineering/component-structure-and-handoff.md` — компоненты, data, публичные barrels, UI Kit, i18n, runtime, preview/handoff и checks.
+
+Это **встроенные** нормы, не внешние спецификации; не надо подключать их через пользовательский YAML. Если manifest/context не загрузился, не говори, что проверил product-specific standard: `BLOCKED_BY_CONTEXT` при обязательном контексте. Для другого продукта используй его выбранный manifest и engineering rules, не подменяй NORM автоматически. Для Stage 01–04 этот раздел не применяй.
+
+Внешний toolchain, разрешённые package names, реальный UI Kit и source repositories (при наличии) подключаются **отдельно** через `~/.gigacode/product-evidence.yaml`. Пример содержит `products.<id>.frontend_rules` только для **дополнительных** локальных корпоративных правил и toolchain evidence, не для замены встроенного стандарта. Проверяй фактическую доступность, versions/config resolution, не доверяй заполненному пути как доказательству чтения.
+
 ## Target/reference family
 
-Основные ориентиры, если они доступны в рабочем окружении:
-- Проверяй реальные пути, версии, UI Kit и технические зависимости **в локально подключённых источниках**; они не входят в публичный комплект.
-- Проверяй реальные пути, версии, UI Kit и технические зависимости **в локально подключённых источниках**; они не входят в публичный комплект.
-- Проверяй реальные пути, версии, UI Kit и технические зависимости **в локально подключённых источниках**; они не входят в публичный комплект.
-- Проверяй реальные пути, версии, UI Kit и технические зависимости **в локально подключённых источниках**; они не входят в публичный комплект.
-- Проверяй реальные пути, версии, UI Kit и технические зависимости **в локально подключённых источниках**; они не входят в публичный комплект.
-- Проверяй реальные пути, версии, UI Kit и технические зависимости **в локально подключённых источниках**; они не входят в публичный комплект.
-
-В `TARGET_REPO` фактический target repo остаётся источником истины; ориентиры не используются для насильственной унификации legacy-проектов.
-В `STANDALONE_ENGINEERING` ориентиры используются для reference-first reconnaissance и portability, но не дают права заявлять production integration.
+- `TARGET_REPO`: выбранный repo определяет stack/runtime, package manager, exports, UI Kit API, TS/Biome conventions, i18n format и tests. Просмотри фактические версии и как минимум один живой образец; не переписывай существующие conventions только ради унификации.
+- `STANDALONE_ENGINEERING`: используй **разрешённый** reference baseline, реальный пакет/UI Kit types, известный test/toolchain и typed mocks. Изолируй sandbox shell, перечисли integration gaps и `Integration verification: NOT_PERFORMED`.
+- Если обязательные sources недоступны — фиксируй blocker/decision, не заменяй их вымышленной версией или параллельной архитектурой.

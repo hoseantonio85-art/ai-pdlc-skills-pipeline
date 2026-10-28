@@ -67,4 +67,4 @@ Route page не содержит business calculations, большие fixtures 
 
 До handoff проверьте hardcoded colors, forbidden imports/re-exports, пустые style modules, file size, user strings, localized guards, dead files/exports, encoding и `git diff --check`. Runtime checks запускаются только если разрешены workspace instructions и dependencies доступны. Если корпоративный registry/разрешённый package registry или local package artifact недоступен, не обходите ограничения среды и явно помечайте checks `skipped`/`BLOCKED_BY_ENVIRONMENT`.
 
-Полные нормативные источники находятся в пользовательский `~/.gigacode/product-evidence.yaml` и не читаются по умолчанию.
+Полные **встроенные** engineering-нормы — `product-system/06_engineering/engineering-standards.md` и `component-structure-and-handoff.md`, подключаются через manifest только в stages 05–07. `~/.gigacode/product-evidence.yaml` служит для **дополнительных** разрешённых frontend/toolchain источников и реального UI Kit; это не замена локальных правил.

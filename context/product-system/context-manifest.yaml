@@ -32,6 +32,9 @@ documents:
   - product-system/04_ui/visual/composition-adaptation.md
   - product-system/04_ui/patterns/pattern-registry.yaml
   - product-system/04_ui/organisms/organism-registry.yaml
+  engineering_standards:
+  - product-system/06_engineering/engineering-standards.md
+  - product-system/06_engineering/component-structure-and-handoff.md
   source_policy:
   - product-system/05_external/source_policy.md
   - product-system/02_domain/registry/source_authority.md
@@ -92,6 +95,8 @@ loading:
   - product-system/02_domain/registry/common_business_rules.md
   - product-system/02_domain/registry/current_product_state.md
   for_frontend_planning:
+  - product-system/06_engineering/engineering-standards.md
+  - product-system/06_engineering/component-structure-and-handoff.md
   - product-system/03_ux/ux_principles.md
   - product-system/04_ui/patterns/pattern-registry.yaml
   - product-system/05_external/source_policy.md
@@ -100,10 +105,14 @@ loading:
   - product-system/04_ui/frontend_prototype_rules.md
   - product-system/02_domain/registry/current_product_sources.yaml
   for_frontend_implementation:
+  - product-system/06_engineering/engineering-standards.md
+  - product-system/06_engineering/component-structure-and-handoff.md
   - product-system/04_ui/patterns/pattern-registry.yaml
   - product-system/05_external/source_policy.md
   - product-system/04_ui/frontend_prototype_rules.md
   for_frontend_review:
+  - product-system/06_engineering/engineering-standards.md
+  - product-system/06_engineering/component-structure-and-handoff.md
   - product-system/04_ui/patterns/pattern-registry.yaml
   - product-system/05_external/source_policy.md
   - product-system/04_ui/frontend_prototype_rules.md
@@ -115,6 +124,7 @@ loading:
     ui_visual: product-system/04_ui/visual/*.md
     ui_organisms: product-system/04_ui/organisms/*.md
     ui_content_examples: product-system/04_ui/patterns/specs/drawer-content-guide.md
+    engineering_standards: product-system/06_engineering/*.md
 prototype:
   starter:
     path: product-system/04_ui/starter/index.html

@@ -16,3 +16,7 @@ products:
     design_references:
       local_root: ""
       index_url: ""
+    frontend_rules:
+      local_root: ""       # approved additional frontend standards/toolchain evidence, optional
+      index_url: ""        # allowlisted docs, optional
+      toolchain_root: ""   # shared TS/Biome config and package evidence, optional

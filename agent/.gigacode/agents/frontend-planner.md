@@ -58,6 +58,10 @@ Standalone engineering — не Stage 03 HTML prototype и не production MFE. 
 Если standalone profile выбран без достаточного reference/UI Kit/environment evidence → `BLOCKED_BY_ENVIRONMENT` или `NEEDS_ENGINEERING_DECISION`.
 Если обязательный production contract реально нужен для текущего scope, но отсутствует → `BLOCKED_BY_CONTRACT`; не выдумывай production API.
 
+### Engineering norms preflight (for_frontend_planning)
+
+При выбранном контексте в дополнение к `05-07-frontend-standards` загрузить `loading.for_frontend_planning` из его `context-manifest.yaml` и прочитать **оба** документа `product-system/06_engineering/`. Указать в artefact, какие пути реально прочитаны. Не считать один skill заменой подробным стандартам. Проверить дополнительные `products.<context_id>.frontend_rules` и UI Kit только если они явно настроены и доступны. Отсутствие необязательных внешних правил не является blocker; отсутствие обязательного выбранного product context — `BLOCKED_BY_CONTEXT`.
+
 ## Product context preflight
 
 Если проект использует product context:

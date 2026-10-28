@@ -8,3 +8,5 @@
 - `products.norm.design_references.local_root/index_url`: разрешённые продуктовые макеты/референсы.
 
 Указание пути не означает доступ. Агент обязан проверить наличие, дату, версию, доступность и прочитать релевантный фрагмент. При недоступности — `NEEDS_SOURCE`/`BLOCKED_BY_SOURCE`. Реальные пути, секреты, внутренние URL не коммитить в распространяемый комплект.
+
+- `products.norm.frontend_rules.local_root/index_url/toolchain_root`: необязательные **дополнительные** разрешённые frontend/toolchain sources; встроенный норматив stages 05–07 находится в `product-system/06_engineering/`.
