@@ -1,0 +1,27 @@
+schema_version: 1
+stages:
+  '01':
+  - foundation
+  - domains
+  '02':
+  - foundation
+  - domains
+  - ux
+  '03':
+  - ux
+  - ui
+  '03.5':
+  - ux
+  '04':
+  - domains
+  - ux
+  '05':
+  - ux
+  - ui
+  - external
+  '06':
+  - ui
+  - external
+  '07':
+  - ui
+  - external

@@ -1,0 +1,8 @@
+schema_version: 1
+patterns:
+- id: drawer
+  path: drawer.md
+- id: object-modal
+  path: modal.md
+- id: registry-page
+  path: registry-page.md

@@ -1,0 +1,8 @@
+# Copy to ~/.gigacode/product-contexts.yaml. Do not commit user-specific paths.
+contexts:
+  sample_product:
+    status: example_only
+    provider:
+      type: local_repository
+      root: "/ABSOLUTE/PATH/TO/skills-pipeline/context"
+      manifest: "product-system/context-manifest.yaml"

@@ -1,0 +1,70 @@
+schema_version: 8
+package_version: public-candidate
+context_id: sample_product
+label: Sample product context (non-production)
+status: example_only
+skill_profiles:
+  01-formulate-product-intent-and-brief: for_product_intent_and_brief
+  02-design-ux-solution: for_ux_solution
+  03-build-visual-html-prototype: for_visual_html_prototype
+  03-5-sync-ux-decisions: for_ux_sync
+  04-build-sdd-specification: for_sdd_specification
+  frontend-planner: for_frontend_planning
+  frontend-implementer: for_frontend_implementation
+  frontend-reviewer: for_frontend_review
+documents:
+  foundation:
+  - product-system/01_foundation/mission.md
+  - product-system/01_foundation/product_philosophy.md
+  - product-system/01_foundation/service_goal.md
+  services:
+  - product-system/02_domain/services/services_map.md
+  - product-system/02_domain/registry/service_registry.yaml
+  ux:
+  - product-system/03_ux/ux_principles.md
+  - product-system/03_ux/ux_patterns.md
+  visual:
+  - product-system/04_ui/ui_rules.md
+  - product-system/04_ui/patterns/pattern-registry.yaml
+  source_authority:
+  - product-system/02_domain/registry/source_authority.md
+  source_policy:
+  - product-system/05_external/source_policy.md
+loading:
+  always:
+  - product-system/02_domain/registry/source_authority.md
+  - product-system/05_external/source_policy.md
+  for_product_intent_and_brief:
+  - product-system/01_foundation/mission.md
+  - product-system/02_domain/registry/service_registry.yaml
+  - product-system/02_domain/registry/role_registry.yaml
+  - product-system/02_domain/registry/capability_registry.yaml
+  for_ux_solution:
+  - product-system/03_ux/ux_principles.md
+  - product-system/03_ux/ux_patterns.md
+  - product-system/02_domain/registry/service_registry.yaml
+  for_visual_html_prototype:
+  - product-system/03_ux/ux_patterns.md
+  - product-system/04_ui/ui_rules.md
+  - product-system/04_ui/patterns/pattern-registry.yaml
+  for_ux_sync:
+  - product-system/03_ux/ux_principles.md
+  for_sdd_specification:
+  - product-system/02_domain/registry/service_registry.yaml
+  - product-system/02_domain/registry/common_business_rules.md
+  for_frontend_planning:
+  - product-system/04_ui/ui_rules.md
+  - product-system/05_external/source_policy.md
+  for_frontend_implementation:
+  - product-system/04_ui/ui_rules.md
+  - product-system/05_external/source_policy.md
+  for_frontend_review:
+  - product-system/04_ui/ui_rules.md
+  - product-system/05_external/source_policy.md
+  on_demand:
+    service_documents: product-system/02_domain/services/*.md
+    ui_patterns: product-system/04_ui/patterns/*.md
+prototype:
+  starter:
+    path: product-system/04_ui/starter/index.html
+    status: neutral_demo

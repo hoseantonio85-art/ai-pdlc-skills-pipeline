@@ -1,0 +1,7 @@
+schema_version: 2
+context_id: sample_product
+services:
+  sample_service:
+    label: Пример сервиса
+    status: demonstration_only
+    primary_document: product-system/02_domain/services/sample_service.md
