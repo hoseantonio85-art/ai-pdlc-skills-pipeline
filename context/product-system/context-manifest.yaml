@@ -1,5 +1,5 @@
 schema_version: 8
-package_version: 7.0.3-precise-clean
+package_version: "8.0"
 context_id: norm
 label: NORM
 context_type: product_knowledge_ux_visual_and_engineering_system
