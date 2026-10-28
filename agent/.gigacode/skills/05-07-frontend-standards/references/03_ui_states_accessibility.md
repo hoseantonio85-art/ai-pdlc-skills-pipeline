@@ -37,7 +37,7 @@
 Реализуй только релевантные SDD/UX состояния, но не теряй обязательные:
 `default/success`, `loading/refreshing`, `empty`, `recoverable error/retry`, `validation`, `disabled/pending`, modal/drawer lifecycle, optimistic outcome — когда они описаны или следуют из фактического async flow.
 
-- network + sample productalization живут в service/store/domain layer;
+- network + NORMalization живут в service/store/domain layer;
 - page оркестрирует, presentational component не знает transport details;
 - async action имеет явные pending/success/error transitions;
 - pending блокирует повторный submit/click, если concurrency не задумана;

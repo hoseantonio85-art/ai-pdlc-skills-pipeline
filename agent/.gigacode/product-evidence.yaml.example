@@ -1,16 +1,18 @@
-# Copy to ~/.gigacode/product-evidence.yaml; keep this file LOCAL and out of Git.
-# Absolute local paths and/or authorised URLs can be used, but must be verified.
-# Blank fields mean source not configured. Never write credentials into public YAML.
+# Copy to ~/.gigacode/product-evidence.yaml; do not commit filled-in version.
+# Paths/URLs are checked on the WORK COMPUTER and need access permissions.
 schema_version: 1
 products:
-  sample_product:
+  norm:
     specifications:
       local_root: ""
-      index_url: ""          # optional approved link; not automatically browsable
+      index_url: ""
     ui_kit:
-      package_path: ""       # local .tgz or installed package path
-      docs_root: ""          # local docs directory
-      docs_url: ""           # optional approved documentation URL
+      package_path: ""
+      docs_root: ""
+      docs_url: ""
     repositories:
       frontend_root: ""
       backend_root: ""
+    design_references:
+      local_root: ""
+      index_url: ""

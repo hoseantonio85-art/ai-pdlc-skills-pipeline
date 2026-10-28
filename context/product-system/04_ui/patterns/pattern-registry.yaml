@@ -1,8 +1,249 @@
-schema_version: 1
+schema_version: 2
+context_id: norm
+status: working_patterns_historical_design_context_not_release_verified
+adaptation_policy:
+  model: invariants_strong_defaults_references
+  existing_pattern_is: strong_default_not_rigid_template
+  new_composition: allowed_with_rationale_and_product_invariants
+  handoff_labels:
+  - composition-adaptation
+  - new-pattern-candidate
+  visual_references_are: evidence_not_dom_contract
 patterns:
-- id: drawer
-  path: drawer.md
-- id: object-modal
-  path: modal.md
-- id: registry-page
-  path: registry-page.md
+- id: entity-list-page
+  title: Страница списка сущностей
+  status: draft_design_guidance
+  maturity: reference-backed
+  implementation: guidance
+  category: page
+  path: entity-list-page.md
+  version: 0.1.0
+  delegated_patterns:
+  - entity-card
+  - filter-toolbar
+  - entity-details-surface
+  - page-actions
+  - auxiliary-drawer
+- id: filter-bar-and-advanced-filter-drawer
+  title: Панель фильтров с расширенным фильтром
+  status: draft_design_guidance
+  maturity: reference-backed
+  category: filtering
+  path: filter-bar-and-advanced-filter-drawer.md
+  version: 0.2.0
+  implementation:
+    type: guidance
+    reusable_component: false
+  normative_scope:
+  - hierarchy between segmented scope, quick filters, search and advanced filtering
+  - canonical desktop toolbar composition and control taxonomy
+  - applied and draft filter state interaction
+  - filter actions and active-state communication
+  - integration contract with a results surface
+  delegated_patterns:
+  - quick-filter-control
+  - search-field
+  - filter-field
+  - drawer-surface
+  - results-surface
+  - query-state-persistence
+- id: situational-overview
+  title: Ситуационный обзор и интерактивная аналитика
+  status: draft_design_guidance
+  maturity: screenshot-and-ux-backed
+  category: analytics
+  path: situational-overview.md
+  version: 0.1.0
+  implementation:
+    type: guidance
+    reusable_component: false
+  normative_scope:
+  - decision whether aggregate visualization is useful
+  - relationship between overview, filters and detailed results
+  - drill-down and cross-filter semantics
+  - situation-first information hierarchy
+- id: large-entity-modal
+  title: Большая модалка сущности
+  status: draft_design_guidance
+  maturity: reference-backed
+  category: surface
+  path: large-entity-modal.md
+  version: 0.2.0
+  canonical_shell_spec: specs/modal.md
+  runtime_path: runtime/object-modal-view.md
+  organism: ../organisms/object-action-meta-zone.md
+  implementation:
+    type: guidance
+    reusable_component: false
+  normative_scope:
+  - entity-modal anatomy
+  - hierarchy between identity, main content and right action/meta zone
+  - modal-level state and continuity contract
+  - mode contract: Object View without Footer; Create/Edit with fixed Footer
+  delegated_patterns:
+  - entity-summary
+  - entity-content-section
+  - entity-meta
+  - object-action-meta-zone
+  - related-entity-navigation
+  - auxiliary-drawer
+  - confirmation-modal
+  - modal-surface
+- id: entity-card
+  title: Анатомия карточки сущности
+  status: draft_design_guidance
+  maturity: reference-backed
+  category: content
+  path: entity-card.md
+  version: 0.2.0
+  implementation:
+    type: guidance
+    reusable_component: false
+  normative_scope:
+  - entity-card semantic anatomy
+  - information hierarchy inside one card
+  - relationship between identity, signal, metrics and attention reason
+  - card-level open intent and interaction boundary
+  - NORM identity-first visual placement with non-leading status default
+  delegated_patterns:
+  - status-indicator
+  - metric-display
+  - entity-details-surface
+  - item-actions
+  - selectable-list-item
+  - list-virtualization
+- id: drawer-inside-modal
+  title: Drawer внутри модалки
+  status: draft_design_guidance
+  maturity: reference-backed
+  category: surface
+  path: drawer-inside-modal.md
+  version: 0.1.0
+  implementation:
+    type: guidance
+    reusable_component: false
+  normative_scope:
+  - auxiliary-drawer intent inside a parent modal
+  - continuity between parent modal and nested drawer
+  - nested-surface lifecycle and stack relationship
+  - integration contract for drawer content and actions
+  delegated_patterns:
+  - modal-surface
+  - drawer-surface
+  - auxiliary-content
+  - workflow-footer
+  - confirmation-modal
+  - surface-stack
+  - related-entity-preview
+- id: modal-form
+  title: Форма в модалке
+  status: draft_design_guidance
+  maturity: reference-backed
+  category: form
+  path: modal-form.md
+  version: 0.2.0
+  implementation:
+    type: guidance
+    reusable_component: false
+  normative_scope:
+  - modal-form anatomy and information hierarchy
+  - draft, validation, submit and cancel lifecycle
+  - modal-level form state model
+  - integration between form body, feedback and footer actions
+  delegated_patterns:
+  - modal-surface
+  - semantic-form-section
+  - form-field
+  - validation-summary
+  - workflow-footer
+  - confirmation-modal
+  - staged-form
+  - attachment-field
+  - auxiliary-drawer
+- id: collection-presentation
+  title: Представление множества
+  status: draft_design_guidance
+  maturity: reference-backed
+  category: collection
+  path: collection-presentation.md
+  version: 0.1.0
+  implementation:
+    type: guidance
+    reusable_component: false
+  normative_scope:
+  - choose decision registry vs navigation collection vs compact content/file list by user intent
+- id: semantic-form-section
+  title: Смысловая секция формы
+  status: draft_design_guidance
+  maturity: reference-backed
+  category: form
+  path: semantic-form-section.md
+  version: 0.1.0
+  implementation:
+    type: guidance
+    reusable_component: false
+  normative_scope:
+  - meaning/helper/controls hierarchy
+  - preferred side-label desktop composition
+- id: related-entity-preview
+  title: Превью связанной сущности
+  status: draft_design_guidance
+  maturity: reference-backed
+  category: relationship
+  path: related-entity-preview.md
+  version: 0.1.0
+  implementation:
+    type: guidance
+    reusable_component: false
+  normative_scope:
+  - minimal linked-entity context
+  - transition to full object without duplicating Object View
+- id: workflow-footer
+  title: Подвал действий workflow
+  status: draft_design_guidance
+  maturity: reference-backed
+  category: actions
+  path: workflow-footer.md
+  version: 0.1.0
+  implementation:
+    type: guidance
+    reusable_component: false
+  normative_scope:
+  - stable completion actions for create/edit/workflow tasks
+  - primary/secondary/pending behavior
+loading_rule: Read this compact registry, then only the selected runtime/spec/organism. Do not bulk-load all patterns.
+runtime_overlay:
+  registry-page:
+    path: runtime/registry-page.md
+    authoring_patterns:
+    - entity-list-page
+    - filter-bar-and-advanced-filter-drawer
+  entity-card:
+    path: runtime/entity-card.md
+    authoring_patterns:
+    - entity-card
+  object-modal-view:
+    path: runtime/object-modal-view.md
+    authoring_patterns:
+    - large-entity-modal
+    shared_shell_spec: specs/modal.md
+  drawer:
+    path: runtime/drawer.md
+    authoring_patterns:
+    - drawer-inside-modal
+    - filter-bar-and-advanced-filter-drawer
+    shared_shell_spec: specs/drawer.md
+  situational-overview:
+    path: runtime/situational-overview.md
+    authoring_patterns:
+    - situational-overview
+product_profiles:
+  norm:
+    visual: context product visual rules and local starter
+    authority: historical design context; verify target UI Kit
+  orm:
+    status: not_connected
+implementation_policy:
+  authoring_patterns: guidance only, not reusable production component
+  html_starter: product-system/04_ui/starter/index.html
+  external_sources: ~/.gigacode/product-evidence.yaml

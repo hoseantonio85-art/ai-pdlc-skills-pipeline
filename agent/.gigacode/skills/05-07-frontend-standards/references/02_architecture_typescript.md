@@ -44,7 +44,7 @@ Route-level компонент остаётся композицией. Файл
 ## React/state
 
 - observable store consumer → `observer`, если это фактический pattern target;
-- вычисления/sample productalization/repeated logic → store/helper;
+- вычисления/NORMalization/repeated logic → store/helper;
 - `useMemo/useCallback/React.memo` только при реальной причине (referential contract, dependency array, дорогая работа);
 - не универсализируй одноразовый компонент «на будущее»;
 - независимые user flows не объединяй в god-hook;

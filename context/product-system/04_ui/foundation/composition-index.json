@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "product": "norm",
+  "default_mode": "Product Fidelity",
+  "load": {
+    "core": [
+      "visual-dna.md",
+      "source-policy.md"
+    ],
+    "contracts_max": 3,
+    "raw_references_max": 2,
+    "qa": "visual-qa.md",
+    "implementation_guide": "starter-contract.md",
+    "source_status": "visual_references_not_bundled; use product-evidence.yaml for authorized local or URL references"
+  },
+  "patterns": [
+    {
+      "id": "registry-controls",
+      "file": "registry-controls.md",
+      "surfaces": [
+        "registry-page",
+        "filter-toolbar"
+      ],
+      "components": [
+        "norm-components.css",
+        ".registry-controls",
+        "Norm.query"
+      ],
+      "variants": [
+        "event-two-zone",
+        "measure-status-chips",
+        "risk-attention"
+      ],
+      "references": [
+        "event-list",
+        "measure-list",
+        "risks-list"
+      ],
+      "implementation_scope": "shared controls with scenario fixtures"
+    },
+    {
+      "id": "entity-registry",
+      "file": "entity-registry.md",
+      "surfaces": [
+        "entity-card",
+        "registry-page"
+      ],
+      "components": [
+        "Norm.card",
+        ".entity-card"
+      ],
+      "variants": [
+        "event-two-zone",
+        "measure-two-zone",
+        "risk-metrics"
+      ],
+      "references": [
+        "event-list",
+        "measure-list",
+        "risks-list"
+      ],
+      "implementation_scope": "event/AI only; measure/risk require adaptation"
+    },
+    {
+      "id": "object-surfaces",
+      "file": "object-surfaces.md",
+      "surfaces": [
+        "object-modal-view",
+        "drawer",
+        "modal-form"
+      ],
+      "components": [
+        "Norm.open",
+        "Norm.close",
+        "Norm.drawer",
+        ".filter-drawer"
+      ],
+      "variants": [
+        "object-view",
+        "create-edit",
+        "dependent-drawer"
+      ],
+      "references": [
+        "universal-object-modal",
+        "event-filter-drawer",
+        "risk-form",
+        "event-form"
+      ],
+      "implementation_scope": "object/form stack and dependent drawer"
+    },
+    {
+      "id": "analytics-navigation",
+      "file": "analytics-navigation.md",
+      "surfaces": [
+        "situational-overview",
+        "navigation-collection",
+        "workflow-workspace"
+      ],
+      "components": [
+        ".overview"
+      ],
+      "variants": [
+        "risk-attention",
+        "ai-history-overview",
+        "knowledge-grid",
+        "campaign-workspace"
+      ],
+      "references": [
+        "risks-list",
+        "limit-campaign",
+        "assistant-knowledge-primary",
+        "assistant-knowledge-secondary"
+      ],
+      "implementation_scope": "compact AI overview only; other variants are guidance"
+    }
+  ]
+}

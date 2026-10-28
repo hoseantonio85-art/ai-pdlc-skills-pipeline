@@ -1,0 +1,121 @@
+<!-- DESIGN REFERENCE ONLY. All names, risks, incidents and metrics below are illustrative synthetic fixtures, not factual records. Not production UI. -->
+<!doctype html>
+<html lang="ru">
+<head>
+<!-- Historical composition only. Use ../starter and foundation contracts for current tokens, geometry and interactions. -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>NORM — historical composition reference v1</title>
+<style>
+:root{
+  --canvas:#f7f8f9;--surface:#fff;--secondary:#f3f5f6;--secondary-2:#eef1f3;
+  --text:#25292d;--muted:#737b84;--border:#dde1e4;--green:#22d39a;--green-hover:#18c68e;
+  --blue:#3b9cff;--blue-soft:#e8f4ff;--red:#ff6868;--red-soft:#fff0f0;--amber:#ffb627;--amber-soft:#fff6dc;
+  --shadow:0 4px 10px rgba(36,41,46,.09),0 0 1px rgba(36,41,46,.24);
+  --sidebar:220px;--radius-card:16px;--radius-modal:24px;
+}
+*{box-sizing:border-box} html,body{margin:0;height:100%;font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--text);background:var(--canvas)}
+button,input{font:inherit} button{cursor:pointer;color:inherit}.app{min-height:100vh;display:grid;grid-template-columns:var(--sidebar) 1fr}
+.sidebar{position:sticky;top:0;height:100vh;background:#f2f4f5;border-right:1px solid #edf0f1;padding:22px 18px;display:flex;flex-direction:column;gap:22px}
+.brand{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:750}.mark{width:26px;height:26px;transform:rotate(45deg);border-radius:7px;background:linear-gradient(135deg,#31d59f 0 52%,#9be5ff 52% 72%,#74a8ff 72%)}
+.org{display:flex;align-items:center;gap:10px;padding:10px 6px 18px;border-bottom:1px solid var(--border)}.org-icon,.nav-icon{width:28px;height:28px;border-radius:50%;background:#e3e7e9;display:grid;place-items:center;color:#7c858d;font-size:12px}.org div:last-child{font-size:12px}.org b{display:block;font-size:12px}.nav{display:flex;flex-direction:column;gap:4px}.nav a{padding:9px 8px;display:flex;gap:10px;align-items:center;color:#8a9299;text-decoration:none;font-size:14px;font-weight:600;border-radius:10px}.nav a.active{color:#6f777e;background:#e9ecee}.nav a:hover{background:#e9ecee}.sidebar-bottom{margin-top:auto;display:grid;gap:12px;font-size:12px;color:#666f77}.profile{display:flex;gap:10px;align-items:center}.avatar{width:32px;height:32px;border-radius:50%;background:#e3e7e9;display:grid;place-items:center}.collapse{padding-top:14px;border-top:1px solid var(--border)}
+.main{padding:28px 44px 120px;min-width:0}.page-head{display:flex;align-items:flex-start;justify-content:space-between;gap:24px}.title-line{display:flex;align-items:baseline;gap:7px}.page-head h1{font-size:26px;margin:0;font-weight:760;letter-spacing:-.02em}.count{font-size:12px;color:var(--muted)}
+.ai-btn{height:38px;border-radius:14px;padding:0 14px;border:1px solid #6b63ff;background:#fff;color:#6b63ff;font-size:12px;font-weight:700}.controls{margin-top:22px;display:flex;align-items:center;justify-content:space-between;gap:16px}.chips{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.chip{border:0;background:#eef0f1;border-radius:14px;padding:8px 12px;font-size:12px}.chip.active{background:#fff;box-shadow:var(--shadow);font-weight:700}.tools{display:flex;gap:8px}.tool{height:36px;border:1px solid var(--border);background:#eef1f2;border-radius:11px;padding:0 12px;color:#606870}.tool.square{width:36px;padding:0;font-size:18px}.search-row{display:none;margin-top:14px}.search-row.open{display:block}.search{width:100%;height:44px;border:1px solid var(--border);background:#fff;border-radius:12px;padding:0 15px;outline:none}.search:focus{border-color:#8ab8f0;box-shadow:0 0 0 3px rgba(74,151,236,.12)}
+.insights{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}.insight{padding:17px 20px;border-radius:16px;background:#f1f3f4;min-height:82px;position:relative}.insight h3{font-size:13px;margin:0 28px 6px 0}.insight p{font-size:12px;line-height:1.35;margin:0;color:#3f464c}.bubble{position:absolute;right:12px;top:16px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:11px}.blue{background:#4faaf8}.red{background:#fb6c67}.orange{background:#ffad16}
+.list{display:grid;gap:12px;margin-top:22px}.entity-card{width:100%;text-align:left;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px 22px;transition:.18s}.entity-card:hover{box-shadow:var(--shadow);transform:translateY(-1px)}.card-top,.card-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px}.tags{display:flex;gap:5px;align-items:center}.tag{font-size:10px;padding:4px 8px;border-radius:999px;background:#edf0f1;color:#606870}.tag.danger{background:#ffeaea;color:#d94f4f}.tag.warning{background:#fff1c9;color:#9b7410}.tag.info{background:#e1f1ff;color:#367cab}.entity-id{font-size:10px;color:#8a9298}.entity-card h2{font-size:15px;margin:12px 0 14px}.metrics{display:flex;gap:56px}.metric small{display:block;font-size:10px;color:#939aa0;margin-bottom:5px}.metric b{font-size:13px}.strategy{font-size:11px;padding:4px 9px;background:#f1f3f4;border-radius:999px}.divider{height:1px;background:#e6e9eb;margin:14px 0 10px}.card-bottom{font-size:10px;color:#7e878e}.mini-links{display:flex;gap:6px}.mini{background:#eef1f2;border-radius:999px;padding:3px 7px}.mini.ai{background:#e3f3ff;color:#3777a8}.mini.ok{background:#dcf7ed;color:#347b66}
+.floating{position:fixed;bottom:22px;left:calc(var(--sidebar) + (100vw - var(--sidebar))/2);transform:translateX(-50%);width:min(600px,calc(100vw - var(--sidebar) - 80px));background:#fff;padding:14px 16px;border-radius:28px;box-shadow:0 24px 40px rgba(36,41,46,.12),0 0 1px rgba(36,41,46,.32);display:flex;gap:12px;z-index:12}.create{flex:1;border:0;border-radius:10px;background:var(--green);color:#fff;font-size:12px;font-weight:750}.chat{width:42px;height:42px;border:0;border-radius:50%;background:linear-gradient(135deg,#33dc9f,#79b6ff);color:#fff;font-weight:800}
+.scrim{position:fixed;inset:0;background:rgba(36,40,43,.56);display:none;place-items:center;padding:24px;z-index:30}.scrim.open{display:grid}.modal{width:min(1320px,100%);height:min(920px,calc(100vh - 48px));background:var(--canvas);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;position:relative}.modal-top{background:#fff;padding:28px 40px 18px;flex:0 0 auto}.close{position:absolute;right:32px;top:26px;width:38px;height:38px;border:0;border-radius:50%;background:#eff1f2;font-size:19px}.object-tags{display:flex;gap:6px;margin-bottom:12px}.modal h1{font-size:24px;margin:0 60px 6px 0}.subtitle{font-size:12px;color:#7f878d}.modal-tabs{margin-top:18px;display:flex;align-items:center;justify-content:space-between}.modal-tabs .chips{gap:4px}.edit{border:1px solid var(--border);background:#fff;border-radius:10px;padding:8px 12px;color:#697178}.workspace{overflow:auto;padding:16px 24px 28px;display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:24px;align-items:start}.main-col{display:grid;gap:10px}.section{background:#fff;border-radius:16px;padding:20px}.section h3{font-size:16px;margin:0 0 12px}.ai-note{background:#eaf4ff;border-left:4px solid #705bff;padding:14px 16px;border-radius:12px;font-size:12px}.limit-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.limit{border:1px solid #e7e9eb;border-radius:12px;padding:14px;background:#fbfbfb}.limit.danger{background:#fff7f7}.limit-top{display:flex;justify-content:space-between;font-size:12px}.bar{height:3px;background:#e7e9ea;border-radius:3px;margin:12px 0 8px;overflow:hidden}.bar i{display:block;height:100%;background:#2ad49a}.limit.danger .bar i{background:#ff6767;width:94%}.risk-list{display:grid;gap:8px}.risk-item{display:flex;gap:10px;align-items:flex-start;padding:9px 0;font-size:12px}.dot{width:24px;height:24px;border-radius:8px;background:#fff0cc;display:grid;place-items:center;flex:none}.rec{background:#edf7ff;border-radius:10px;padding:10px 12px;font-size:11px;display:flex;justify-content:space-between;gap:12px}.measure-row{display:grid;grid-template-columns:34px 1fr auto;align-items:center;gap:8px;padding:9px 0;border-bottom:1px solid #f0f1f2}.shield{width:28px;height:28px;border-radius:9px;background:#e9f5ff;display:grid;place-items:center;color:#3b9cff}.measure-row b{font-size:12px;display:block}.measure-row small{font-size:10px;color:#8a9298}.rail{position:sticky;top:0;display:grid;gap:8px}.rail-block{background:#fff;border-radius:16px;padding:18px}.rail-block h3{font-size:14px;margin:0 0 14px}.meta{display:grid;grid-template-columns:84px 1fr;gap:10px;font-size:11px}.meta .label{color:#858d93}.rail-link{width:100%;border:0;background:#fff;border-radius:12px;padding:16px 18px;text-align:left;display:flex;justify-content:space-between;font-weight:650;color:#707981}.actions{background:#fff;border-radius:16px;padding:16px;display:grid;grid-template-columns:1fr 44px;gap:8px}.primary{grid-column:1/-1;border:0;background:var(--green);color:#fff;border-radius:10px;height:42px;font-weight:750}.secondary,.more{height:40px;border:1px solid var(--border);background:#fff;border-radius:10px;font-weight:650;color:#6d757c}.more{font-size:18px}.drawer-layer{position:absolute;inset:0;display:none;background:rgba(36,40,43,.25);z-index:5}.drawer-layer.open{display:block}.drawer{position:absolute;right:0;top:0;height:100%;width:min(608px,100%);background:#fff;border-radius:20px 0 0 20px;box-shadow:-12px 0 30px rgba(36,41,46,.12);display:flex;flex-direction:column}.drawer-head{padding:26px 30px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #f0f1f2}.drawer-head h2{margin:0;font-size:20px}.drawer-close{border:0;background:#eff1f2;width:38px;height:38px;border-radius:50%}.drawer-body{padding:24px 30px;overflow:auto;flex:1}.drawer-section{padding-bottom:26px;margin-bottom:24px;border-bottom:1px solid #eceff0}.drawer-section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.drawer-section h3{margin:0;font-size:14px}.reset{border:0;background:none;color:#667078;font-size:11px}.field-label{display:block;font-size:11px;color:#727b82;margin:12px 0 6px}.fake-field{height:42px;border:1px solid var(--border);border-radius:10px;padding:0 12px;display:flex;align-items:center;justify-content:space-between;font-size:12px}.drawer-footer{padding:16px 30px 24px;border-top:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:12px}.drawer-footer button{height:44px;border-radius:10px}.drawer-footer .reset-all{border:0;background:#eef1f2}.drawer-footer .apply{border:0;background:var(--green);color:#fff;font-weight:700}
+@media(max-width:1100px){.app{grid-template-columns:72px 1fr}.sidebar{padding:20px 10px}.brand span,.org div:last-child,.nav span,.sidebar-bottom span{display:none}.brand{justify-content:center}.main{padding:24px 24px 110px}.insights{grid-template-columns:1fr}.floating{left:calc(72px + (100vw - 72px)/2);width:min(560px,calc(100vw - 112px))}.workspace{grid-template-columns:1fr}.rail{position:static}}
+</style>
+</head>
+<body>
+<div class="app" id="registry">
+  <aside class="sidebar">
+    <div class="brand"><i class="mark"></i><span>НОРМ</span></div>
+    <div class="org"><i class="org-icon">⌂</i><div><b>Организация</b>Не выбрана</div></div>
+    <nav class="nav">
+      <a href="#"><i class="nav-icon">◉</i><span>Администратор</span></a>
+      <a href="#"><i class="nav-icon">⌂</i><span>Главная</span></a>
+      <a href="#"><i class="nav-icon">ϟ</i><span>События</span></a>
+      <a class="active" href="#"><i class="nav-icon">◔</i><span>Риски</span></a>
+      <a href="#"><i class="nav-icon">◎</i><span>Меры</span></a>
+      <a href="#"><i class="nav-icon">◷</i><span>Аналитика</span></a>
+      <a href="#"><i class="nav-icon">▣</i><span>AI мониторинг</span></a>
+      <a href="#"><i class="nav-icon">◫</i><span>Лимитная кампания</span></a>
+      <a href="#"><i class="nav-icon">◇</i><span>База знаний</span></a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="profile"><i class="avatar">ME</i><span><b>Екатерина Михайлова</b><br>Риск-менеджер</span></div>
+      <div>◉ <span>Служба поддержки</span></div>
+      <div class="collapse">‹ <span>Свернуть</span></div>
+    </div>
+  </aside>
+  <main class="main">
+    <div class="page-head">
+      <div class="title-line"><h1>— Все риски</h1><span class="count">1002 ⓘ</span></div>
+      <button class="ai-btn">✧ Выявить новые риски</button>
+    </div>
+    <div class="controls" id="registry-controls">
+      <div class="chips"><button class="chip active">Активные риски</button><button class="chip">Title</button><span style="color:#9aa1a6">•</span><button class="chip">Архив</button></div>
+      <div class="tools"><button class="tool square" id="searchToggle">⌕</button><button class="tool" id="filterOpen">☰&nbsp; Фильтр</button></div>
+    </div>
+    <div class="search-row" id="searchRow"><input class="search" placeholder="Поиск по рискам" /></div>
+    <div class="insights">
+      <div class="insight"><h3>Новые риски</h3><p>Норм обнаружил новые риски, можешь ознакомиться с ними.</p><i class="bubble blue">4</i></div>
+      <div class="insight"><h3>Высокий уровень риска</h3><p>Обрати внимание на рекомендации от Норма и прими решения по рискам.</p><i class="bubble red">1</i></div>
+      <div class="insight"><h3>Переоценено</h3><p>Норм скорректировал оценку риска на основе новых данных.</p><i class="bubble orange">2</i></div>
+    </div>
+    <div class="list">
+      <button class="entity-card" id="entity-card">
+        <div class="card-top"><div class="tags"><span class="tag danger">◆ Высокий</span><span class="tag info">Новый</span></div><span class="entity-id">RSC-426846648</span></div>
+        <h2>Прекращение поставок сырья из-за санкций или логистических проблем</h2>
+        <div class="metrics"><div class="metric"><small>Потенциальные потери</small><b>1 502 620 ₽</b></div><div class="metric"><small>Фактические потери</small><b>1 502 620 ₽</b></div><div class="metric"><small>Стратегия реагирования</small><span class="strategy">Снизить</span></div></div>
+        <div class="divider"></div><div class="card-bottom"><div class="mini-links"><span class="mini">◉ Описание</span><span class="mini ai">✧ Рекомендации: 2</span><span class="mini ok">Меры: 2</span></div><span>♙ ООО «Тестовая компания» / Отдел технического сопровождения</span></div>
+      </button>
+      <button class="entity-card"><div class="card-top"><div class="tags"><span class="tag warning">◆ Средний</span><span class="tag info">Новый</span></div><span class="entity-id">RSC-426846649</span></div><h2>Недоступность критичного сервиса более двух часов</h2><div class="metrics"><div class="metric"><small>Потенциальные потери</small><b>870 000 ₽</b></div><div class="metric"><small>Фактические потери</small><b>0 ₽</b></div><div class="metric"><small>Стратегия реагирования</small><span class="strategy">Снизить</span></div></div><div class="divider"></div><div class="card-bottom"><span>◉ Описание</span><span>♙ Информационные технологии / Эксплуатация</span></div></button>
+      <button class="entity-card"><div class="card-top"><div class="tags"><span class="tag warning">◆ Средний</span></div><span class="entity-id">RSC-426846650</span></div><h2>Ошибки обработки данных при интеграционном обмене</h2><div class="metrics"><div class="metric"><small>Потенциальные потери</small><b>540 000 ₽</b></div><div class="metric"><small>Фактические потери</small><b>120 000 ₽</b></div><div class="metric"><small>Стратегия реагирования</small><span class="strategy">Контроль</span></div></div><div class="divider"></div><div class="card-bottom"><div class="mini-links"><span class="mini">◉ Описание</span><span class="mini ok">Меры: 3</span></div><span>♙ Департамент сопровождения</span></div></button>
+    </div>
+  </main>
+  <div class="floating"><button class="create">Зарегистрировать риск</button><button class="chat">◆</button></div>
+</div>
+
+<div class="scrim" id="modalScrim">
+  <section class="modal" id="object-modal" aria-modal="true" role="dialog">
+    <button class="close" id="modalClose">×</button>
+    <header class="modal-top"><div class="object-tags"><span class="tag">РИСК</span><span class="tag danger">◆ Высокий</span><span class="tag">Sample</span></div><h1>Утечка персональных данных клиентов</h1><div class="subtitle">Риск информационной безопасности</div><div class="modal-tabs"><div class="chips"><button class="chip active">Оценка риска</button><button class="chip">Меры</button></div><button class="edit">✎ Редактировать</button></div></header>
+    <div class="workspace">
+      <div class="main-col">
+        <div class="section"><div class="ai-note">✦ <b>Уровень риска изменился на «Высокий»</b><br><span style="color:#72808b">Выявлен новый сценарий риска по данным принятых рисков. Необходимо проработать мероприятия по снижению риска.</span></div></div>
+        <div class="section"><h3>Утилизация лимита</h3><div class="limit-grid"><div class="limit"><div class="limit-top"><b>Прямые потери</b><span>11%</span></div><div style="margin-top:12px"><b>1 340 500 ₽</b></div><div class="bar"><i style="width:11%"></i></div><small>Прогноз → 10 млн ₽</small></div><div class="limit danger"><div class="limit-top"><b>Косвенные потери</b><span>99%</span></div><div style="margin-top:12px"><b>6 500 000 ₽</b></div><div class="bar"><i></i></div><small style="color:#e15252">Прогноз → 10 млн ₽</small></div></div></div>
+        <div class="section"><h3>Описание риска</h3><div style="font-size:12px;line-height:1.55">В результате нарушения процессов обработки данных может возникнуть событие, способное привести к финансовым и репутационным потерям. Описание здесь служит демонстрационными данными; нормативна композиция, а не текст.</div></div>
+        <div class="section"><h3>Риск-факторы</h3><div class="risk-list"><div class="risk-item"><i class="dot">i</i><span>Нарушение регламентов защиты данных в условиях ужесточения требований</span></div><div class="risk-item"><i class="dot">i</i><span>Зависимость от стабильности работы IT-инфраструктуры</span></div></div></div>
+        <div class="section"><h3>Возможные последствия</h3><div class="risk-list"><div class="risk-item"><i class="dot" style="background:#ffe6e6">◇</i><span>Штрафы и прямые финансовые потери</span></div><div class="risk-item"><i class="dot" style="background:#ffe6e6">◇</i><span>Репутационные потери и отток клиентов</span></div><div class="risk-item"><i class="dot" style="background:#ffe6e6">◇</i><span>Временная приостановка отдельных процессов</span></div></div></div>
+        <div class="section"><h3>Рекомендации</h3><div class="risk-list"><div class="rec"><span>✦ Внедрить автоматизированный контроль критичных операций</span><span class="tag">Снизить риск</span></div><div class="rec"><span>✦ Провести обучение ответственных сотрудников</span><span class="tag">Снизить риск</span></div></div></div>
+        <div class="section"><h3>Меры</h3><div class="measure-row"><i class="shield">◇</i><div><b>Проведение тестирования на проникновение</b><small>MSR-171185 · Плановая дата: 05.03.2024</small></div><span class="tag info">Новая</span></div><div class="measure-row"><i class="shield">◇</i><div><b>Обновление политики парольной защиты</b><small>MSR-171186 · Фактическая дата: 15.01.2024</small></div><span class="tag" style="background:#ddf7ec;color:#397b66">Реализована</span></div></div>
+      </div>
+      <aside class="rail" id="action-meta-zone">
+        <div class="rail-block"><h3>Информация</h3><div class="meta"><span class="label">Риск</span><span>RSK-41242001</span><span class="label">Создан</span><span>01 февраля 2024</span><span class="label">Обновлён</span><span>01 февраля 2024</span><span class="label">Автор</span><span>◈ NORM AI</span><span class="label">Источник</span><span>◉ AC Сенат</span></div><h3 style="margin-top:22px">Объект оценки</h3><span class="tag">● Проект</span><div style="font-size:11px;margin-top:7px">Петрушкины истории и многое другое</div></div>
+        <button class="rail-link" id="historyOpen">История изменений <span>◴</span></button>
+        <button class="rail-link" id="measureOpen">Добавить меру <span>＋</span></button>
+        <div class="actions"><button class="primary">Согласовать</button><button class="secondary">Отклонить</button><button class="more">•••</button></div>
+      </aside>
+    </div>
+    <div class="drawer-layer" id="modalDrawerLayer"><aside class="drawer" id="drawer"><div class="drawer-head"><h2>История изменений</h2><button class="drawer-close" id="modalDrawerClose">×</button></div><div class="drawer-body"><div class="drawer-section"><div class="drawer-section-head"><h3>Сегодня, 10:24</h3></div><p style="font-size:12px;line-height:1.5">NORM AI скорректировал уровень риска после анализа новых данных.</p></div><div class="drawer-section"><div class="drawer-section-head"><h3>01 февраля 2024</h3></div><p style="font-size:12px;line-height:1.5">Риск зарегистрирован. Добавлен объект оценки и первоначальная оценка.</p></div></div></aside></div>
+  </section>
+</div>
+
+<div class="scrim" id="filterScrim"><section class="modal" style="background:transparent;box-shadow:none;pointer-events:none"><div class="drawer-layer open" style="pointer-events:auto;background:transparent"><aside class="drawer" id="filter-drawer"><div class="drawer-head"><h2>Фильтр</h2><button class="drawer-close" id="filterClose">×</button></div><div class="drawer-body"><div class="drawer-section"><div class="drawer-section-head"><h3>Оценка риска</h3><button class="reset">Сбросить</button></div><span class="field-label">Уровень риска</span><div class="fake-field">Все уровни <span>⌄</span></div><span class="field-label">Стратегия</span><div class="fake-field">Все стратегии <span>⌄</span></div></div><div class="drawer-section"><div class="drawer-section-head"><h3>Организация</h3><button class="reset">Сбросить</button></div><span class="field-label">Подразделение</span><div class="fake-field">Выбрать подразделение <span>⌄</span></div><span class="field-label">Владелец</span><div class="fake-field">Все владельцы <span>⌄</span></div></div></div><div class="drawer-footer"><button class="reset-all">Сбросить</button><button class="apply" id="filterApply">Применить</button></div></aside></div></section></div>
+<script>
+const $=s=>document.querySelector(s);
+$('#searchToggle').onclick=()=>$('#searchRow').classList.toggle('open');
+$('#filterOpen').onclick=()=>$('#filterScrim').classList.add('open');
+$('#filterClose').onclick=$('#filterApply').onclick=()=>$('#filterScrim').classList.remove('open');
+$('#entity-card').onclick=()=>$('#modalScrim').classList.add('open');
+$('#modalClose').onclick=()=>$('#modalScrim').classList.remove('open');
+$('#historyOpen').onclick=()=>$('#modalDrawerLayer').classList.add('open');
+$('#measureOpen').onclick=()=>$('#modalDrawerLayer').classList.add('open');
+$('#modalDrawerClose').onclick=()=>$('#modalDrawerLayer').classList.remove('open');
+$('#modalScrim').addEventListener('click',e=>{if(e.target.id==='modalScrim')$('#modalScrim').classList.remove('open')});
+$('#filterScrim').addEventListener('click',e=>{if(e.target.id==='filterScrim')$('#filterScrim').classList.remove('open')});
+</script>
+</body></html>

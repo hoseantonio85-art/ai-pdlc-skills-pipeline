@@ -1,0 +1,40 @@
+schema_version: 6
+context_id: norm
+skills:
+- name: 01-formulate-product-intent-and-brief
+  stage: '01'
+  context_profile: for_product_intent_and_brief
+  expected_output: 00_intent.md + 01_product_brief.md
+- name: 02-design-ux-solution
+  stage: '02'
+  context_profile: for_ux_solution
+  expected_output: 02_ux_solution.md
+- name: 03-build-visual-html-prototype
+  stage: '03'
+  context_profile: for_visual_html_prototype
+  expected_output: 03_visual_prototype.md + runnable HTML
+- name: 03-5-sync-ux-decisions
+  stage: '03'
+  context_profile: for_ux_sync
+  expected_output: 03_5_ux_sync.md
+- name: 04-build-sdd-specification
+  stage: '04'
+  context_profile: for_sdd_specification
+  expected_output: 04_sdd_specification.md
+- name: frontend-planner
+  stage: '05'
+  context_profile: for_frontend_planning
+  expected_output: 05_frontend_plan.md
+- name: frontend-implementer
+  stage: '06'
+  context_profile: for_frontend_implementation
+  expected_output: frontend code + 06_frontend_implementation.md
+- name: frontend-reviewer
+  stage: '07'
+  context_profile: for_frontend_review
+  expected_output: 07_frontend_review.md
+context_contract:
+  manifest: product-system/context-manifest.yaml
+  selector: <project>/.gigacode/product-context.yaml
+  registry: ~/.gigacode/product-contexts.yaml
+  evidence: ~/.gigacode/product-evidence.yaml

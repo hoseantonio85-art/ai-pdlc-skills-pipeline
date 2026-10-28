@@ -1,0 +1,39 @@
+schema_version: 3
+context_id: norm
+sources:
+  visual_rulebook:
+    status: bundled
+    path: product-system/04_ui/visual/norm-visual-dna.md
+    loading: stage_selective
+  ui_reference_registry:
+    status: bundled_index_only
+    path: product-system/04_ui/references/reference-registry.yaml
+    loading: aspect_selective
+  composition_index:
+    status: bundled
+    path: product-system/04_ui/foundation/composition-index.json
+    loading: index_first
+  starter:
+    status: bundled
+    path: product-system/04_ui/starter/index.html
+    loading: copy_then_adapt
+  ui_kit:
+    status: external_user_authorized
+    config: ~/.gigacode/product-evidence.yaml
+    fields:
+    - products.norm.ui_kit.package_path
+    - products.norm.ui_kit.docs_root
+    - products.norm.ui_kit.docs_url
+    loading: exact_components_only_at_engineering_time
+  owner_visual_evidence:
+    status: external_user_authorized
+    config: ~/.gigacode/product-evidence.yaml
+    fields:
+    - products.norm.design_references.local_root
+    - products.norm.design_references.index_url
+    loading: on_demand_after_reference_index
+rules:
+- No bundled UI Kit package or downloaded archives
+- Do not claim a reference is visible until accessed and checked
+- Design patterns are editable strong defaults, not fixed templates
+- UI evidence does not prove current production behavior

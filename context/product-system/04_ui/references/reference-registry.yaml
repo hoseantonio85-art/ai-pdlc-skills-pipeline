@@ -1,0 +1,305 @@
+schema_version: 2
+context_id: norm
+loading_policy: aspect_selective_local_first_then_approved_external
+bundled_references:
+  event-list:
+    path: product-system/04_ui/starter/index.html
+    status: synthetic_interactive_fixture
+  ai-history:
+    path: product-system/04_ui/starter/index.html?scenario=ai
+    status: synthetic_interactive_fixture
+  norm_vertical_slice:
+    path: product-system/04_ui/references/html/norm-vertical-slice/index.html
+    status: synthetic_historical_composition_only
+  situational_overview:
+    path: product-system/04_ui/references/html/situational-overview/index.html
+    status: synthetic_visual_composition_reference
+external_reference_provider:
+  registry: ~/.gigacode/product-evidence.yaml
+  fields:
+  - products.norm.design_references.local_root
+  - products.norm.design_references.index_url
+  status: not_included
+  rules:
+  - Read only explicitly selected approved reference
+  - Verify file exists/URL can be accessed; otherwise report NEEDS_SOURCE
+  - Never invent visual evidence or production status
+external_references:
+  event-list:
+    status: not_bundled_needs_external_evidence
+    lookup: products.norm.design_references
+    requires_evidence: true
+    source_location: configured_externally_not_embedded
+    aspects:
+      filter-toolbar:
+        authority: canonical
+        lifecycle: supplied_design
+      expanded-search-state:
+        authority: canonical
+        lifecycle: supplied_design
+      entity-registry-density:
+        authority: preferred
+        lifecycle: supplied_design
+      shell-list-relationship:
+        authority: preferred
+        lifecycle: supplied_design
+      status-placement:
+        authority: reference_only
+        lifecycle: supplied_design
+  measure-list:
+    status: not_bundled_needs_external_evidence
+    lookup: products.norm.design_references
+    requires_evidence: true
+    source_location: configured_externally_not_embedded
+    aspects:
+      filter-toolbar:
+        authority: canonical
+        lifecycle: supplied_design
+      filter-chips-role:
+        authority: canonical
+        lifecycle: supplied_design
+      entity-registry-density:
+        authority: preferred
+        lifecycle: supplied_design
+      measure-card-composition:
+        authority: reference_only
+        lifecycle: supplied_design
+  risks-list:
+    status: not_bundled_needs_external_evidence
+    lookup: products.norm.design_references
+    requires_evidence: true
+    source_location: configured_externally_not_embedded
+    aspects:
+      filter-toolbar:
+        authority: canonical
+        lifecycle: supplied_design
+      attention-summary:
+        authority: canonical
+        lifecycle: supplied_design
+      summary-registry-relationship:
+        authority: preferred
+        lifecycle: supplied_design
+      risk-card-composition:
+        authority: reference_only
+        lifecycle: supplied_design
+  event-filter-drawer:
+    status: not_bundled_needs_external_evidence
+    lookup: products.norm.design_references
+    requires_evidence: true
+    source_location: configured_externally_not_embedded
+    aspects:
+      advanced-filter-surface:
+        authority: canonical
+        lifecycle: supplied_design
+      semantic-filter-groups:
+        authority: preferred
+        lifecycle: supplied_design
+      apply-reset-lifecycle:
+        authority: canonical
+        lifecycle: supplied_design
+  risk-view:
+    status: not_bundled_needs_external_evidence
+    lookup: products.norm.design_references
+    requires_evidence: true
+    source_location: configured_externally_not_embedded
+    aspects:
+      object-content-hierarchy:
+        authority: preferred
+        lifecycle: supplied_design
+      domain-sections:
+        authority: reference_only
+        lifecycle: supplied_design
+      footer-actions:
+        authority: reference_only
+        lifecycle: supplied_design
+      meta-layout:
+        authority: reference_only
+        lifecycle: supplied_design
+  event-view:
+    status: not_bundled_needs_external_evidence
+    lookup: products.norm.design_references
+    requires_evidence: true
+    source_location: configured_externally_not_embedded
+    aspects:
+      domain-content-tabs:
+        authority: reference_only
+        lifecycle: supplied_design
+      related-meta-structures:
+        authority: preferred
+        lifecycle: supplied_design
+      full-information-hierarchy:
+        authority: reference_only
+        lifecycle: supplied_design
+  measure-view:
+    status: not_bundled_needs_external_evidence
+    lookup: products.norm.design_references
+    requires_evidence: true
+    source_location: configured_externally_not_embedded
+    aspects:
+      related-entities:
+        authority: preferred
+        lifecycle: supplied_design
+      domain-sections:
+        authority: reference_only
+        lifecycle: supplied_design
+      footer-meta-layout:
+        authority: reference_only
+        lifecycle: supplied_design
+  universal-object-modal:
+    status: not_bundled_needs_external_evidence
+    lookup: products.norm.design_references
+    requires_evidence: true
+    source_location: configured_externally_not_embedded
+    aspects:
+      object-meta-rail:
+        authority: canonical
+        lifecycle: target
+      content-meta-composition:
+        authority: preferred
+        lifecycle: target
+      object-section-navigation:
+        authority: preferred
+        lifecycle: target
+      domain-fields:
+        authority: reference_only
+        lifecycle: target
+  risk-form:
+    status: not_bundled_needs_external_evidence
+    lookup: products.norm.design_references
+    requires_evidence: true
+    source_location: configured_externally_not_embedded
+    aspects:
+      semantic-form-sections:
+        authority: canonical
+        lifecycle: supplied_design
+      side-label-composition:
+        authority: preferred
+        lifecycle: supplied_design
+      modal-form-lifecycle:
+        authority: canonical
+        lifecycle: supplied_design
+      domain-fields:
+        authority: reference_only
+        lifecycle: supplied_design
+  event-form:
+    status: not_bundled_needs_external_evidence
+    lookup: products.norm.design_references
+    requires_evidence: true
+    source_location: configured_externally_not_embedded
+    aspects:
+      semantic-form-sections:
+        authority: canonical
+        lifecycle: supplied_design
+      side-label-composition:
+        authority: preferred
+        lifecycle: supplied_design
+      repeatable-groups:
+        authority: preferred
+        lifecycle: supplied_design
+      domain-fields:
+        authority: reference_only
+        lifecycle: supplied_design
+  measure-form:
+    status: not_bundled_needs_external_evidence
+    lookup: products.norm.design_references
+    requires_evidence: true
+    source_location: configured_externally_not_embedded
+    aspects:
+      semantic-form-sections:
+        authority: canonical
+        lifecycle: supplied_design
+      side-label-composition:
+        authority: preferred
+        lifecycle: supplied_design
+      binary-switch-semantics:
+        authority: canonical
+        lifecycle: supplied_design
+      domain-fields:
+        authority: reference_only
+        lifecycle: supplied_design
+  limit-campaign:
+    status: not_bundled_needs_external_evidence
+    lookup: products.norm.design_references
+    requires_evidence: true
+    source_location: configured_externally_not_embedded
+    aspects:
+      modal-like-page-composition:
+        authority: allowed
+        lifecycle: supplied_design
+      workflow-workspace-composition:
+        authority: specialized
+        lifecycle: supplied_design
+      workflow-context-rail:
+        authority: specialized
+        lifecycle: supplied_design
+  assistant-knowledge-primary:
+    status: not_bundled_needs_external_evidence
+    lookup: products.norm.design_references
+    requires_evidence: true
+    source_location: configured_externally_not_embedded
+    aspects:
+      navigation-collection:
+        authority: canonical
+        lifecycle: supplied_design
+      contextual-ai-cta:
+        authority: preferred
+        lifecycle: supplied_design
+      category-grid:
+        authority: allowed
+        lifecycle: supplied_design
+  assistant-knowledge-secondary:
+    status: not_bundled_needs_external_evidence
+    lookup: products.norm.design_references
+    requires_evidence: true
+    source_location: configured_externally_not_embedded
+    aspects:
+      compact-content-list:
+        authority: canonical
+        lifecycle: supplied_design
+      document-metadata-density:
+        authority: preferred
+        lifecycle: supplied_design
+  pixso-norm-page-templates:
+    status: not_bundled_needs_external_evidence
+    lookup: products.norm.design_references
+    requires_evidence: true
+    source_location: configured_externally_not_embedded
+    aspects:
+      shell-proportions:
+        authority: preferred
+        lifecycle: supplied_design
+      page-content-relationship:
+        authority: preferred
+        lifecycle: supplied_design
+      filter-control-visual-language:
+        authority: preferred
+        lifecycle: supplied_design
+      chip-geometry:
+        authority: preferred
+        lifecycle: supplied_design
+      card-density-radii:
+        authority: preferred
+        lifecycle: supplied_design
+      floating-action-dock:
+        authority: preferred
+        lifecycle: supplied_design
+lifecycle_semantics:
+  supplied_design: Task-supplied design evidence; production release currentness unverified.
+  target: Accepted target composition; not a claim of production rollout.
+ignored_sources:
+  Assistant Knowledge-secondary-1:
+    reason: duplicate of Assistant Knowledge-secondary
+  General:
+    reason: insufficient UI evidence
+backlog:
+- repeatable-form-group
+- contextual-ai-block
+- workflow-side-rail
+- attachment-pattern-refinement
+- deeper-surface-stack-navigation
+rules:
+- Select references by aspect, never by whole-screen similarity alone.
+- Use no more than 2 references for a focused stage-03 decision unless conflict resolution requires more.
+- Raw HTML/Pixso implementation is evidence only and is not frontend truth.
+foundation_geometry_note: Visual aspect authority only if original approved reference is actually accessible; no legacy
+  DOM or tokens treated as production truth.

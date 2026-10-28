@@ -1,27 +1,36 @@
-schema_version: 1
+schema_version: 6
+context_id: norm
 stages:
-  '01':
-  - foundation
-  - domains
-  '02':
-  - foundation
-  - domains
-  - ux
-  '03':
-  - ux
-  - ui
-  '03.5':
-  - ux
-  '04':
-  - domains
-  - ux
-  '05':
-  - ux
-  - ui
-  - external
-  '06':
-  - ui
-  - external
-  '07':
-  - ui
-  - external
+  01_product_intent_and_brief:
+    worker: 01-formulate-product-intent-and-brief
+    loading_profile: for_product_intent_and_brief
+    output: 00_intent.md + 01_product_brief.md
+  02_ux_solution:
+    worker: 02-design-ux-solution
+    loading_profile: for_ux_solution
+    output: 02_ux_solution.md
+  03_visual_html_prototype:
+    worker: 03-build-visual-html-prototype
+    loading_profile: for_visual_html_prototype
+    output: 03_visual_prototype.md + runnable HTML
+  03_5_ux_sync:
+    worker: 03-5-sync-ux-decisions
+    loading_profile: for_ux_sync
+    output: 03_5_ux_sync.md
+  04_sdd_specification:
+    worker: 04-build-sdd-specification
+    loading_profile: for_sdd_specification
+    output: 04_sdd_specification.md
+  05_frontend_plan:
+    worker: frontend-planner
+    loading_profile: for_frontend_planning
+    output: 05_frontend_plan.md
+  06_frontend_implementation:
+    worker: frontend-implementer
+    loading_profile: for_frontend_implementation
+    output: frontend code + 06_frontend_implementation.md
+  07_frontend_review:
+    worker: frontend-reviewer
+    loading_profile: for_frontend_review
+    output: 07_frontend_review.md
+rule: Read stage-selected profile and preceding approved artifacts, not all content

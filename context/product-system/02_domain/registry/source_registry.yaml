@@ -1,0 +1,7 @@
+schema_version: 1
+context_id: norm
+bundled_model: historical_product_knowledge_for_workstation_transfer
+external_sources: ~/.gigacode/product-evidence.yaml
+verified_runtime: not_verified
+verified_releases: not_connected
+policy: Do not infer source accessibility or live product behavior from historical text

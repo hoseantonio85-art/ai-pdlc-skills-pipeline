@@ -4,7 +4,7 @@
 
 Покрывай новую/изменённую business logic:
 - store actions и computed views;
-- request builders, sample productalizers, domain transformations;
+- request builders, NORMalizers, domain transformations;
 - navigation/formatting/file-validation helpers;
 - race-sensitive async behavior.
 
@@ -36,7 +36,7 @@ Install/dev/build/lint/tests запускаются только если раз
 - hardcoded color/local palette;
 - новый user-facing text вне i18n;
 - localized label как business id/guard;
-- новый/изменённый business helper/store/sample productalizer без релевантного теста;
+- новый/изменённый business helper/store/NORMalizer без релевантного теста;
 - отсутствующий обязательный target TypeScript/Biome baseline;
 - необоснованный `any/unknown`, unsafe cast, suppressed type error;
 - overloaded новый component API без обоснования;

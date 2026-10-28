@@ -1,7 +1,341 @@
 schema_version: 1
-context_id: sample_product
+context_id: norm
 capabilities:
-- id: CAP-SAMPLE-001
-  service: sample_service
-  label: Просмотр условных записей
-  status: demonstration_only
+- id: CAP-RISK-001
+  service: risk_analysis
+  description: показывать текущую картину рисковой ситуации
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-RISK-002
+  service: risk_analysis
+  description: выделять риски, требующие внимания
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-RISK-003
+  service: risk_analysis
+  description: объяснять причины оценки и влияющие факторы
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-RISK-004
+  service: risk_analysis
+  description: связывать вывод с инцидентами, источниками и внешними сигналами
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-RISK-005
+  service: risk_analysis
+  description: поддерживать переход к решению или мерам
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-RISK-006
+  service: risk_analysis
+  description: предоставлять общую картину руководителю
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-INC-001
+  service: incidents
+  description: фиксировать произошедший инцидент
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-INC-002
+  service: incidents
+  description: просматривать и анализировать инциденты
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-INC-003
+  service: incidents
+  description: определять значимость и влияние
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-INC-004
+  service: incidents
+  description: связывать инцидент с риском
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-INC-005
+  service: incidents
+  description: инициировать реакцию или переход к мерам
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-MEA-001
+  service: measures
+  description: фиксировать действие по снижению риска
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-MEA-002
+  service: measures
+  description: назначать или определять исполнителя
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-MEA-003
+  service: measures
+  description: контролировать статус выполнения
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-MEA-004
+  service: measures
+  description: показывать связь меры с риском или инцидентом
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-MEA-005
+  service: measures
+  description: возвращать информацию о выполнении в рисковый контекст
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-SRC-001
+  service: sources
+  description: загружать документы
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-SRC-002
+  service: sources
+  description: указывать тип или назначение источника
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-SRC-003
+  service: sources
+  description: обрабатывать документ
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-SRC-004
+  service: sources
+  description: использовать документ в анализе
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-SRC-005
+  service: sources
+  description: показывать связь документа с выводом или риском
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-SRC-006
+  service: sources
+  description: управлять методологическими материалами
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-MON-001
+  service: monitoring
+  description: обнаруживать внешнее событие
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-MON-002
+  service: monitoring
+  description: показывать значимый сигнал пользователю
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-MON-003
+  service: monitoring
+  description: объяснять потенциальное влияние
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-MON-004
+  service: monitoring
+  description: указывать затронутые риски или процессы
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-MON-005
+  service: monitoring
+  description: предлагать пересмотр, действие или наблюдение
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-AI-001
+  service: ai_assistant
+  description: отвечать на вопросы о рисковой ситуации
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-AI-002
+  service: ai_assistant
+  description: объяснять выводы
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-AI-003
+  service: ai_assistant
+  description: собирать данные из нескольких сервисов
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-AI-004
+  service: ai_assistant
+  description: показывать проактивные сообщения
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-AI-005
+  service: ai_assistant
+  description: помогать перейти к объекту или действию
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-AI-006
+  service: ai_assistant
+  description: помогать сформулировать решение или черновик
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-RREG-001
+  service: risk_registry
+  description: Вести реестр и карточки версионируемых рисков
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-RREG-002
+  service: risk_registry
+  description: Использовать server-driven формы, workflow и историю
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-RREG-003
+  service: risk_registry
+  description: Показывать финансовые эффекты и КИР
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-LIM-001
+  service: limit_campaign
+  description: Вести годовые кампании и индивидуальные лимиты по рискам
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-LIM-002
+  service: limit_campaign
+  description: Согласовывать лимиты по состоянию и роли
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-LIM-003
+  service: limit_campaign
+  description: Показывать потери и использование лимитов
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-AGENT-001
+  service: agent_risks
+  description: Регистрировать и просматривать агентов и версии
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-AGENT-002
+  service: agent_risks
+  description: Запускать и проверять оценку риска агента
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-AGENT-003
+  service: agent_risks
+  description: Работать с рекомендациями и связями мер
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-PROD-001
+  service: product_risks
+  description: Вести реестр и карточки продуктов
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-PROD-002
+  service: product_risks
+  description: Оценивать поведенческие риски продукта и результаты
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-PROD-003
+  service: product_risks
+  description: Скачивать отчёт об оценке
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-CONT-001
+  service: contractors
+  description: Вести контрагентов и договоры
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-CONT-002
+  service: contractors
+  description: Проводить проверки контрагента/договора
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-CONT-003
+  service: contractors
+  description: Показывать задолженность и результаты проверок
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-ORG-001
+  service: company_access
+  description: Управлять профилем компании и tenant
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-ORG-002
+  service: company_access
+  description: Учитывать тарифы, квоты и права сотрудников
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-DICT-001
+  service: dictionaries_administration
+  description: Просматривать и редактировать линейные/древовидные справочники
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-DICT-002
+  service: dictionaries_administration
+  description: Сохранять изменения с версионированием и историей
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-PLAT-001
+  service: platform_services
+  description: Управлять типизированными связями объектов
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-PLAT-002
+  service: platform_services
+  description: Обеспечивать поиск, tenant, сессии и shell
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-DOC-001
+  service: sources
+  description: Прикреплять файлы к объектам
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+- id: CAP-DOC-002
+  service: sources
+  description: Работать с каталогом базы знаний
+  status: historical_requires_verification
+  production_status: unknown
+  product_model_status: documented_historical
+source_status: historical_product_model_not_live_verified
+model_note: Original capability IDs and descriptions preserved; current release status not inferred from model

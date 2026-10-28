@@ -53,7 +53,7 @@ Standalone нельзя использовать как обход отсутс�
 - Business logic не живёт в route-level JSX.
 - Не скрывать несовместимости типами `any`, unsafe casts или подавлением TypeScript errors.
 - Async action имеет явные pending/success/error transitions; повторный submit во время pending блокируется, если конкуренция не задумана.
-- Новая/изменённая business logic в stores/helpers/sample productalizers покрывается релевантными тестами.
+- Новая/изменённая business logic в stores/helpers/NORMalizers покрывается релевантными тестами.
 - Недоступное новое ключевое действие — blocker.
 - Dependency credentials/tokens не коммитятся; корпоративный Nexus/registry используется только через разрешённую конфигурацию среды.
 
