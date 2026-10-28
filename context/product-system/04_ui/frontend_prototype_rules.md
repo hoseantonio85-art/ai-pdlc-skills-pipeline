@@ -67,4 +67,4 @@ Route page не содержит business calculations, большие fixtures 
 
 До handoff проверьте hardcoded colors, forbidden imports/re-exports, пустые style modules, file size, user strings, localized guards, dead files/exports, encoding и `git diff --check`. Runtime checks запускаются только если разрешены workspace instructions и dependencies доступны. Если корпоративный registry/Nexus или local package artifact недоступен, не обходите ограничения среды и явно помечайте checks `skipped`/`BLOCKED_BY_ENVIRONMENT`.
 
-Полные нормативные источники находятся в `sources/frontend-rules/` и не читаются по умолчанию.
+Полные нормативные источники находятся в `product-system/05_engineering/` и не читаются по умолчанию.

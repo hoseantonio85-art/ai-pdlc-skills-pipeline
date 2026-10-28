@@ -12,14 +12,15 @@ Manifest определяет stage-aware загрузку. Ранние про�
 
 ## Состав
 
-- `product-system/01_product_foundation` — миссия и продуктовая философия;
-- `product-system/02_services` — подробная сервисная модель;
+- `product-system/01_foundation` — миссия и продуктовая философия;
+- `product-system/02_domain/services` — подробная сервисная модель;
+- `product-system/02_domain/registry` — компактные бизнес-реестры, роли, решения и правила;
 - `product-system/03_ux` — UX principles/patterns;
 - `product-system/04_ui` — visual rules, patterns, organisms, starter и UI Kit index;
-- `product-system/07_business_context` — compact business layer v4;
-- `sources` — on-demand evidence (analytical specs, UI Kit package, frontend rules);
-- `tools` — validation/packaging utilities.
+- `product-system/05_engineering` — дополнительные нормы frontend engineering (05–07);
+- внешние источники (OpenSpec, UI Kit package, repo) подключаются через `~/.gigacode/product-evidence.yaml`;
+- проверка и упаковка контекста выполняются скриптами из корневой папки `tools/`.
 
 Исторические patch notes, migration reports, authoring audits и screenshots не входят в runtime distribution v4. Их нормализованные выводы уже зафиксированы в рабочих правилах.
 
-**Актуализация бизнес-истины:** исходные OpenSpec не входят в архив; исторически нормализованные сведения сохранены в предметной модели. Их требования встроены в существующие `02_services/` и `07_business_context/`, без добавления конкурирующего overlay.
+**Актуализация бизнес-истины:** исходные OpenSpec не входят в архив; исторически нормализованные сведения сохранены в предметной модели. Их требования встроены в существующие `02_domain/services/` и `02_domain/registry/`, без добавления конкурирующего overlay.

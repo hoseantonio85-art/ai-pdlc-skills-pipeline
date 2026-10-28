@@ -16,15 +16,15 @@ skill_profiles:
   frontend-reviewer: for_frontend_review
 documents:
   context_status:
-  - product-system/07_business_context/context_status.md
+  - product-system/02_domain/registry/context_status.md
   source_authority:
-  - product-system/07_business_context/source_authority.md
+  - product-system/02_domain/registry/source_authority.md
   foundation:
-  - product-system/01_product_foundation/mission.md
-  - product-system/01_product_foundation/product_philosophy.md
-  - product-system/01_product_foundation/service_goal.md
+  - product-system/01_foundation/mission.md
+  - product-system/01_foundation/product_philosophy.md
+  - product-system/01_foundation/service_goal.md
   services:
-  - product-system/02_services/services_map.md
+  - product-system/02_domain/services/services_map.md
   ux:
   - product-system/03_ux/ux_principles.md
   - product-system/03_ux/ux_patterns.md
@@ -45,53 +45,53 @@ documents:
   - product-system/04_ui/ui-kit/component-index.yaml
   - product-system/04_ui/ui-kit/ui_base.md
   business_context:
-  - product-system/07_business_context/service_registry.yaml
-  - product-system/07_business_context/role_registry.yaml
-  - product-system/07_business_context/capability_registry.yaml
-  - product-system/07_business_context/glossary.md
-  - product-system/07_business_context/common_business_rules.md
-  - product-system/07_business_context/product_decisions.md
-  - product-system/07_business_context/released_features.md
-  - product-system/07_business_context/known_constraints.md
-  - product-system/07_business_context/source_registry.yaml
+  - product-system/02_domain/registry/service_registry.yaml
+  - product-system/02_domain/registry/role_registry.yaml
+  - product-system/02_domain/registry/capability_registry.yaml
+  - product-system/02_domain/registry/glossary.md
+  - product-system/02_domain/registry/common_business_rules.md
+  - product-system/02_domain/registry/product_decisions.md
+  - product-system/02_domain/registry/released_features.md
+  - product-system/02_domain/registry/known_constraints.md
+  - product-system/02_domain/registry/source_registry.yaml
   current_product:
-  - product-system/07_business_context/current_product_state.md
-  - product-system/07_business_context/current_product_sources.yaml
+  - product-system/02_domain/registry/current_product_state.md
+  - product-system/02_domain/registry/current_product_sources.yaml
   ui_reference_index:
   - product-system/04_ui/references/reference-registry.yaml
 loading:
   always:
-  - product-system/07_business_context/context_status.md
-  - product-system/07_business_context/source_authority.md
-  - product-system/01_product_foundation/mission.md
-  - product-system/07_business_context/known_constraints.md
+  - product-system/02_domain/registry/context_status.md
+  - product-system/02_domain/registry/source_authority.md
+  - product-system/01_foundation/mission.md
+  - product-system/02_domain/registry/known_constraints.md
   for_product_intent_and_brief:
-  - product-system/01_product_foundation/product_philosophy.md
-  - product-system/01_product_foundation/service_goal.md
-  - product-system/07_business_context/service_registry.yaml
-  - product-system/07_business_context/role_registry.yaml
-  - product-system/07_business_context/glossary.md
-  - product-system/07_business_context/common_business_rules.md
-  - product-system/07_business_context/capability_registry.yaml
-  - product-system/07_business_context/product_decisions.md
-  - product-system/07_business_context/released_features.md
+  - product-system/01_foundation/product_philosophy.md
+  - product-system/01_foundation/service_goal.md
+  - product-system/02_domain/registry/service_registry.yaml
+  - product-system/02_domain/registry/role_registry.yaml
+  - product-system/02_domain/registry/glossary.md
+  - product-system/02_domain/registry/common_business_rules.md
+  - product-system/02_domain/registry/capability_registry.yaml
+  - product-system/02_domain/registry/product_decisions.md
+  - product-system/02_domain/registry/released_features.md
   for_ux_solution:
-  - product-system/01_product_foundation/product_philosophy.md
-  - product-system/07_business_context/service_registry.yaml
-  - product-system/07_business_context/role_registry.yaml
-  - product-system/07_business_context/glossary.md
-  - product-system/07_business_context/common_business_rules.md
-  - product-system/07_business_context/capability_registry.yaml
-  - product-system/07_business_context/product_decisions.md
-  - product-system/07_business_context/released_features.md
-  - product-system/07_business_context/current_product_state.md
-  - product-system/07_business_context/current_product_sources.yaml
+  - product-system/01_foundation/product_philosophy.md
+  - product-system/02_domain/registry/service_registry.yaml
+  - product-system/02_domain/registry/role_registry.yaml
+  - product-system/02_domain/registry/glossary.md
+  - product-system/02_domain/registry/common_business_rules.md
+  - product-system/02_domain/registry/capability_registry.yaml
+  - product-system/02_domain/registry/product_decisions.md
+  - product-system/02_domain/registry/released_features.md
+  - product-system/02_domain/registry/current_product_state.md
+  - product-system/02_domain/registry/current_product_sources.yaml
   - product-system/03_ux/ux_principles.md
   - product-system/03_ux/ux_patterns.md
   - product-system/04_ui/patterns/pattern-registry.yaml
   - product-system/04_ui/visual/composition-adaptation.md
   for_visual_html_prototype:
-  - product-system/07_business_context/service_registry.yaml
+  - product-system/02_domain/registry/service_registry.yaml
   - product-system/04_ui/foundation/visual-dna.md
   - product-system/04_ui/foundation/composition-index.json
   - product-system/04_ui/foundation/source-policy.md
@@ -111,14 +111,14 @@ loading:
   - product-system/03_ux/ux_principles.md
   - product-system/03_ux/ux_patterns.md
   for_sdd_specification:
-  - product-system/01_product_foundation/product_philosophy.md
-  - product-system/07_business_context/service_registry.yaml
-  - product-system/07_business_context/role_registry.yaml
-  - product-system/07_business_context/glossary.md
-  - product-system/07_business_context/common_business_rules.md
-  - product-system/07_business_context/capability_registry.yaml
-  - product-system/07_business_context/product_decisions.md
-  - product-system/07_business_context/known_constraints.md
+  - product-system/01_foundation/product_philosophy.md
+  - product-system/02_domain/registry/service_registry.yaml
+  - product-system/02_domain/registry/role_registry.yaml
+  - product-system/02_domain/registry/glossary.md
+  - product-system/02_domain/registry/common_business_rules.md
+  - product-system/02_domain/registry/capability_registry.yaml
+  - product-system/02_domain/registry/product_decisions.md
+  - product-system/02_domain/registry/known_constraints.md
   for_frontend_planning:
   - product-system/03_ux/ux_principles.md
   - product-system/03_ux/ux_patterns.md
@@ -126,23 +126,23 @@ loading:
   - product-system/04_ui/patterns/pattern-registry.yaml
   - product-system/04_ui/organisms/organism-registry.yaml
   - product-system/04_ui/frontend_prototype_rules.md
-  - sources/frontend-rules/component-structure-data-barrels-ui-kit.md
-  - sources/frontend-rules/frontend-standards-subagent.md
+  - product-system/05_engineering/component-structure-data-barrels-ui-kit.md
+  - product-system/05_engineering/frontend-standards-subagent.md
   for_frontend_implementation:
   - product-system/04_ui/patterns/pattern-registry.yaml
   - product-system/04_ui/organisms/organism-registry.yaml
   - product-system/04_ui/frontend_prototype_rules.md
-  - sources/frontend-rules/component-structure-data-barrels-ui-kit.md
-  - sources/frontend-rules/frontend-standards-subagent.md
+  - product-system/05_engineering/component-structure-data-barrels-ui-kit.md
+  - product-system/05_engineering/frontend-standards-subagent.md
   for_frontend_review:
   - product-system/04_ui/patterns/pattern-registry.yaml
   - product-system/04_ui/organisms/organism-registry.yaml
   - product-system/04_ui/frontend_prototype_rules.md
-  - sources/frontend-rules/component-structure-data-barrels-ui-kit.md
-  - sources/frontend-rules/frontend-standards-subagent.md
+  - product-system/05_engineering/component-structure-data-barrels-ui-kit.md
+  - product-system/05_engineering/frontend-standards-subagent.md
   on_demand:
-    service_documents: product-system/02_services/*.md
-    current_product_sources: product-system/07_business_context/current_product_sources.yaml
+    service_documents: product-system/02_domain/services/*.md
+    current_product_sources: product-system/02_domain/registry/current_product_sources.yaml
     modal_and_drawer: product-system/04_ui/visual/modal-and-drawer.md
     ui_pattern_specs: product-system/04_ui/patterns/*.md
     ui_runtime_patterns: product-system/04_ui/patterns/runtime/*.md
@@ -150,10 +150,10 @@ loading:
     ui_organisms: product-system/04_ui/organisms/*.md
     html_references: product-system/04_ui/references/html/**
     ui_kit_docs: product-system/04_ui/ui-kit/ui_base.md
-    frontend_rules: sources/frontend-rules/*.md
+    frontend_rules: product-system/05_engineering/*.md
     ui_reference_registry: product-system/04_ui/references/reference-registry.yaml
-    service_map: product-system/02_services/services_map.md
-    business_source_registry: product-system/07_business_context/source_registry.yaml
+    service_map: product-system/02_domain/services/services_map.md
+    business_source_registry: product-system/02_domain/registry/source_registry.yaml
 prototype:
   starter:
     type: html_css_js
@@ -214,13 +214,13 @@ profile_exclusions:
   - product-system/04_ui/ui-kit/**
   03-build-visual-html-prototype:
   - product-system/04_ui/ui-kit/**
-  - sources/frontend-rules/**
+  - product-system/05_engineering/**
   03-5-sync-ux-decisions:
   - product-system/04_ui/ui-kit/**
   04-build-sdd-specification:
   - product-system/04_ui/visual/**
   - product-system/04_ui/ui-kit/**
-  - sources/frontend-rules/**
+  - product-system/05_engineering/**
   frontend-planner: []
   frontend-implementer: []
   frontend-reviewer: []

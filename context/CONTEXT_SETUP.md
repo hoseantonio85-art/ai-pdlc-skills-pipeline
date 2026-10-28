@@ -6,7 +6,7 @@
 
 ## Где что находится
 
-- `agent/.gigacode/skills/`: 6 скиллов, готовые к копированию в `~/.gigacode/skills/` или `<project>/.gigacode/skills/`.
+- `agent/.gigacode/skills/`: 7 скиллов, готовые к копированию в `~/.gigacode/skills/` или `<project>/.gigacode/skills/`.
 - `agent/.gigacode/agents/`: 3 субагента, готовые к копированию в `~/.gigacode/agents/` или `<project>/.gigacode/agents/`.
 - `context/`: единый NORM product-context provider, который хранится в стабильном месте **вне** обязательной project-level `.gigacode`.
 
@@ -37,8 +37,8 @@ context_id: norm
 
 ## Проверка
 
-Из корня репозитория: `python -X utf8 context/tools/validate_context.py` (необходим PyYAML). После обновления установленной `.gigacode` начни новую сессию GigaCode или выполни `/clear`.
+Из корня репозитория: `python -X utf8 tools/validate_context.py` (необходим PyYAML). После обновления установленной `.gigacode` начни новую сессию GigaCode или выполни `/clear`.
 
-Полный сервис «Меры»: `context/product-system/02_services/measures.md`. Открытые вопросы: `context/product-system/07_business_context/measures_questions.md`.
+Полный сервис «Меры»: `context/product-system/02_domain/services/measures.md`. Открытые вопросы: `context/product-system/02_domain/registry/measures_questions.md`.
 
 Контекст не загружается целиком на каждом шаге. Compact-регистры используются для навигации, а полный документ читается по реальной потребности; для задач о мерах чтение релевантной части полного документа обязательно.

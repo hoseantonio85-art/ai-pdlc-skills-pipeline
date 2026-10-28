@@ -10,7 +10,7 @@
 - `ui-kit/ui_base.md` — документация, читаемая фрагментами;
 - `patterns/` — optional registry UI patterns.
 
-Полные packages не bulk-load. Full frontend normative sources в `sources/frontend-rules/` намеренно доступны Stages 05–07 через manifest до завершения rule-by-rule normalization.
+Полные packages не bulk-load. Full frontend normative sources в `product-system/05_engineering/` намеренно доступны Stages 05–07 через manifest до завершения rule-by-rule normalization.
 
 ## Runtime routing layer
 

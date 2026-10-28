@@ -18,7 +18,7 @@
 
 - Все 14 сервисов, 56 capabilities, 12 ролей, полные описания «Мер» и вопросы/решения.
 - Вся базовая загрузка стадий 01–07 через оригинальный stage-aware manifest. По всем девяти профилям число обязательных документов осталось таким же, как до очистки.
-- Полные исходные Frontend Standards: `context/sources/frontend-rules/frontend-standards-subagent.md` и `component-structure-data-barrels-ui-kit.md`. Они доступны в профилях **05–07** и исключены из ранних UX-этапов.
+- Полные исходные Frontend Standards: `context/product-system/05_engineering/frontend-standards-subagent.md` и `component-structure-data-barrels-ui-kit.md`. Они доступны в профилях **05–07** и исключены из ранних UX-этапов.
 - Полные Modal и Drawer из 7.0.3; для Drawer добавлен актуальный нормативный слой по NORM/ORM, размерам, стеку, scope и Escape. Старая детализация не удалена, но противоречащие старые рекомендации явно обозначены как исторические.
 - Композиционный индекс, реестры, 2 локальные HTML-сцены и работающий HTML-starter для Event/AI.
 - 7 пронумерованных скиллов: 00 (PO service context), 01, 02, 03, 03-5, 04, 05-07. Три frontend-субагента оставлены как специализированные роли.
@@ -27,7 +27,7 @@
 
 ## Проверено
 
-- `context/tools/validate_context.py`: **0 ошибок**; проверяет manifest/registry links, ID сервисов, capabilities и ролей, UI/organism paths, starter copies, YAML/JSON headers и Frontend Standards routing.
+- `tools/validate_context.py`: **0 ошибок**; проверяет manifest/registry links, ID сервисов, capabilities и ролей, UI/organism paths, starter copies, YAML/JSON headers и Frontend Standards routing.
 - 12/12 браузерных smoke-проверок двух сценариев через Playwright (Event/AI): рендер карточек, Drawer, Escape, Modal, вложенное состояние, основной CTA, отсутствие JS runtime errors и IMG-зависимостей.
 - `node --check` для двух JS-файлов стартера.
 - Локальные относительные Markdown-ссылки: 0 неразрешённых.

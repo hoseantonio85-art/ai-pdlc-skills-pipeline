@@ -130,7 +130,7 @@ Manifest описывает профили загрузки знаний для 
 - для прототипирования: UI-паттерны и эталонные HTML-компоненты;
 - для инженерных стадий: релевантные frontend-правила и target-repo evidence.
 
-При задачах по «Мерам» агент должен открыть **полный** `product-system/02_services/measures.md`, а не ограничиваться записью в `service_registry.yaml`.
+При задачах по «Мерам» агент должен открыть **полный** `product-system/02_domain/services/measures.md`, а не ограничиваться записью в `service_registry.yaml`.
 
 ### 6. Проверь установку и начни работу
 
@@ -149,7 +149,7 @@ Test-Path "D:/Projects/[обезличено]-cloud-measures-front/.gigacode/pro
 **Проверка Б — целостность поставляемого контекста.** Из корня `skills-pipeline`:
 
 ```bash
-python -X utf8 context/tools/validate_context.py
+python -X utf8 tools/validate_context.py
 ```
 
 Понадобятся Python и PyYAML (`python -m pip install pyyaml`, если модуль отсутствует). Ожидаемый результат: `"status": "passed"` и пустой массив `errors`. При необходимости `--write-report` создаёт локальный отчёт, который не нужно коммитить.

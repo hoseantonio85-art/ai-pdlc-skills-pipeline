@@ -20,9 +20,9 @@ sources:
   owner: unknown
   last_reviewed: unknown
   paths:
-  - product-system/01_product_foundation/mission.md
-  - product-system/01_product_foundation/product_philosophy.md
-  - product-system/01_product_foundation/service_goal.md
+  - product-system/01_foundation/mission.md
+  - product-system/01_foundation/product_philosophy.md
+  - product-system/01_foundation/service_goal.md
 - id: service_model
   type: normalized_documents
   status: current_in_context
@@ -30,8 +30,8 @@ sources:
   owner: unknown
   last_reviewed: '2026-10-14'
   paths:
-  - product-system/02_services/services_map.md
-  - product-system/02_services/*.md
+  - product-system/02_domain/services/services_map.md
+  - product-system/02_domain/services/*.md
 - id: business_digest
   type: normalized_business_context
   status: current_in_context
@@ -39,13 +39,13 @@ sources:
   owner: unknown
   last_reviewed: '2026-10-14'
   paths:
-  - product-system/07_business_context/service_registry.yaml
-  - product-system/07_business_context/role_registry.yaml
-  - product-system/07_business_context/capability_registry.yaml
-  - product-system/07_business_context/common_business_rules.md
-  - product-system/07_business_context/product_decisions.md
-  - product-system/07_business_context/glossary.md
-  - product-system/07_business_context/known_constraints.md
+  - product-system/02_domain/registry/service_registry.yaml
+  - product-system/02_domain/registry/role_registry.yaml
+  - product-system/02_domain/registry/capability_registry.yaml
+  - product-system/02_domain/registry/common_business_rules.md
+  - product-system/02_domain/registry/product_decisions.md
+  - product-system/02_domain/registry/glossary.md
+  - product-system/02_domain/registry/known_constraints.md
   derived_from:
   - service_model
   - norm_openspec_canonical
@@ -57,8 +57,8 @@ sources:
   repositories:
   - external-product-frontend
   - external-product-backend
-  primary_document: product-system/02_services/measures.md
-  open_questions: product-system/07_business_context/measures_questions.md
+  primary_document: product-system/02_domain/services/measures.md
+  open_questions: product-system/02_domain/registry/measures_questions.md
   note: Production and live repository revision not verified; this source does not change OpenSpec authority for
     other services.
 - id: ui_kit_0_283_0
@@ -70,12 +70,12 @@ sources:
   type: document
   status: normalized_and_retained
   authority: engineering_rule
-  path: sources/frontend-rules/frontend-standards-subagent.md
+  path: product-system/05_engineering/frontend-standards-subagent.md
 - id: component_structure_rules
   type: document
   status: normalized_and_retained
   authority: engineering_rule
-  path: sources/frontend-rules/component-structure-data-barrels-ui-kit.md
+  path: product-system/05_engineering/component-structure-data-barrels-ui-kit.md
 - id: analytical_specs
   type: document_set
   status: external_not_configured

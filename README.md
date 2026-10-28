@@ -5,9 +5,9 @@
 ## Устройство
 
 - `agent/.gigacode/skills` — семь пронумерованных скиллов (00 / 01 / 02 / 03 / 03-5 / 04 / 05-07); `agent/.gigacode/agents` — Planner, Implementer, Reviewer.
-- `context/product-system/01_product_foundation` — цель и философия; `02_services` — **14 описаний сервисов**, включая подробные Меры; `03_ux` — UX; `04_ui` — поведение, паттерны, словари UI Kit, HTML-starter и сцены; `07_business_context` — роли/capabilities/решения/глоссарий/источники.
-- `context/sources/frontend-rules` — **оригинальные подробные frontend-нормативы** (до глобальной чистки), доступны только на 05–07.
-- `context/tools/validate_context.py` — исходный строгий валидатор + локальные проверки.
+- `context/product-system/01_foundation` — цель и философия; `02_domain/services` — **14 описаний сервисов**, включая подробные Меры; `03_ux` — UX; `04_ui` — поведение, паттерны, словари UI Kit, HTML-starter и сцены; `02_domain/registry` — роли/capabilities/решения/глоссарий/источники.
+- `context/product-system/05_engineering` — **оригинальные подробные frontend-нормативы** (до глобальной чистки), доступны только на 05–07.
+- `tools/validate_context.py` — исходный строгий валидатор + локальные проверки.
 - Картинок, логотипов, OpenSpec, аналитических технических спецификаций, UI Kit code package, исходных репозиториев и истории Git здесь **нет**. Нет внешних действующих URL/адресов.
 
 [Подробная установка для Windows/macOS/Linux и диагностика](docs/INSTALLATION.md)
@@ -19,7 +19,7 @@
 3. Из `agent/.gigacode/product-contexts.yaml.example` создай `~/.gigacode/product-contexts.yaml` с **абсолютным** `contexts.norm.provider.root` на каталог `context/` и `manifest: product-system/context-manifest.yaml`.
 4. Для целевого репозитория создай `<project>/.gigacode/product-context.yaml` из шаблона (`context_id: norm`).
 5. Дополнительные OpenSpec, аналитические документы, UI Kit, frontend/backend репозитории и изображения подключаются локально/по разрешённой ссылке **через `~/.gigacode/product-evidence.yaml`**. Пример — `agent/.gigacode/product-evidence.yaml.example`. Не коммитить конфиг с действующими корпоративными путями.
-6. Проверка: `python -X utf8 context/tools/validate_context.py`. Нужен PyYAML: `python -m pip install pyyaml`. Затем новая сессия GigaCode и тест на чтение `context-manifest.yaml`.
+6. Проверка: `python -X utf8 tools/validate_context.py`. Нужен PyYAML: `python -m pip install pyyaml`. Затем новая сессия GigaCode и тест на чтение `context-manifest.yaml`.
 
 ## Истина о внешних источниках
 
@@ -29,7 +29,7 @@
 
 `00` Product service context → `01` Intent/Brief → `02` UX Solution → `03` HTML Prototype → `03.5` UX Sync → `04` Product SDD → `05` Frontend Planning → `06` Implementation → `07` Review.
 
-Stage 01–04 — скиллы и соответствующие контекстные профили, инженерные 05–07 — три субагента с `05-07-frontend-standards` и **полными** `sources/frontend-rules/*` из 7.0.3.
+Stage 01–04 — скиллы и соответствующие контекстные профили, инженерные 05–07 — три субагента с `05-07-frontend-standards` и **полными** `product-system/05_engineering/*` из 7.0.3.
 
 Drawer: исходная большая спецификация сохранена полностью и снабжена актуальным нормативным override NORM/ORM, без потери старых иллюстративных схем.
 

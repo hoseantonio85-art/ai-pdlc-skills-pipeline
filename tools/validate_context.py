@@ -7,7 +7,7 @@ except ImportError:
     print('PyYAML is required: pip install pyyaml', file=sys.stderr)
     raise
 
-root = Path(__file__).resolve().parents[1]
+root = Path(__file__).resolve().parents[1] / 'context'
 manifest_path = root / 'product-system/context-manifest.yaml'
 errors=[]
 class UniqueKeyLoader(yaml.SafeLoader):
@@ -56,7 +56,7 @@ for j in root.rglob('*.json'):
     except Exception as e: errors.append(f'json: {j.relative_to(root)}: {e}')
 
 # Business registry consistency.
-bc = root/'product-system/07_business_context'
+bc = root/'product-system/02_domain/registry'
 try:
     services = yaml.safe_load((bc/'service_registry.yaml').read_text(encoding='utf-8'))
     roles = yaml.safe_load((bc/'role_registry.yaml').read_text(encoding='utf-8'))
@@ -151,7 +151,7 @@ except Exception as e:
 for suffix in ('.tgz','.zip','.png','.jpg','.jpeg','.gif','.webp','.svg','.ico','.pdf','.docx'):
     for f in root.rglob('*'+suffix):
         errors.append(f'forbidden bundled image or archive: {f.relative_to(root)}')
-front_norms=['sources/frontend-rules/frontend-standards-subagent.md','sources/frontend-rules/component-structure-data-barrels-ui-kit.md']
+front_norms=['product-system/05_engineering/frontend-standards-subagent.md','product-system/05_engineering/component-structure-data-barrels-ui-kit.md']
 for p in front_norms:
     if not (root/p).exists(): errors.append(f'frontend normative missing: {p}')
 for stage in ['for_frontend_planning','for_frontend_implementation','for_frontend_review']:
@@ -184,10 +184,10 @@ for name,profile in manifest.get('skill_profiles',{}).items():
 # Required v4 compact business layer must be wired into early profiles.
 manifest_text=manifest_path.read_text(encoding='utf-8')
 for required in [
-    'product-system/07_business_context/service_registry.yaml',
-    'product-system/07_business_context/role_registry.yaml',
-    'product-system/07_business_context/capability_registry.yaml',
-    'product-system/07_business_context/product_decisions.md',
+    'product-system/02_domain/registry/service_registry.yaml',
+    'product-system/02_domain/registry/role_registry.yaml',
+    'product-system/02_domain/registry/capability_registry.yaml',
+    'product-system/02_domain/registry/product_decisions.md',
 ]:
     if required not in manifest_text:
         errors.append(f'v4 business source not routed: {required}')

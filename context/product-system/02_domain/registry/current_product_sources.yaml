@@ -42,8 +42,8 @@ sources:
     status: external_not_connected_in_package
     type: frontend_backend_repository_snapshots
     reviewed_at: '2026-10-23'
-    primary_document: product-system/02_services/measures.md
-    questions_document: product-system/07_business_context/measures_questions.md
+    primary_document: product-system/02_domain/services/measures.md
+    questions_document: product-system/02_domain/registry/measures_questions.md
     production_verified: false
     evidence_config: ~/.gigacode/product-evidence.yaml
 rules:

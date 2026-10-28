@@ -28,14 +28,14 @@ sources:
     evidence_config: ~/.gigacode/product-evidence.yaml
   frontend_rules_full:
     status: normative_engineering_reference
-    path: sources/frontend-rules/frontend-standards-subagent.md
+    path: product-system/05_engineering/frontend-standards-subagent.md
     sha256: f77b48cc43452f287194d20da047ba155b0e690c5514b94a27ca66b4afb05dbc
     loading: stages_05_07_via_manifest
     note: provenance/reference source, not an active agent definition; retained because compact 05-07-frontend-standards
       is not yet semantic-lossless
   component_structure_full:
     status: normative_engineering_reference
-    path: sources/frontend-rules/component-structure-data-barrels-ui-kit.md
+    path: product-system/05_engineering/component-structure-data-barrels-ui-kit.md
     sha256: 092dc6745c1cde9f3f5602cbcd99f0a4e01cf1fa806c54940c12cfdfc88eaea3
     loading: stages_05_07_via_manifest
     note: contains NORM-specific component/runtime/handoff rules not fully duplicated in compact 05-07-frontend-standards

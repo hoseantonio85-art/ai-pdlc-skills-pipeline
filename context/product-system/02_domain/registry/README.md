@@ -4,8 +4,8 @@
 
 ## Где находится знание
 
-- `02_services/services_map.md` и `02_services/*.md` — единая предметная модель и подробные карточки существующих бизнес-сервисов.
-- `07_business_context/service_registry.yaml`, `capability_registry.yaml`, `role_registry.yaml`, `common_business_rules.md`, `glossary.md` — компактные машинно-читаемые **представления той же модели**, а не новые независимые факты.
+- `02_domain/services/services_map.md` и `02_domain/services/*.md` — единая предметная модель и подробные карточки существующих бизнес-сервисов.
+- `02_domain/registry/service_registry.yaml`, `capability_registry.yaml`, `role_registry.yaml`, `common_business_rules.md`, `glossary.md` — компактные машинно-читаемые **представления той же модели**, а не новые независимые факты.
 - `source_authority.md`, `source_registry.yaml` — нормативный статус источников и их revisions.
 - **Исходные OpenSpec в этот архив не включены**; при подключении они могут выступать нормативным источником, но только после проверки версии и доступности.
 

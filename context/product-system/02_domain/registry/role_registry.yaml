@@ -4,7 +4,7 @@ context_version: 7
 authority: product_model
 production_permissions_status: spec_partial_not_runtime_verified
 source:
-- product-system/02_services/services_map.md
+- product-system/02_domain/services/services_map.md
 - внешняя-спецификация-через-YAML
 roles:
   risk_manager:

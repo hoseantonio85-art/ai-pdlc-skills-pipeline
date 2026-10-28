@@ -3,7 +3,7 @@ context_id: norm
 context_version: 7
 status_note: Capabilities исторической продуктовой модели; актуальность сверяется по подключаемым внешним источникам.
 source:
-- product-system/02_services/services_map.md
+- product-system/02_domain/services/services_map.md
 capabilities:
 - id: CAP-RISK-001
   service: risk_analysis
