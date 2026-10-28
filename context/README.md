@@ -1,8 +1,8 @@
-> **Пакетная политика 7.0.3 precise clean:** внешние технические OpenSpec, код UI Kit, фото и репозитории не входят в поставку. Исторические описания и каталоги — локально, реальные источники проверяются через `~/.gigacode/product-evidence.yaml`.
+> **Пакетная политика 8.0:** внешние технические OpenSpec, код UI Kit, фото и репозитории не входят в поставку. Исторические описания и каталоги — локально, реальные источники проверяются через `~/.gigacode/product-evidence.yaml`.
 
 # NORM Product Context v4
 
-Рабочий product-context provider для Skills Pipeline v7.
+Рабочий product-context provider для Skills Pipeline v8.0.
 
 ## Точка входа
 
