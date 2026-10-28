@@ -38,15 +38,13 @@ description: >-
 
 После чтения registry выбери только patterns/organisms, которые нужны surfaces из UX Solution. Не bulk-load весь каталог. По умолчанию соблюдай бюджеты из registry; если бюджет отсутствует, ориентир: до 4 runtime patterns, до 3 organisms и до 2 HTML references на одну задачу. Полные authoring specs и audit открывай только для разрешения противоречия или спорного решения.
 
-Для NORM прочитай `04_ui/references/reference-registry.yaml` как compact aspect-level index. Он нормализует owner-provided HTML/Pixso evidence: выбирай reference **по аспекту**, а не по сходству whole screen. Raw external exports не являются runtime requirement. Внешние HTML scenes не входят в этот пакет; открывай их через `~/.gigacode/product-evidence.yaml` только при реальном доступе и необходимости. Если источник не подключён — `NEEDS_SOURCE`, не выдумывай evidence.
+Для NORM прочитай `04_ui/references/reference-registry.yaml` как compact aspect-level index. Он нормализует owner-provided HTML/Pixso evidence: выбирай reference **по аспекту**, а не по сходству whole screen. Raw external exports не являются runtime requirement; packaged HTML scenes открывай только если они действительно нужны для композиции.
 
 Patterns не являются жёсткими screen templates. Перед сборкой классифицируй выбранные источники: `invariant` (обязательный contract), `strong-default` (проверенная композиция) или `reference` (визуальный ориентир). Strong defaults разрешено адаптировать. Если существующая композиция не решает задачу, предложи `composition-adaptation` / `new-pattern-candidate`, сохрани invariants и Visual DNA и зафиксируй rationale в handoff.
 
 Если выбран product context, но manifest или профиль не открыты, верни `BLOCKED_BY_CONTEXT`; не создавай generic prototype под видом продукта. Не загружай документацию всего UI Kit. На этом этапе не подключай настоящий UI Kit, если пользователь явно не попросил иначе.
 
 Для NORM дополнительно:
-
-- При проектировании Drawer сверяйся с `patterns/runtime/drawer.md`: Escape по умолчанию выключен, в ORM внешний Close допустим, нет жёсткого максимума в два Drawer; не заменяй эти решения старым поведением HTML-starter.
 
 - `norm-visual-dna.md` и runtime overlay pattern registry являются product-likeness guardrails;
 - `object-modal-view` использует единую правую action/meta zone и не имеет общего Footer;
@@ -70,15 +68,15 @@ Patterns не являются жёсткими screen templates. Перед с�
 
 1. Найди `prototype.starter.path` в manifest выбранного продукта.
 2. Открой starter-файлы, чтобы понять shell, tokens, layout, demo controls и базовые interactions. Для NORM прочитай `04_ui/foundation/starter-contract.md`: границы реализации вариантов, порядок assets и общий lifecycle поверхностей.
-3. Скопируй весь starter в целевую директорию прототипа без изменения структуры файлов, включая assets/icon_logo.svg и assets/gradient-logo.svg. Используй настоящие SVG через Norm.brand(), не рисуй их заменители.
+3. Скопируй весь starter в целевую директорию прототипа без изменения структуры пяти основных файлов. В этом portable-комплекте оригинальные SVG не хранятся: `Norm.brand()` использует стилизованный CSS-знак. При работе в разрешённой среде реальные фирменные assets можно подключить отдельно, но не считать их частью starter.
 4. Только после копирования адаптируй starter под UX Solution. Сохраняй исходное разделение файлов starter, если manifest не задаёт другое.
 5. Используй существующие CSS variables, shell и композиционные primitives starter. Для NORM копируй также norm-components.css и norm-components.js; CSS подключай после styles.css, JS перед prototype.js. Компоненты лёгкие и не подменяют production UI Kit. Существенные отклонения перечисляй в handoff.
 
 Backward compatibility: если `context_id: norm`, а `prototype.starter.path` отсутствует в старом manifest, разрешён fallback на `assets/norm-html-starter` внутри активного skill. Этот fallback не является новой архитектурой и сохраняется только для совместимости с предыдущими NORM context packages.
 
-Если manifest содержит `prototype.reference_scenes`, открывай только доступную scene, связанный с выбранной surface и действительно нужный для product likeness. HTML reference — visual/composition evidence, а не источник production DOM/API.
+Если manifest содержит `prototype.reference_scenes`, открывай только scene, связанный с выбранной surface и действительно нужный для product likeness. HTML reference — visual/composition evidence, а не источник production DOM/API.
 
-После адаптации проверь происхождение каждого brand/action token. Для NORM не объявляй синий новым основным цветом: базовые действия должны наследовать зелёный, тёмный нейтральный и мягкие нейтральные стили product starter. Для другого продукта используй его собственный visual profile/starter, не NORM fallback.
+После адаптации проверь происхождение каждого brand/action token. Для NORM запрещено объявлять синий новым brand-цветом: базовые действия должны наследовать зелёный, тёмный нейтральный и мягкие нейтральные стили product starter. Для другого продукта используй его собственный visual profile/starter, не NORM fallback.
 
 Если обязательный product starter отсутствует, не читается или не может быть скопирован, верни `BLOCKED_BY_VISUAL_CONTEXT`. Не заменяй его самодельным generic HTML.
 
@@ -111,7 +109,7 @@ Backward compatibility: если `context_id: norm`, а `prototype.starter.path`
 - Предпочитай обычные HTML, CSS и JavaScript; React допустим, если уже есть подходящий starter или сложное состояние.
 - Используй CSS variables визуального контекста.
 - Допускай локальные prototype-компоненты без имитации API настоящего UI Kit.
-- Не называй самодельные компоненты внутренним пакетом UI Kit и не создавай ложный alias.
+- Не называй самодельные компоненты `@example/ui-kit` и не создавай ложный alias.
 - Не добавляй production layers, stores, API clients, i18n и тесты без необходимости.
 - Не превращай имена переменных, mock data, DOM structure или demo behavior прототипа в production contract.
 - Отделяй demo scenario controls от продуктовой поверхности.
@@ -186,7 +184,3 @@ Backward compatibility: если `context_id: norm`, а `prototype.starter.path`
 ## Output
 
 Сохрани запускаемый проект и обязательный `03_visual_prototype.md` с разделами: Context trace, реально прочитанные visual sources, путь использованного product starter, выбранные runtime patterns/organisms, использованные reference scenes, сохранённые starter-файлы, visual plan, реализованные сценарии, режим fidelity, composition preflight, reused/new inventory, QA evidence и comparable coverage, отклонения от UX Solution и starter, результаты чек-листа по группам, проверенные viewport, ограничения и статус. Не заявляй проверки, которые фактически не выполнялись. Без этого файла этап не завершён.
-
-## Внешние источники и ограничения поставки
-
-Встроены только product rules и starter. Репозитории, OpenSpec, UI Kit и внешние HTML-референсы подключаются через `~/.gigacode/product-evidence.yaml` на рабочем компьютере. Не генерируй фиктивные пути/URL и не утверждай, что недоступные источники были прочитаны. Сначала делай доступные UX/visual действия; точные API и реализационные ограничения требующие evidence — `NEEDS_SOURCE`.

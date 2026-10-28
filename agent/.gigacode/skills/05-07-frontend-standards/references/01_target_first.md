@@ -18,8 +18,8 @@
 - один store-connected component;
 - похожую form/modal/drawer, если релевантно;
 - helper/store test и фактический test stack;
-- фактические UI Kit imports/exports/types, UI Kit docs и допустимые dependencies;
-- дополнительные правила frontend/toolchain из одобренных локальных sources;
+- exports и типы установленного `@example/ui-kit`;
+- существующие adapters/wrappers из `@example/components`;
 - реальные API/OpenAPI contracts, если они доступны.
 
 Для каждой потенциальной зависимости/части прототипа классифицируй:
@@ -33,7 +33,7 @@
 - почему target repo/MFE runtime пока отсутствует и почему standalone профиль допустим;
 - 1–2 доступных reference repo/pattern source или selected product engineering context;
 - целевой React/TypeScript/toolchain baseline из references, не из памяти;
-- actual exports/types и ограничения подключённого UI Kit package;
+- фактический `@example/ui-kit` package/API: registry/package artifact/types/docs;
 - разрешённый dependency source: corporate Nexus/registry, existing workspace/cache или локальный package artifact;
 - test stack/baseline из reference evidence;
 - typed data boundary: known API contract либо `PRODUCTION_CONTRACT_UNKNOWN` + fixture/mock adapter;
@@ -62,16 +62,19 @@
 
 ## Toolchain baseline
 
-Приоритет: target `package.json`/workspace/lockfile → доступный, одобренный reference/toolchain evidence → этот общий checklist. Публичный pipeline **не** закрепляет внутренние имена config-пакетов.
+Если target/reference workspace использует корпоративный baseline, ожидаются фактически резолвящиеся:
 
-| Назначение | Что проверить |
+| Назначение | Ожидание |
 |---|---|
-| TypeScript config | Где хранится base tsconfig; как резолвится локальный/shared `extends` |
-| Formatter/linter config | Как резолвится принятый `biome.json/jsonc`/extends либо фактический target tool |
-| CLI | Наличие и версия `@biomejs/biome`, **если** используется Biome; иначе утверждённый CLI target |
-| App tsconfig | Цепочка `extends`, strict/noUnused и рабочая команда typecheck |
-| Package workflow | Package manager, lockfile, registry и разрешённые команды |
+| TypeScript config | `@example/tsconfig` |
+| Biome config | `@example/biome-config` |
+| Biome CLI | `@biomejs/biome` |
+| App tsconfig | `extends: "@example/tsconfig/tsconfig.base.json"` |
+| Biome config | `extends: ["@example/biome-config"]` |
 
-В `TARGET_REPO` версии и реальные названия бери только из repo. В `STANDALONE_ENGINEERING` — из approved reference baseline или локально настроенного `products.<id>.frontend_rules`; никогда не угадывай `latest`.
+В `TARGET_REPO` версии бери только из target `package.json`/lockfile.
+В `STANDALONE_ENGINEERING` версии бери из выбранного reference baseline или разрешённого corporate registry/package evidence и зафиксируй источник в plan; не угадывай latest.
 
-Root workspace dependency достаточна при доказанном resolution. Параллельный ESLint/Prettier pipeline без причины не добавлять. Dependencies/lockfile меняются только разрешённым package-manager workflow; если install запрещён — skipped/`BLOCKED_BY_ENVIRONMENT` с пояснением, не workaround.
+Root workspace dependency достаточна, если команды/configs реально резолвятся. Не добавляй параллельный ESLint/Prettier pipeline без причины.
+
+Dependency/lockfile изменения выполняются только разрешённым package-manager workflow. Lockfile вручную не редактируется. Если package install запрещён политикой среды, не обходи ограничение: пометь runtime check skipped или `BLOCKED_BY_ENVIRONMENT` в зависимости от того, можно ли безопасно выполнить increment без установки.

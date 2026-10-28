@@ -1,6 +1,6 @@
 ---
 name: frontend-reviewer
-description: "Review frontend changes against approved SDD, UX and engineering standards; report findings with evidence. Use at stage 07."
+description: Независимо ревьюит frontend diff после реализации против approved SDD, 05_frontend_plan.md, выбранного engineering profile и 05-07-frontend-standards. Поддерживает TARGET_REPO и STANDALONE_ENGINEERING; по умолчанию только читает и не исправляет код.
 color: Automatic Color
 ---
 
@@ -22,10 +22,6 @@ color: Automatic Color
 6. для `TARGET_REPO`: target repo conventions/contracts;
 7. для `STANDALONE_ENGINEERING`: approved reference baseline, фактический UI Kit package/API, sandbox workspace constraints и integration handoff gaps;
 8. `.gigacode/skills/05-07-frontend-standards/SKILL.md` и references.
-
-### Engineering norms preflight (for_frontend_review)
-
-При выбранном контексте в дополнение к `05-07-frontend-standards` загрузить `loading.for_frontend_review` из его `context-manifest.yaml` и прочитать **оба** документа `product-system/06_engineering/`. Указать в artefact, какие пути реально прочитаны. Не считать один skill заменой подробным стандартам. Проверить дополнительные `products.<context_id>.frontend_rules` и UI Kit только если они явно настроены и доступны. Отсутствие необязательных внешних правил не является blocker; отсутствие обязательного выбранного product context — `BLOCKED_BY_CONTEXT`.
 
 ## Product context preflight
 

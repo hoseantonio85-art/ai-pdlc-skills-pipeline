@@ -171,6 +171,33 @@ Variants описывают composition emphasis, а не отдельные п�
 - Nested interactive elements запрещены; item actions структурируются отдельно.
 - DOM/read order соответствует identity → signal → metrics → reason, даже при CSS grid rearrangement.
 
+## UI Kit dependencies
+
+Проверены по текущему `component-index.yaml`; конкретные props не нормируются.
+
+```yaml
+- component: Row
+  purpose: semantic regions and responsive metric layout
+  api_status: verified
+- component: Col
+  purpose: optional responsive grouping
+  api_status: verified
+- component: Text
+  purpose: entity identity, metric labels/values and attention reason
+  api_status: verified
+- component: Badge
+  purpose: optional supporting signal marker
+  api_status: verified
+- component: Icon
+  purpose: supporting iconography for a signal or metric
+  api_status: verified
+- component: Button
+  purpose: explicit open or delegated item-action intent when appropriate
+  api_status: verified
+```
+
+Product `FieldView`, format helpers and raw `<button>` implementations are not verified reusable composition dependencies and are not part of this contract.
+
 ## Design tokens
 
 - Использовать реальные UI Kit/theme tokens для surface, border, text, status emphasis, spacing, radius, shadow и focus.
@@ -216,6 +243,20 @@ Variants описывают composition emphasis, а не отдельные п�
 - Виртуализатор измеряет реальную высоту и использует stable entity key; это интеграция, не card contract.
 - Тестировать long names, missing optional data, localized labels, keyboard focus и coexistence open/item actions.
 - Проверять UI Kit exports/types перед JSX; raw styles references не копировать.
+
+## Evidence
+
+| Repository | Revision | File | Что подтверждает | Ограничения |
+|---|---|---|---|---|
+| external-product-backend/external-product-frontend | [редакция исходника удалена] | `src/pages/Risks/components/RiskCard/RiskCard.tsx`; `types.ts`; `styles.module.scss`; `src/pages/Risks/components/RisksList/RisksList.tsx` | Identity, level/status/new signals, decision metrics, supporting owner/source, whole-card open, responsive reduction | Attention reason не выделена явно; raw button теряет focus outline; hardcoded widths/gaps и rgba hover; `FieldView` локален |
+| external-product-backend/external-product-frontend | [редакция исходника удалена] | `src/pages/Measures/components/MeasureCard/MeasureCard.tsx`; `types.ts`; `utils.ts`; `styles.module.scss`; `src/pages/Measures/components/MeasureList/MeasureList.tsx` | Status, name/ID, date signals, 1–3 planning/actual metrics, description context, whole-card navigation, responsive columns | Attention reason смешана с overdue/description; raw button; literal label; fixed grid/min width/height и hex hover; domain-heavy |
+| external-product-backend/external-product-frontend | [редакция исходника удалена] | `src/pages/AgentRisks/components/AgentRisksCard/AgentRisksCard.tsx`; `types.ts`; `styles.module.scss`; `src/pages/AgentRisks/components/AgentRisksList/AgentRisksList.tsx` | Третий repeat identity + signal + supporting metadata + open intent; компактный вариант | Нет явных 1–3 decision metrics и attention reason; raw button без visible focus; date/version/stage доменны |
+
+## Reference implementation
+
+Основной reference — Risks `src/pages/Risks/components/RiskCard/RiskCard.tsx`: наиболее близок к approved anatomy за счёт identity, нескольких signals и decision metrics. Дополнительные references: Measures — metric-led/content-rich вариант; Agent Risks — compact third-repository confirmation.
+
+Reference implementation является доказательством и примером реализации. Его код, props, геометрия и локальные domain-specific решения не копируются автоматически и не становятся нормативными, если это отдельно не указано в паттерне.
 
 ## Conflicts and decisions
 
@@ -277,7 +318,7 @@ Variants описывают composition emphasis, а не отдельные п�
 
 **Reason:** повторение локального кода не равно reusable component; часть styles конфликтует с frontend rules/accessibility.
 
-**Evidence:** три card styles; external UI Kit component index (if connected); frontend rules.
+**Evidence:** три card styles; `component-index.yaml`; frontend rules.
 
 ## Open questions
 
@@ -301,3 +342,4 @@ Variants описывают composition emphasis, а не отдельные п�
 - [ ] Mobile сохраняет identity, signal, decision context и reason.
 - [ ] Missing/long/localized content не ломает layout.
 - [ ] Только engineering stages: UI Kit exports проверены; product `FieldView`, geometry и routes не нормированы.
+

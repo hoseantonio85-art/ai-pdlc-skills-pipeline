@@ -2,11 +2,11 @@
 
 ## UI Kit hierarchy
 
-1. **Фактический разрешённый UI Kit:** direct imports из установленной версии, проверенные exports/props/types/icons.
-2. **Существующий target adapter**, когда его применение подтверждено реальным repo convention.
-3. **Новый узкий adapter** только для документированного API mismatch; не скрывать через него запрещённую или отсутствующую библиотеку.
+1. Фактический компонент и semantic props `@example/ui-kit`.
+2. Существующий target adapter.
+3. Новый узкий adapter только при подтверждённом несовпадении API.
 
-Не вендорить package и не изобретать API. При недоступном UI Kit фиксировать `BLOCKED_BY_SOURCE`/integration gap, а не делать похожий дубль.
+Используй `@example/components` для принятых инфраструктурных wrappers/errors. Если target запрещает Tailwind, shadcn, Radix, lucide или sonner, запрещены также скрытые re-exports.
 
 ## Layout/styles/tokens
 

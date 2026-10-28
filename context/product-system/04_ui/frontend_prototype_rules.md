@@ -2,11 +2,11 @@
 
 ## 1. Граница результата
 
-`STANDALONE_ENGINEERING` — standalone React/TypeScript implementation на mock/fixture data для stages 05–07, когда greenfield-сервис ещё нельзя поднять как production microfrontend. Это не Stage 03 HTML prototype. Sandbox должен быть визуально точным, сценарно полным и production-shaped, но не считается production microfrontend и не обязан подключать реальные API, auth и аналитический runtime. Для существующего target repo применяется `TARGET_REPO` profile, а этот документ используется только как дополнительный product/frontend constraint.
+`STANDALONE_ENGINEERING` — standalone React/TypeScript implementation на mock/fixture data для stages 05–07, когда greenfield-сервис ещё нельзя поднять как production microfrontend. Это не Stage 03 HTML prototype. Sandbox должен быть визуально точным, сценарно полным и production-shaped, но не считается production microfrontend и не обязан подключать реальные API, auth, analytics или Single-SPA runtime. Для существующего target repo применяется `TARGET_REPO` profile, а этот документ используется только как дополнительный product/frontend constraint.
 
 ## 2. UI Kit
 
-- импортируйте components напрямую из подключённый разрешённый UI Kit;
+- импортируйте components напрямую из `@example/ui-kit`;
 - сначала проверяйте фактические exports, props, enums и types версии package;
 - не создавайте скрывающий facade и не копируйте UI Kit;
 - не используйте параллельные base UI libraries;
@@ -65,6 +65,6 @@ Route page не содержит business calculations, большие fixtures 
 
 ## 10. Self-review
 
-До handoff проверьте hardcoded colors, forbidden imports/re-exports, пустые style modules, file size, user strings, localized guards, dead files/exports, encoding и `git diff --check`. Runtime checks запускаются только если разрешены workspace instructions и dependencies доступны. Если корпоративный registry/разрешённый package registry или local package artifact недоступен, не обходите ограничения среды и явно помечайте checks `skipped`/`BLOCKED_BY_ENVIRONMENT`.
+До handoff проверьте hardcoded colors, forbidden imports/re-exports, пустые style modules, file size, user strings, localized guards, dead files/exports, encoding и `git diff --check`. Runtime checks запускаются только если разрешены workspace instructions и dependencies доступны. Если корпоративный registry/Nexus или local package artifact недоступен, не обходите ограничения среды и явно помечайте checks `skipped`/`BLOCKED_BY_ENVIRONMENT`.
 
-Полные **встроенные** engineering-нормы — `product-system/06_engineering/engineering-standards.md` и `component-structure-and-handoff.md`, подключаются через manifest только в stages 05–07. `~/.gigacode/product-evidence.yaml` служит для **дополнительных** разрешённых frontend/toolchain источников и реального UI Kit; это не замена локальных правил.
+Полные нормативные источники находятся в `sources/frontend-rules/` и не читаются по умолчанию.

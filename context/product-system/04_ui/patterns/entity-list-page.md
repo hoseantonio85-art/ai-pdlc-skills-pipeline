@@ -154,6 +154,42 @@ last_reviewed: 2026-08-07
 - Overlay-поверхность управляет focus trap; при закрытии фокус возвращается карточке/trigger. Escape закрывает верхний surface согласно утверждённому surface contract.
 - Виртуализация не должна делать элементы недоступными клавиатуре или ломать последовательность чтения.
 
+## UI Kit dependencies
+
+Проверены по `component-index.yaml`; props намеренно не нормируются без проверки конкретной установленной версии.
+
+```yaml
+- component: Row
+  purpose: page, header and toolbar layout
+  api_status: verified
+- component: Col
+  purpose: responsive card/layout regions when needed
+  api_status: verified
+- component: Title
+  purpose: page and state headings
+  api_status: verified
+- component: Text
+  purpose: counts, descriptions and status copy
+  api_status: verified
+- component: Button
+  purpose: search/filter triggers, retry and page actions
+  api_status: verified
+- component: Icon
+  purpose: supporting iconography; never the sole accessible label
+  api_status: verified
+- component: FieldSearch
+  purpose: entity search
+  api_status: verified
+- component: Loader
+  purpose: initial and incremental progress indication
+  api_status: verified
+- component: ScrollBar
+  purpose: bounded long-list viewport when product shell requires it
+  api_status: verified
+```
+
+`Drawer` из `@example/components` встречается в двух references, но не является подтверждённым export UI Kit в доступном component index; он не включён в нормативные зависимости до решения владельца shared layer.
+
 ## Design tokens
 
 - Использовать только реальные theme/UI Kit tokens текущей версии для background, text, border, radius, shadow и spacing.
@@ -166,7 +202,7 @@ last_reviewed: 2026-08-07
 - Доменные поля, статусы, permissions и сортировка передаются данными/конфигурацией.
 - Способ хранения восстанавливаемого navigation context определяется архитектурой и UX navigation contract.
 - Виртуализация требуется только при измеренной необходимости.
-- Нельзя зависеть от `[источник не включён]` как скрытого facade без отдельного подтверждения.
+- Нельзя зависеть от `@example/components` как скрытого facade без отдельного подтверждения.
 
 ## Content and UX writing
 
@@ -197,6 +233,20 @@ last_reviewed: 2026-08-07
 - Если выбран overlay/floating placement page actions, предусмотреть safe area, чтобы действия не перекрывали контент; не переносить фиксированную ширину 600 px из references.
 - Проверять фактические exports/types установленного UI Kit перед написанием JSX; не переносить props из references по памяти.
 
+## Evidence
+
+| Repository | Revision | File | Что подтверждает | Ограничения |
+|---|---|---|---|---|
+| external-product-backend/external-product-frontend | [редакция исходника удалена] | `src/pages/Risks/Risks.tsx`; `components/RisksList/RisksList.tsx`; `components/Filters/Filters.tsx`; `components/Empty/Empty.tsx`; `styles.module.scss`; router config | Полный shell, title/count, summary/attention, quick+advanced filters, virtual list, два empty, loading, route modal, dock | Summary и magic/chat feature-specific; raw card/button и hardcoded geometry не нормативны; refresh смешан с loading |
+| external-product-backend/external-product-frontend | [редакция исходника удалена] | `src/pages/Measures/Measures.tsx`; `components/MeasureList/MeasureList.tsx`; `components/Filters/Filters.tsx`; `components/Empty/Empty.tsx`; `styles.module.scss`; router config | Минимальный повторяемый shell, quick/search/drawer filters, virtual cards, empty/loading, modal navigation и actions | Нет summary; Drawer идёт через shared facade; локальные rgba и fixed dock width против frontend rules |
+| external-product-backend/external-product-frontend | [редакция исходника удалена] | `src/pages/AgentRisks/AgentRisks.tsx`; `components/AgentRisksList/AgentRisksList.tsx`; `components/Filters/Filters.tsx`; `components/Empty/Empty.tsx`; `styles.module.scss`; router config | Третий независимый повтор shell, search-led variant, virtual cards, empty/loading, route modal и permissions | Нет count/advanced filter/summary; create скрыт на mobile; route partly hardcoded; не основной reference |
+
+## Reference implementation
+
+Основной reference — Measures `src/pages/Measures/Measures.tsx` вместе с `MeasureList`, `Filters` и `Empty`: это наиболее чистый минимальный каркас без доменного summary. Дополнительные references: Risks — для title/count, summary-led варианта и различения empty; Agent Risks — только для search-led варианта и подтверждения повторяемости.
+
+Reference implementation подтверждает возможную реализацию паттерна, а не является кодом для прямого копирования и не превращает все локальные решения reference в нормативные правила.
+
 ## Conflicts and decisions
 
 | Найденные варианты | Выбрано | Почему и основание |
@@ -206,7 +256,7 @@ last_reviewed: 2026-08-07
 | Overlay Loader используется и при загрузке, и при обновлении | Различать loading и refreshing, при refresh сохранять данные | prototype UI rules требуют states; overlay в коде не даёт устойчивого stale-content contract |
 | Primary create + chat в fixed/absolute dock; mobile create скрыт | Сохранить это как reference-backed вариант, не как правило shell | Конкретный placement и mobile behavior принадлежат `page-actions` pattern или UX solution |
 | Карточка открывает route modal; advanced filter открывает Drawer | Зафиксировать разные намерения полного и вспомогательного сценария без предписания surface type | Выбор поверхности делегирован соответствующим patterns и UX solution |
-| Drawer импортируется из `[источник не включён]`, UI primitives — из UI Kit | Нормировать только подтверждённые UI Kit exports; Drawer оставить open question | frontend rules запрещают скрытый facade; доступный component index не подтверждает этот export |
+| Drawer импортируется из `@example/components`, UI primitives — из UI Kit | Нормировать только подтверждённые UI Kit exports; Drawer оставить open question | frontend rules запрещают скрытый facade; доступный component index не подтверждает этот export |
 | Локальные tokens соседствуют с rgba shadows | Только theme/UI Kit tokens | Явное frontend-правило выше repository implementation |
 | В references повторяется floating/bottom placement page actions | `entity-list-page` нормирует наличие и назначение `page-actions` slot, но не конкретную геометрию или placement | Placement — самостоятельная композиционная задача; её определяет отдельный pattern или UX Solution |
 | Три исследованные реализации используют route-backed modal для полного объекта | Считать route-backed modal strong reference, но не universal requirement `entity-list-page` | Surface type зависит от пользовательского намерения и отдельного surface pattern |

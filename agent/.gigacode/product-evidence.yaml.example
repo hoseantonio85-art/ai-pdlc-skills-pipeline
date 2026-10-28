@@ -1,22 +1,24 @@
-# Copy to ~/.gigacode/product-evidence.yaml; do not commit filled-in version.
-# Paths/URLs are checked on the WORK COMPUTER and need access permissions.
-schema_version: 1
+# Copy to ~/.gigacode/product-evidence.yaml (private, do NOT commit).
+# This file describes source LOCATORS, not evidence that a tool has read the sources.
+version: 1
 products:
   norm:
     specifications:
+      local_root: ""      # absolute local path, approved environment only
+      index_path: ""
+      index_url: ""       # only approved URL that tooling can actually fetch
+    analytical_specs:
       local_root: ""
       index_url: ""
     ui_kit:
-      package_path: ""
+      package_path: ""    # path to existing installed/package file; not bundled
       docs_root: ""
       docs_url: ""
     repositories:
       frontend_root: ""
       backend_root: ""
-    design_references:
-      local_root: ""
-      index_url: ""
     frontend_rules:
-      local_root: ""       # approved additional frontend standards/toolchain evidence, optional
-      index_url: ""        # allowlisted docs, optional
-      toolchain_root: ""   # shared TS/Biome config and package evidence, optional
+      local_root: ""      # optional additional target-specific rules
+      toolchain_path: ""
+    visual_references:
+      local_root: ""

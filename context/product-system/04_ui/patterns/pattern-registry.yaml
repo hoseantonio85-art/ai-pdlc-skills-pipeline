@@ -1,6 +1,6 @@
-schema_version: 2
+schema_version: 1
 context_id: norm
-status: working_patterns_historical_design_context_not_release_verified
+status: reference_backed_mvp
 adaptation_policy:
   model: invariants_strong_defaults_references
   existing_pattern_is: strong_default_not_rigid_template
@@ -12,21 +12,27 @@ adaptation_policy:
 patterns:
 - id: entity-list-page
   title: Страница списка сущностей
-  status: draft_design_guidance
+  status: draft
   maturity: reference-backed
   implementation: guidance
   category: page
   path: entity-list-page.md
   version: 0.1.0
+  evidence:
+    repositories: 3
+    implementations: 3
   delegated_patterns:
   - entity-card
   - filter-toolbar
   - entity-details-surface
   - page-actions
   - auxiliary-drawer
+  review:
+    design: needs-review
+    frontend: needs-review
 - id: filter-bar-and-advanced-filter-drawer
   title: Панель фильтров с расширенным фильтром
-  status: draft_design_guidance
+  status: draft
   maturity: reference-backed
   category: filtering
   path: filter-bar-and-advanced-filter-drawer.md
@@ -47,9 +53,15 @@ patterns:
   - drawer-surface
   - results-surface
   - query-state-persistence
+  evidence:
+    repositories: 2
+    implementations: 2
+  review:
+    design: needs-review
+    frontend: needs-review
 - id: situational-overview
   title: Ситуационный обзор и интерактивная аналитика
-  status: draft_design_guidance
+  status: draft
   maturity: screenshot-and-ux-backed
   category: analytics
   path: situational-overview.md
@@ -62,9 +74,16 @@ patterns:
   - relationship between overview, filters and detailed results
   - drill-down and cross-filter semantics
   - situation-first information hierarchy
+  evidence:
+    repositories: 0
+    screenshots: 1
+    ux_rules: 2
+  review:
+    design: needs-review
+    frontend: needs-review
 - id: large-entity-modal
   title: Большая модалка сущности
-  status: draft_design_guidance
+  status: draft
   maturity: reference-backed
   category: surface
   path: large-entity-modal.md
@@ -89,9 +108,15 @@ patterns:
   - auxiliary-drawer
   - confirmation-modal
   - modal-surface
+  evidence:
+    repositories: 3
+    implementations: 3
+  review:
+    design: needs-review
+    frontend: needs-review
 - id: entity-card
   title: Анатомия карточки сущности
-  status: draft_design_guidance
+  status: draft
   maturity: reference-backed
   category: content
   path: entity-card.md
@@ -112,9 +137,15 @@ patterns:
   - item-actions
   - selectable-list-item
   - list-virtualization
+  evidence:
+    repositories: 3
+    implementations: 3
+  review:
+    design: needs-review
+    frontend: needs-review
 - id: drawer-inside-modal
   title: Drawer внутри модалки
-  status: draft_design_guidance
+  status: draft
   maturity: reference-backed
   category: surface
   path: drawer-inside-modal.md
@@ -135,9 +166,15 @@ patterns:
   - confirmation-modal
   - surface-stack
   - related-entity-preview
+  evidence:
+    repositories: 3
+    implementations: 3
+  review:
+    design: needs-review
+    frontend: needs-review
 - id: modal-form
   title: Форма в модалке
-  status: draft_design_guidance
+  status: draft
   maturity: reference-backed
   category: form
   path: modal-form.md
@@ -160,9 +197,15 @@ patterns:
   - staged-form
   - attachment-field
   - auxiliary-drawer
+  evidence:
+    repositories: 2
+    implementations: 2
+  review:
+    design: needs-review
+    frontend: needs-review
 - id: collection-presentation
   title: Представление множества
-  status: draft_design_guidance
+  status: draft
   maturity: reference-backed
   category: collection
   path: collection-presentation.md
@@ -172,9 +215,14 @@ patterns:
     reusable_component: false
   normative_scope:
   - choose decision registry vs navigation collection vs compact content/file list by user intent
+  evidence:
+    owner_html_references: 3
+  review:
+    design: needs-review
+    frontend: needs-review
 - id: semantic-form-section
   title: Смысловая секция формы
-  status: draft_design_guidance
+  status: draft
   maturity: reference-backed
   category: form
   path: semantic-form-section.md
@@ -185,9 +233,14 @@ patterns:
   normative_scope:
   - meaning/helper/controls hierarchy
   - preferred side-label desktop composition
+  evidence:
+    owner_html_references: 3
+  review:
+    design: needs-review
+    frontend: needs-review
 - id: related-entity-preview
   title: Превью связанной сущности
-  status: draft_design_guidance
+  status: draft
   maturity: reference-backed
   category: relationship
   path: related-entity-preview.md
@@ -198,9 +251,14 @@ patterns:
   normative_scope:
   - minimal linked-entity context
   - transition to full object without duplicating Object View
+  evidence:
+    owner_html_references: 3
+  review:
+    design: needs-review
+    frontend: needs-review
 - id: workflow-footer
   title: Подвал действий workflow
-  status: draft_design_guidance
+  status: draft
   maturity: reference-backed
   category: actions
   path: workflow-footer.md
@@ -211,39 +269,81 @@ patterns:
   normative_scope:
   - stable completion actions for create/edit/workflow tasks
   - primary/secondary/pending behavior
-loading_rule: Read this compact registry, then only the selected runtime/spec/organism. Do not bulk-load all patterns.
+  evidence:
+    owner_html_references: 4
+  review:
+    design: needs-review
+    frontend: needs-review
+loading_rule: Load only a pattern selected for the current surface.
 runtime_overlay:
-  registry-page:
-    path: runtime/registry-page.md
-    authoring_patterns:
-    - entity-list-page
-    - filter-bar-and-advanced-filter-drawer
-  entity-card:
-    path: runtime/entity-card.md
-    authoring_patterns:
-    - entity-card
-  object-modal-view:
-    path: runtime/object-modal-view.md
-    authoring_patterns:
-    - large-entity-modal
-    shared_shell_spec: specs/modal.md
-  drawer:
-    path: runtime/drawer.md
-    authoring_patterns:
-    - drawer-inside-modal
-    - filter-bar-and-advanced-filter-drawer
-    shared_shell_spec: specs/drawer.md
-  situational-overview:
-    path: runtime/situational-overview.md
-    authoring_patterns:
-    - situational-overview
-product_profiles:
-  norm:
-    visual: context product visual rules and local starter
-    authority: historical design context; verify target UI Kit
-  orm:
-    status: not_connected
+  loading_policy:
+    default: index-first
+    max_runtime_patterns_per_task: 4
+    max_organisms_per_task: 3
+    max_visual_references_per_task: 2
+    full_audit_on_demand_only: true
+  shared_shell_specs:
+    modal:
+      path: specs/modal.md
+      status: canonical-draft
+    drawer:
+      path: specs/drawer.md
+      status: canonical-draft
+  runtime_patterns:
+    registry-page:
+      path: runtime/registry-page.md
+      authoring_patterns:
+      - entity-list-page
+      - filter-bar-and-advanced-filter-drawer
+      organisms:
+      - registry-page-controls
+      historical_composition_reference: ../references/html/norm-vertical-slice/index.html#registry
+      norm_reference: ../references/html/starter/index.html
+    situational-overview:
+      path: runtime/situational-overview.md
+      authoring_patterns:
+      - situational-overview
+      - entity-list-page
+      selection_rule: explicit_check_on_registry_and_monitoring_pages
+      historical_composition_reference: ../references/html/situational-overview/index.html
+    entity-card-runtime:
+      path: runtime/entity-card.md
+      authoring_patterns:
+      - entity-card
+      historical_composition_reference: ../references/html/norm-vertical-slice/index.html#entity-card
+      norm_reference: ../references/html/starter/index.html
+    object-modal-view:
+      path: runtime/object-modal-view.md
+      authoring_patterns:
+      - large-entity-modal
+      shared_shell_spec: specs/modal.md
+      organisms:
+      - object-action-meta-zone
+      canonical_overrides:
+      - object_view_footer: none
+      - object_actions_placement: action-meta-zone
+      historical_composition_reference: ../references/html/norm-vertical-slice/index.html#object-modal
+      norm_reference: ../references/html/starter/index.html
+    drawer-runtime:
+      path: runtime/drawer.md
+      authoring_patterns:
+      - drawer-inside-modal
+      - filter-bar-and-advanced-filter-drawer
+      shared_shell_spec: specs/drawer.md
+      historical_composition_reference: ../references/html/norm-vertical-slice/index.html#drawer
+      norm_reference: ../references/html/starter/index.html
+  product_profiles:
+    norm:
+      object_modal_width: 1320
+      object_modal_presentation: overlay-workspace
+      object_view_action_meta_zone: true
+      floating_create_chat_surface: supported-reference
+    orm:
+      object_modal_width: 1424
+      object_modal_presentation: near-fullscreen
+      object_view_action_meta_zone: true
+      floating_create_chat_surface: unknown
 implementation_policy:
-  authoring_patterns: guidance only, not reusable production component
-  html_starter: product-system/04_ui/starter/index.html
-  external_sources: ~/.gigacode/product-evidence.yaml
+  authoring_patterns: Guidance is not a production reusable component.
+  prototype_primitives: ../foundation/composition-index.json; event/AI subset implemented in starter.
+  historical_scenes: Composition illustration only; cannot override current Foundation/starter.

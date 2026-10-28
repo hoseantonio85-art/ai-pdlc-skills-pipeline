@@ -1,8 +1,23 @@
-# Copy to ~/.gigacode/product-contexts.yaml. Keep absolute local path private.
+# Шаблон: пользовательский реестр продуктовых контекстов.
+# При установке сохранить КАК ~/.gigacode/product-contexts.yaml (без .example).
+# Windows: %USERPROFILE%/.gigacode/product-contexts.yaml
+# Полную инструкцию см. в корневом README.md.
+#
+# Не подставляй URL GitHub в provider.root:
+# root — существующая АБСОЛЮТНАЯ локальная папка context/.
+# Не указывай здесь product-system/ или путь непосредственно к manifest.
 contexts:
   norm:
     status: ready
     provider:
       type: local_repository
-      root: "/ABSOLUTE/PATH/TO/skills-pipeline-norm-transfer/context"
+      root: "/ABSOLUTE/PATH/TO/skills-pipeline/context"
       manifest: "product-system/context-manifest.yaml"
+#
+# Пример дополнительного продукта (раскомментировать только когда установлен):
+#  orm:
+#    status: ready
+#    provider:
+#      type: local_repository
+#      root: "/ABSOLUTE/PATH/TO/orm/context"
+#      manifest: "product-system/context-manifest.yaml"

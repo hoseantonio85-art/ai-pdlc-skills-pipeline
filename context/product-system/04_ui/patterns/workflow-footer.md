@@ -44,3 +44,7 @@ last_reviewed: 2026-09-30
 ## Responsive behavior
 
 Actions остаются достижимыми и не перекрывают последнее поле/ошибку. На узкой ширине ordering сохраняет primary decision и безопасный cancel/close path.
+
+## Evidence
+
+Risk/Event/Measure forms and views подтверждают footer family; Universal Object Modal и `object-action-meta-zone` задают target direction для read-only actions.

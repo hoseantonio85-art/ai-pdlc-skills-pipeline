@@ -1,0 +1,48 @@
+schema_version: 5
+context_id: norm
+stages:
+  01_product_intent_and_brief:
+    skill: 01-formulate-product-intent-and-brief
+    loading_profile: for_product_intent_and_brief
+    output: 00_intent.md + 01_product_brief.md
+  02_ux_solution:
+    skill: 02-design-ux-solution
+    loading_profile: for_ux_solution
+    required_input: '00_intent.md + 01_product_brief.md: READY_FOR_UX'
+    output: 02_ux_solution.md
+  03_visual_html_prototype:
+    skill: 03-build-visual-html-prototype
+    loading_profile: for_visual_html_prototype
+    required_input: '00_intent.md + 01_product_brief.md + 02_ux_solution.md: READY_FOR_PROTOTYPE'
+    supported_mode: product_like_increment
+    output: 03_visual_prototype.md + runnable HTML prototype
+  03_5_ux_sync:
+    skill: 03-5-sync-ux-decisions
+    loading_profile: for_ux_sync
+    required_input: approved visual prototype + UX review
+    output: final 02_ux_solution.md + 03_5_ux_sync.md
+  04_sdd_specification:
+    skill: 04-build-sdd-specification
+    loading_profile: for_sdd_specification
+    required_input: '03_5_ux_sync.md: READY_FOR_SDD'
+    output: 04_sdd_specification.md
+  05_frontend_plan:
+    agent: frontend-planner
+    loading_profile: for_frontend_planning
+    required_input: '04_sdd_specification.md: APPROVED_FOR_ENGINEERING + engineering profile prerequisites'
+    output: 05_frontend_plan.md
+    profiles:
+      TARGET_REPO: existing target repository available
+      STANDALONE_ENGINEERING: greenfield/new service; target runtime unavailable by infrastructure fact
+  06_frontend_implementation:
+    agent: frontend-implementer
+    loading_profile: for_frontend_implementation
+    required_input: '05_frontend_plan.md: READY_FOR_FRONTEND_IMPLEMENTATION + selected FE increment'
+    output: frontend code + tests + 06_frontend_implementation.md
+  07_frontend_review:
+    agent: frontend-reviewer
+    loading_profile: for_frontend_review
+    required_input: implemented diff + 04_sdd_specification.md + 05_frontend_plan.md + selected engineering profile
+    output: 07_frontend_review.md
+rule: Later stages read earlier task artifacts and their own profile; they do not bulk-load all earlier context.
+context_version: 7

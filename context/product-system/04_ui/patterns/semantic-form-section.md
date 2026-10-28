@@ -40,3 +40,7 @@ last_reviewed: 2026-09-30
 - Field schema/validation остаётся у form-field/modal-form.
 - Binary Switch используется только для boolean on/off; named choices используют подходящий selection control.
 - Repeatable groups допустимы внутри controls, но их lifecycle не определяется этим pattern.
+
+## Evidence
+
+Risk Form, Event Form, Measure Form — repeatable evidence для `semantic-side-label` composition.

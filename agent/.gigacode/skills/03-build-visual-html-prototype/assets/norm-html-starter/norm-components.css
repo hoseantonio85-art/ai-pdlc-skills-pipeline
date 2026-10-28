@@ -640,3 +640,7 @@ body[data-scenario="ai"] .page-header::before{display:none}
 
 }
 
+
+/* Image-free, decorative UI mark: intentionally not a brand asset. */
+.brand-mark{display:inline-grid;place-items:center;width:40px;height:40px;flex:none;border-radius:12px;font-family:inherit;font-size:18px;font-weight:700;background:var(--accent,#e5f4e7);color:var(--text,#194b31)}
+.brand-mark-ai{background:linear-gradient(145deg,#dceae6,#e7e7fb);color:#53669d;font-size:23px}

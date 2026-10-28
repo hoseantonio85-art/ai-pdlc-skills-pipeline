@@ -1,6 +1,6 @@
 ---
 name: frontend-implementer
-description: "Implement the approved frontend increment in the selected target repository, following the engineering plan and installed standards. Use at stage 06."
+description: Реализует один явно выбранный frontend engineering increment из утверждённого 05_frontend_plan.md в TARGET_REPO или STANDALONE_ENGINEERING profile, соблюдая SDD, frontend standards, фактический UI Kit, TypeScript, i18n, accessibility, async и tests. Используй после READY_FOR_FRONTEND_IMPLEMENTATION.
 color: Automatic Color
 ---
 
@@ -27,10 +27,6 @@ color: Automatic Color
 
 Без выбранного increment не реализуй всю фичу автоматически: возьми первый незавершённый increment только если пользователь явно разрешил идти по плану последовательно.
 
-### Engineering norms preflight (for_frontend_implementation)
-
-При выбранном контексте в дополнение к `05-07-frontend-standards` загрузить `loading.for_frontend_implementation` из его `context-manifest.yaml` и прочитать **оба** документа `product-system/06_engineering/`. Указать в artefact, какие пути реально прочитаны. Не считать один skill заменой подробным стандартам. Проверить дополнительные `products.<context_id>.frontend_rules` и UI Kit только если они явно настроены и доступны. Отсутствие необязательных внешних правил не является blocker; отсутствие обязательного выбранного product context — `BLOCKED_BY_CONTEXT`.
-
 ## Product context preflight
 
 Если plan использует product patterns/organisms:
@@ -55,7 +51,7 @@ color: Automatic Color
 ### STANDALONE_ENGINEERING
 - создавай production-shaped React/TypeScript code, но не объявляй его production MFE;
 - local `createRoot`, router, demo-state switcher и preview shell изолируй от portable pages/components/stores/helpers;
-- Проверяй реальные пути, версии, UI Kit и технические зависимости **в локально подключённых источниках**; они не входят в публичный комплект.
+- используй `@example/ui-kit` напрямую по фактическим exports/types;
 - зависимости разрешай только через утверждённый corporate registry/Nexus, существующий workspace/cache или локальный package artifact; не коммить registry credentials/tokens;
 - локальный `.tgz` допустим как dependency source; не распаковывай/не копируй UI Kit source в приложение и не создавай facade;
 - production API не выдумывай: используй typed frontend port/interface + fixture/mock adapter и явно помечай неизвестный production contract;

@@ -1,31 +1,48 @@
 schema_version: 1
 context_id: norm
-status: historical_design_reference_not_production_verified
+status: reference_backed_mvp
 loading_rule: Load only organisms selected for the current surface after reading the pattern registry.
 organisms:
-- id: registry-page-controls
-  title: Registry Page Controls
-  runtime_path: registry-page-controls.md
-  use_with:
-  - entity-list-page
-  - filter-bar-and-advanced-filter-drawer
-  product_profiles:
-    norm: confirmed
-    orm: unknown
-  status: draft_design_guidance
-  evidence_status: external_reference_not_bundled
-- id: object-action-meta-zone
-  title: Object Action / Meta Zone
-  runtime_path: object-action-meta-zone.md
-  use_with:
-  - large-entity-modal
-  - object-modal-view
-  canonical_decisions:
-  - Object View has no common Footer.
-  - Object-level workflow, lifecycle and destructive actions belong to the right action/meta zone or its More actions.
-  - Create/Edit keep completion actions in a fixed Footer.
-  product_profiles:
-    norm: confirmed
-    orm: profile_expected
-  status: draft_design_guidance
-  evidence_status: external_reference_not_bundled
+  - id: registry-page-controls
+    title: Registry Page Controls
+    status: draft
+    scope: norm-confirmed-shared-candidate
+    runtime_path: registry-page-controls.md
+    use_with:
+      - entity-list-page
+      - filter-bar-and-advanced-filter-drawer
+    evidence:
+      repositories:
+        - external-product-frontend@[редакция исходника удалена]
+        - external-product-frontend@[редакция исходника удалена]
+      screenshots:
+        - Risks list 09-2026
+        - Measures list 09-2026
+        - Events list 09-2026
+    product_profiles:
+      norm: confirmed
+      orm: unknown
+
+  - id: object-action-meta-zone
+    title: Object Action / Meta Zone
+    status: draft
+    scope: shared-composition-with-product-profile
+    runtime_path: object-action-meta-zone.md
+    use_with:
+      - large-entity-modal
+      - object-modal-view
+    evidence:
+      repositories:
+        - external-product-frontend@[редакция исходника удалена]
+        - external-product-frontend@[редакция исходника удалена]
+      to_be:
+        - risk-Modals.png
+      screenshots:
+        - Right-action-meta-panel.png
+    canonical_decisions:
+      - Object View has no common Footer.
+      - Object-level workflow, lifecycle and destructive actions belong to the right action/meta zone or its More actions.
+      - Create/Edit keep completion actions in a fixed Footer.
+    product_profiles:
+      norm: confirmed
+      orm: profile_expected

@@ -22,13 +22,13 @@ description: >-
 4. возьми `provider.root` и `provider.manifest`;
 5. открой `<provider.root>/<provider.manifest>` и проверь `context_id`.
 
-Открой профиль `for_ux_solution`, foundation, затронутые services, `03_ux/ux_principles.md`, релевантные части `03_ux/ux_patterns.md`, compact UI pattern registry и policy адаптации композиции, если они входят в профиль. Registry используй как карту проверенных product surfaces/pattern families, но не как запрет на новую UX-композицию. Pixel geometry, Visual DNA, HTML references и UI Kit API на UX-этапе не загружай. Полные Modal/Drawer authoring specs открывай только если выбор/вложенность surface реально требует их правил. Для продукт без manifest и профиля верни `BLOCKED_BY_CONTEXT`.
+Открой профиль `for_ux_solution`, foundation, затронутые services, `03_ux/ux_principles.md`, релевантные части `03_ux/ux_patterns.md`, compact UI pattern registry и policy адаптации композиции, если они входят в профиль. Registry используй как карту проверенных product surfaces/pattern families, но не как запрет на новую UX-композицию. Pixel geometry, Visual DNA, HTML references и UI Kit API на UX-этапе не загружай. Полные Modal/Drawer authoring specs открывай только если выбор/вложенность surface реально требует их правил. Для NORM без manifest и профиля верни `BLOCKED_BY_CONTEXT`.
 
 Если существующий pattern хорошо решает задачу — используй его как strong default. Если не решает, разрешено предложить `composition-adaptation` или `new-pattern-candidate`: укажи ближайший pattern, что из его semantics сохраняется, почему нужен deviation и какую пользовательскую проблему он решает. Не придумывай новую визуальную систему и не нарушай canonical surface behavior.
 
 ## Analytical specs: selective UX context
 
-Analytical specs — on-demand evidence, а не обязательный payload. Если scope касается capability, для которого в `product-system/05_external/source_policy.md` есть spec:
+Analytical specs — on-demand evidence, а не обязательный payload. Если scope касается capability, для которого в `внешняя-спецификация-через-YAML` есть spec:
 
 1. выбери только релевантные capability specs;
 2. извлеки UX-significant facts: roles/permissions, lifecycle, states/actions, validation/business rules, async/error/retry behavior, object relationships и invariants;
@@ -84,7 +84,7 @@ Analytical specs — on-demand evidence, а не обязательный payloa
 - Drawer — зависимая задача, фильтры, настройка, выбор или дополнительный слой.
 - Inline/expand — короткая локальная деталь или действие.
 
-Классическую таблицу не используй как основной реестр по умолчанию. Drawer, Modal и Page выбирай по зависимости задачи и дальнейшим действиям, а не по произвольному размеру.
+Классическую таблицу не используй как основной реестр NORM. Drawer, Modal и Page выбирай по зависимости задачи и дальнейшим действиям, а не по произвольному размеру.
 
 ## Consistency check
 

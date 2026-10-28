@@ -171,6 +171,36 @@ Variants описывают intent, а не конкретные Risk Categories
 - Screen reader не воспринимает одновременно два активных dialogs без определённой stack semantics.
 - Loading/error/success объявляются в пределах Drawer без повторного чтения всего parent modal.
 
+## UI Kit dependencies
+
+Проверены по текущему `component-index.yaml`; props не нормируются.
+
+```yaml
+- component: Row
+  purpose: integration layout for drawer title, content and actions
+  api_status: verified
+- component: Col
+  purpose: optional responsive content grouping
+  api_status: verified
+- component: Title
+  purpose: auxiliary-context heading
+  api_status: verified
+- component: Text
+  purpose: supporting copy and state descriptions
+  api_status: verified
+- component: Button
+  purpose: close and delegated drawer-action intents
+  api_status: verified
+- component: Loader
+  purpose: auxiliary-content loading
+  api_status: verified
+- component: Alert
+  purpose: applicable contextual notice or recoverable feedback
+  api_status: verified
+```
+
+`Drawer` во всех references импортируется из `@example/components`, а не из подтверждённых UI Kit exports. Его concrete API (`inModal`, `position`, `fullHeight`, `width`) не нормируется; approved package/export остаётся open.
+
 ## Design tokens
 
 - Surface, overlay, text, spacing, border, shadow, focus и motion используют реальные UI Kit/theme tokens.
@@ -211,7 +241,21 @@ Variants описывают intent, а не конкретные Risk Categories
 - Обновлять parent только через typed outcome, не через скрытую взаимную mutation.
 - Тестировать focus entry/return, Escape one-layer-at-a-time, dirty/pending guard и parent preservation.
 - Проверять loading/empty/error независимо от parent states.
-- Не копировать widths и `[источник не включён]` props; сначала подтвердить approved Drawer API.
+- Не копировать widths и `@example/components` props; сначала подтвердить approved Drawer API.
+
+## Evidence
+
+| Repository | Revision | File | Что подтверждает | Ограничения |
+|---|---|---|---|---|
+| external-product-backend/external-product-frontend | [редакция исходника удалена] | `src/pages/ReadonlyAgentRisksForm/ReadonlyAgentRisksForm.tsx`; `components/RiskCategories/RiskCategories.tsx`; `components/FilesFooter/FilesFooter.tsx`; colocated styles | Два drawer intents внутри entity modal: category detail/actions и files; parent context сохраняется; optional footer | Несколько overlays без доказанного stack policy; width 749 и shared Drawer props локальны; domain workflow/file modes сложны |
+| external-product-backend/external-product-frontend | [редакция исходника удалена] | `src/pages/ReadonlyMeasureForm/ReadonlyMeasureForm.tsx`; `components/History/History.tsx`; `components/History/components/EmptyHistory/EmptyHistory.tsx`; colocated styles | Чистый read-only history Drawer, локальные loading/empty states, возвращение к measure modal | Width 850; history content domain-specific; focus/Escape/return не видны; Drawer из shared facade |
+| external-product-backend/external-product-frontend | [редакция исходника удалена] | `src/pages/AssesmentTaskForm/components/FilesDrawer/FilesDrawer.tsx`; `types.ts`; `styles.module.scss`; `src/pages/AssesmentTaskForm/AssesmentTaskForm.tsx` | Read-only source/files Drawer без ухода из task modal; contextual alert и download intent | Narrow use case; нет footer actions/empty/error UI; width 800 и concrete `inModal` API локальны; download error проглатывается |
+
+## Reference implementation
+
+Основной reference — Measures `ReadonlyMeasureForm` + `History`: наиболее чистый auxiliary read-only Drawer с loading/empty внутри parent modal. Дополнительные references: Agent Risks — actions и два разных intents; Risks Assessment Files — source transparency без footer.
+
+Reference implementation является доказательством и примером реализации. Его код, props, геометрия и локальные domain-specific решения не копируются автоматически и не становятся нормативными, если это отдельно не указано в паттерне.
 
 ## Conflicts and decisions
 
@@ -237,7 +281,7 @@ Variants описывают intent, а не конкретные Risk Categories
 
 **Reason:** frontend rules требуют verified exports; width может меняться независимо.
 
-**Evidence:** three Drawer usages, external UI Kit component index (if connected).
+**Evidence:** three Drawer usages, `component-index.yaml`.
 
 ### Footer actions
 
@@ -297,3 +341,4 @@ Variants описывают intent, а не конкретные Risk Categories
 - [ ] Responsive presentation сохраняет auxiliary intent и return path.
 - [ ] Только engineering stages: Drawer dependency/API проверены; fixed widths/props references не скопированы.
 - [ ] Domain history/files/category code не включён в composition contract.
+

@@ -15,7 +15,7 @@
 | Дата последнего изменения | |
 | Затронутый сервис | |
 | Связанные сервисы | |
-| Context ID | `продукт` / `другой продукт` / `none` |
+| Context ID | `norm` / `orm` / `none` |
 | Context provider | `local_repository` / `confluence_mcp` / `none` |
 | Context status | `connected` / `partial` / `needs-review` / `unavailable` / `not-used-by-choice` |
 | Context root/resource | |

@@ -1,0 +1,47 @@
+schema_version: 5
+context_id: norm
+skills:
+- name: 01-formulate-product-intent-and-brief
+  stage: '01'
+  context_profile: for_product_intent_and_brief
+  expected_output: 00_intent.md + 01_product_brief.md
+- name: 02-design-ux-solution
+  stage: '02'
+  context_profile: for_ux_solution
+  required_input: '00_intent.md + 01_product_brief.md: READY_FOR_UX'
+  expected_output: 02_ux_solution.md
+- name: 03-build-visual-html-prototype
+  stage: '03'
+  context_profile: for_visual_html_prototype
+  required_input: '02_ux_solution.md: READY_FOR_PROTOTYPE'
+  expected_output: 03_visual_prototype.md + runnable HTML prototype
+- name: 03-5-sync-ux-decisions
+  stage: '03.5'
+  context_profile: for_ux_sync
+  required_input: approved visual prototype + UX review
+  expected_output: final 02_ux_solution.md + 03_5_ux_sync.md
+- name: 04-build-sdd-specification
+  stage: '04'
+  context_profile: for_sdd_specification
+  required_input: '03_5_ux_sync.md: READY_FOR_SDD'
+  expected_output: 04_sdd_specification.md
+- name: frontend-planner
+  stage: '05'
+  context_profile: for_frontend_planning
+  required_input: '04_sdd_specification.md: APPROVED_FOR_ENGINEERING + TARGET_REPO or eligible STANDALONE_ENGINEERING'
+  expected_output: 05_frontend_plan.md
+- name: frontend-implementer
+  stage: '06'
+  context_profile: for_frontend_implementation
+  required_input: '05_frontend_plan.md: READY_FOR_FRONTEND_IMPLEMENTATION + selected increment'
+  expected_output: frontend code + tests + 06_frontend_implementation.md
+- name: frontend-reviewer
+  stage: '07'
+  context_profile: for_frontend_review
+  required_input: implemented diff + 04 SDD + 05 plan + engineering profile
+  expected_output: 07_frontend_review.md
+context_contract:
+  manifest: product-system/context-manifest.yaml
+  selector: .gigacode/product-context.yaml
+  registry: ~/.gigacode/product-contexts.yaml
+context_version: 7

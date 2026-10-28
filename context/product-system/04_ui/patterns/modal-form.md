@@ -183,6 +183,42 @@ last_reviewed: 2026-08-07
 - Footer следует после body в reading order; sticky presentation не меняет DOM order.
 - Progress сообщает current/total semantics; декоративные segments скрыты от assistive tech.
 
+## UI Kit dependencies
+
+Проверены по текущему `component-index.yaml`; props не нормируются.
+
+```yaml
+- component: Row
+  purpose: form sections and responsive regional layout
+  api_status: verified
+- component: Col
+  purpose: optional section grouping
+  api_status: verified
+- component: Title
+  purpose: form heading
+  api_status: verified
+- component: Text
+  purpose: section help, progress and feedback copy
+  api_status: verified
+- component: Button
+  purpose: explicit form action intents when composing a verified footer
+  api_status: verified
+- component: Loader
+  purpose: initial and submit progress
+  api_status: verified
+- component: LinearProgress
+  purpose: optional completion indication
+  api_status: verified
+- component: Alert
+  purpose: applicable warning or recoverable feedback
+  api_status: verified
+- component: ScrollBar
+  purpose: bounded form-body scrolling
+  api_status: verified
+```
+
+`WorkflowActions`, `ConfirmationModal`, `ViewMessages`, `Drawer` и validation helpers в references импортируются из `@example/components` или local code и не зарегистрированы как обязательные UI Kit dependencies.
+
 ## Design tokens
 
 - Использовать реальные UI Kit/theme tokens для surface, spacing, text, validation, focus, progress и footer separation.
@@ -228,6 +264,19 @@ last_reviewed: 2026-08-07
 - Тестировать create/edit, initial load failure, validation, double submit, server retry, dirty close, success and nested auxiliary surface.
 - Проверять UI Kit exports/types; shared facade APIs не переносить по памяти.
 
+## Evidence
+
+| Repository | Revision | File | Что подтверждает | Ограничения |
+|---|---|---|---|---|
+| external-product-backend/external-product-frontend | [редакция исходника удалена] | `src/pages/EditMeasureForm/EditMeasureForm.tsx`; `types.ts`; `styles.module.scss`; `components/EditDescription/EditDescription.tsx`; `src/pages/CreateMeasureView/CreateMeasureView.tsx`; router config | Наиболее полный create/edit modal form: title, progress, scroll body, sections, validation focus, messages, submit pending, footer actions, dirty-close confirmation, success navigation | Create/edit intertwined; shared APIs unverified; raw `No measure`; global overlay saving; HTML hint Drawer/security issue; fixed geometry/rgba |
+| external-product-backend/external-product-frontend | [редакция исходника удалена] | `src/pages/CreateAgentRisksView/CreateAgentRisksView.tsx`; `styles.module.scss`; `components/EditDescription/EditDescription.tsx`; types; router config | Второй production form shell: initial loading, title, current/total progress, sections, validation, Save/Continue footer and success navigation | Проверен только step 1 of 3; custom step segments; error catch hides failure; no explicit dirty-close; shared WorkflowActions unverified |
+
+## Reference implementation
+
+Основной reference — Measures `EditMeasureForm.tsx` вместе с `EditDescription` и `CreateMeasureView`: наиболее полное покрытие form lifecycle. Дополнительный reference — Agent Risks `CreateAgentRisksView.tsx` для повторяемого shell и staged intent.
+
+Reference implementation является доказательством и примером реализации. Его код, props, геометрия и локальные domain-specific решения не копируются автоматически и не становятся нормативными, если это отдельно не указано в паттерне.
+
 ## Conflicts and decisions
 
 ### Create и edit
@@ -240,7 +289,7 @@ last_reviewed: 2026-08-07
 
 **Reason:** create/edit могут развиваться независимо при одинаковых form invariants.
 
-**Evidence:** Measures `EditMeasureForm`/`форма создания меры`; Agent `CreateAgentRisksView`.
+**Evidence:** Measures `EditMeasureForm`/`CreateMeasureView`; Agent `CreateAgentRisksView`.
 
 ### Validation and feedback
 
@@ -288,6 +337,7 @@ last_reviewed: 2026-08-07
 
 **Reason:** intent and surface rules have priority over component name.
 
+**Evidence:** Agent `ModalAction.tsx`; approved Modal/Drawer rules.
 
 ### Shared dependencies
 
@@ -299,7 +349,7 @@ last_reviewed: 2026-08-07
 
 **Reason:** frontend rules forbid invented or hidden APIs.
 
-**Evidence:** imports, external UI Kit component index (if connected), frontend rules.
+**Evidence:** imports, `component-index.yaml`, frontend rules.
 
 ## Open questions
 
@@ -324,3 +374,4 @@ last_reviewed: 2026-08-07
 - [ ] Double submit предотвращён, success outcome однозначен.
 - [ ] Responsive layout сохраняет labels, errors, footer и progress meaning.
 - [ ] Только engineering stages: UI Kit exports проверены; shared APIs, geometry и product schema не нормированы.
+

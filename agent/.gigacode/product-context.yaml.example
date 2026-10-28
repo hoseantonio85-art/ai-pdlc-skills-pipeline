@@ -1,2 +1,7 @@
+# Шаблон: selector продуктового контекста ДЛЯ ОДНОГО рабочего проекта.
+# Создай <рабочий-проект>/.gigacode/product-context.yaml (без .example).
+# ID должен совпадать с ключом contexts.norm в ~/.gigacode/product-contexts.yaml
+# и context_id в context/product-system/context-manifest.yaml.
+# Этот файл не регистрирует пути к контексту — путь задаётся user-level registry.
 version: 1
 context_id: norm

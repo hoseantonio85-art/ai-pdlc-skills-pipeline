@@ -10,8 +10,7 @@
     "contracts_max": 3,
     "raw_references_max": 2,
     "qa": "visual-qa.md",
-    "implementation_guide": "starter-contract.md",
-    "source_status": "visual_references_not_bundled; use product-evidence.yaml for authorized local or URL references"
+    "implementation_guide": "starter-contract.md"
   },
   "patterns": [
     {

@@ -1,0 +1,92 @@
+schema_version: 2
+context_id: norm
+context_version: 7
+metadata_policy:
+  unknown_is_literal: true
+  context_current_does_not_mean_production_current: true
+  owner_review_required_for_new_product_facts: false
+  user_designated_openspec_as_authority: false
+  external_sources_require_verification: true
+sources:
+- id: norm_openspec_canonical
+  type: canonical_specifications
+  status: external_not_configured
+  authority: pending_actual_source_verification
+  evidence_config: ~/.gigacode/product-evidence.yaml
+- id: product_foundation
+  type: normalized_documents
+  status: current_in_context
+  authority: product_model
+  owner: unknown
+  last_reviewed: unknown
+  paths:
+  - product-system/01_product_foundation/mission.md
+  - product-system/01_product_foundation/product_philosophy.md
+  - product-system/01_product_foundation/service_goal.md
+- id: service_model
+  type: normalized_documents
+  status: current_in_context
+  authority: normalized_from_canonical_openspec
+  owner: unknown
+  last_reviewed: '2026-10-14'
+  paths:
+  - product-system/02_services/services_map.md
+  - product-system/02_services/*.md
+- id: business_digest
+  type: normalized_business_context
+  status: current_in_context
+  authority: compact_index_of_single_product_context
+  owner: unknown
+  last_reviewed: '2026-10-14'
+  paths:
+  - product-system/07_business_context/service_registry.yaml
+  - product-system/07_business_context/role_registry.yaml
+  - product-system/07_business_context/capability_registry.yaml
+  - product-system/07_business_context/common_business_rules.md
+  - product-system/07_business_context/product_decisions.md
+  - product-system/07_business_context/glossary.md
+  - product-system/07_business_context/known_constraints.md
+  derived_from:
+  - service_model
+  - norm_openspec_canonical
+- id: measures_code_snapshot_review_2026_10_23
+  type: reviewed_external_repository_snapshots
+  status: conclusions_documented_code_not_embedded
+  authority: as_is_evidence_for_measures_only
+  reviewed_at: '2026-10-23'
+  repositories:
+  - external-product-frontend
+  - external-product-backend
+  primary_document: product-system/02_services/measures.md
+  open_questions: product-system/07_business_context/measures_questions.md
+  note: Production and live repository revision not verified; this source does not change OpenSpec authority for
+    other services.
+- id: ui_kit_0_283_0
+  type: package
+  status: package_external_not_bundled
+  authority: historical_docs_reference_verify_live_types
+  evidence_config: ~/.gigacode/product-evidence.yaml
+- id: frontend_standards
+  type: document
+  status: normalized_and_retained
+  authority: engineering_rule
+  path: sources/frontend-rules/frontend-standards-subagent.md
+- id: component_structure_rules
+  type: document
+  status: normalized_and_retained
+  authority: engineering_rule
+  path: sources/frontend-rules/component-structure-data-barrels-ui-kit.md
+- id: analytical_specs
+  type: document_set
+  status: external_not_configured
+  authority: pending_actual_source_verification
+  evidence_config: ~/.gigacode/product-evidence.yaml
+future_sources:
+- id: current_product_frontends
+  status: external_provider_not_connected
+- id: release_registry
+  status: not_connected
+- id: permissions_matrix
+  status: not_connected
+- id: product_analytics
+  status: not_connected

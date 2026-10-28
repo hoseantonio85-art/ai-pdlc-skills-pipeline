@@ -1,0 +1,57 @@
+schema_version: 3
+context_id: norm
+sources:
+  product_knowledge:
+    status: ready
+    type: local_repository
+    root: .
+    manifest: product-system/context-manifest.yaml
+  ui_kit:
+    status: external_not_connected_in_package
+    type: package_and_docs
+    registry: product-system/04_ui/ui_sources.yaml
+    evidence_config: ~/.gigacode/product-evidence.yaml
+  current_frontend:
+    status: external_not_connected_in_package
+    type: external_local_repository
+    description: Подключаемое на рабочей машине evidence; из этого архива недоступно.
+    evidence_config: ~/.gigacode/product-evidence.yaml
+  current_backend:
+    status: external_not_connected_in_package
+    type: external_local_repository
+    description: Подключаемое на рабочей машине evidence; из этого архива недоступно.
+    evidence_config: ~/.gigacode/product-evidence.yaml
+  release_registry:
+    status: not_connected
+    type: file_or_mcp
+    location: ''
+  product_analytics:
+    status: not_connected
+    type: file_or_mcp
+    location: ''
+  current_interface:
+    status: task_specific
+    type: code_or_task_attachments
+    description: GigaCode MVP relies on code and task descriptions; screenshots are not canonical context.
+  product_master_specs:
+    status: external_not_connected_in_package
+    type: openspec_markdown
+    description: Подключаемое на рабочей машине evidence; из этого архива недоступно.
+    evidence_config: ~/.gigacode/product-evidence.yaml
+  measures_as_is_code_review:
+    status: external_not_connected_in_package
+    type: frontend_backend_repository_snapshots
+    reviewed_at: '2026-10-23'
+    primary_document: product-system/02_services/measures.md
+    questions_document: product-system/07_business_context/measures_questions.md
+    production_verified: false
+    evidence_config: ~/.gigacode/product-evidence.yaml
+rules:
+- Use OpenSpec as business source of truth for existing NORM services except measures AS IS snapshot behavior, for
+  which reviewed FE/BE code has priority; OpenSpec remains normative requirements.
+- For measures tasks read the relevant sections of the full primary_document from service_registry.yaml before producing
+  task, UX, prototype or implementation plan.
+- Do not infer a specific production release date or feature-flag from a requirement.
+- Load only scoped original specs when exact transitions/permissions/formulas are needed.
+- Record source revision in each task increment.
+context_version: 7

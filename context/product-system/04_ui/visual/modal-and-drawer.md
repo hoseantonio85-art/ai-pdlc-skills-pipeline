@@ -27,6 +27,5 @@ Preserve the state of every underlying layer. Avoid stacking several scrims. Esc
 
 These are MVP UX/visual rules. Detailed production focus management and component API belong to the later UI Kit implementation stage.
 
-## Drawer — актуальная редакция
 
-Тема выбирается продуктом независимо от scope: NORM — Close в Header и отдельная скруглённая поверхность; ORM — внешний Close и правый край scope. Каскад не ограничен двумя слоями, каждый новый Drawer имеет overlay, Escape по умолчанию выключен. По подробностям читать `../patterns/specs/drawer.md` и `../patterns/runtime/drawer.md`, а старые конфликтующие описания не использовать.
+**Актуальный override Drawer:** для Drawer Escape off by default, Close только верхнего слоя, каждый новый Drawer со своим overlay. Геометрия и два theme-сценария описаны в `../patterns/specs/drawer.md`. Старые общие утверждения о Escape распространяются на Modal в рамках её контракта, но не на Drawer.

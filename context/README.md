@@ -1,15 +1,25 @@
-# Контекст NORM — рабочая переносимая версия
+> **Пакетная политика 7.0.3 precise clean:** внешние технические OpenSpec, код UI Kit, фото и репозитории не входят в поставку. Исторические описания и каталоги — локально, реальные источники проверяются через `~/.gigacode/product-evidence.yaml`.
 
-Содержит историческую предметную модель 14 сервисов, 56 capabilities, 12 ролевых профилей, полное описание «Мер» и его реестр вопросов, а также UX/UI-паттерны и нейтральный HTML starter.
+# NORM Product Context v4
 
-- `product-system/01_foundation/` — основа и философия.
-- `product-system/02_domain/services/` — все сервисы и карта.
-- `product-system/02_domain/registry/` — реестры, правила, вопросы «Мер».
-- `product-system/03_ux/` — UX.
-- `product-system/04_ui/` — UI, визуальные принципы, паттерны, организм и starter.
-- `product-system/05_external/` — подключение внешних источников.
-- `product-system/context-manifest.yaml` — маршрутизация чтения.
+Рабочий product-context provider для Skills Pipeline v7.
 
-Файлы `04_ui/patterns/specs/*.md` — **дизайн-контракты**, а не внешние OpenSpec и не исходники. Они сохранены намеренно.
+## Точка входа
 
-**Контекст не классифицирован как публичный.** Для переноса в разрешённое рабочее окружение; перед публикацией нужны проверка ИБ и согласование владельца информации.
+`product-system/context-manifest.yaml`
+
+Manifest определяет stage-aware загрузку. Ранние продуктовые этапы используют compact registries и не bulk-load полный service map. Подробные service documents, analytical specs, UI runtime patterns и package evidence читаются on demand.
+
+## Состав
+
+- `product-system/01_product_foundation` — миссия и продуктовая философия;
+- `product-system/02_services` — подробная сервисная модель;
+- `product-system/03_ux` — UX principles/patterns;
+- `product-system/04_ui` — visual rules, patterns, organisms, starter и UI Kit index;
+- `product-system/07_business_context` — compact business layer v4;
+- `sources` — on-demand evidence (analytical specs, UI Kit package, frontend rules);
+- `tools` — validation/packaging utilities.
+
+Исторические patch notes, migration reports, authoring audits и screenshots не входят в runtime distribution v4. Их нормализованные выводы уже зафиксированы в рабочих правилах.
+
+**Актуализация бизнес-истины:** исходные OpenSpec не входят в архив; исторически нормализованные сведения сохранены в предметной модели. Их требования встроены в существующие `02_services/` и `07_business_context/`, без добавления конкурирующего overlay.

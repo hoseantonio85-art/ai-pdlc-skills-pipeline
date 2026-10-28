@@ -1,0 +1,337 @@
+schema_version: 1
+context_id: norm
+context_version: 7
+status_note: Capabilities исторической продуктовой модели; актуальность сверяется по подключаемым внешним источникам.
+source:
+- product-system/02_services/services_map.md
+capabilities:
+- id: CAP-RISK-001
+  service: risk_analysis
+  description: показывать текущую картину рисковой ситуации
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-RISK-002
+  service: risk_analysis
+  description: выделять риски, требующие внимания
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-RISK-003
+  service: risk_analysis
+  description: объяснять причины оценки и влияющие факторы
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-RISK-004
+  service: risk_analysis
+  description: связывать вывод с инцидентами, источниками и внешними сигналами
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-RISK-005
+  service: risk_analysis
+  description: поддерживать переход к решению или мерам
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-RISK-006
+  service: risk_analysis
+  description: предоставлять общую картину руководителю
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-INC-001
+  service: incidents
+  description: фиксировать произошедший инцидент
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-INC-002
+  service: incidents
+  description: просматривать и анализировать инциденты
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-INC-003
+  service: incidents
+  description: определять значимость и влияние
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-INC-004
+  service: incidents
+  description: связывать инцидент с риском
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-INC-005
+  service: incidents
+  description: инициировать реакцию или переход к мерам
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-MEA-001
+  service: measures
+  description: фиксировать действие по снижению риска
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-MEA-002
+  service: measures
+  description: назначать или определять исполнителя
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-MEA-003
+  service: measures
+  description: контролировать статус выполнения
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-MEA-004
+  service: measures
+  description: показывать связь меры с риском или инцидентом
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-MEA-005
+  service: measures
+  description: возвращать информацию о выполнении в рисковый контекст
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-SRC-001
+  service: sources
+  description: загружать документы
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-SRC-002
+  service: sources
+  description: указывать тип или назначение источника
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-SRC-003
+  service: sources
+  description: обрабатывать документ
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-SRC-004
+  service: sources
+  description: использовать документ в анализе
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-SRC-005
+  service: sources
+  description: показывать связь документа с выводом или риском
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-SRC-006
+  service: sources
+  description: управлять методологическими материалами
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-MON-001
+  service: monitoring
+  description: обнаруживать внешнее событие
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-MON-002
+  service: monitoring
+  description: показывать значимый сигнал пользователю
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-MON-003
+  service: monitoring
+  description: объяснять потенциальное влияние
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-MON-004
+  service: monitoring
+  description: указывать затронутые риски или процессы
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-MON-005
+  service: monitoring
+  description: предлагать пересмотр, действие или наблюдение
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-AI-001
+  service: ai_assistant
+  description: отвечать на вопросы о рисковой ситуации
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-AI-002
+  service: ai_assistant
+  description: объяснять выводы
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-AI-003
+  service: ai_assistant
+  description: собирать данные из нескольких сервисов
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-AI-004
+  service: ai_assistant
+  description: показывать проактивные сообщения
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-AI-005
+  service: ai_assistant
+  description: помогать перейти к объекту или действию
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-AI-006
+  service: ai_assistant
+  description: помогать сформулировать решение или черновик
+  product_model_status: confirmed
+  production_status: unknown
+- id: CAP-RREG-001
+  service: risk_registry
+  description: Вести реестр и карточки версионируемых рисков
+  product_model_status: specified
+  production_status: not_release_verified
+  source_spec: внешняя-спецификация-через-YAML
+- id: CAP-RREG-002
+  service: risk_registry
+  description: Использовать server-driven формы, workflow и историю
+  product_model_status: specified
+  production_status: not_release_verified
+  source_spec: внешняя-спецификация-через-YAML
+- id: CAP-RREG-003
+  service: risk_registry
+  description: Показывать финансовые эффекты и КИР
+  product_model_status: specified
+  production_status: not_release_verified
+  source_spec: внешняя-спецификация-через-YAML
+- id: CAP-LIM-001
+  service: limit_campaign
+  description: Вести годовые кампании и индивидуальные лимиты по рискам
+  product_model_status: specified
+  production_status: not_release_verified
+  source_spec: внешняя-спецификация-через-YAML
+- id: CAP-LIM-002
+  service: limit_campaign
+  description: Согласовывать лимиты по состоянию и роли
+  product_model_status: specified
+  production_status: not_release_verified
+  source_spec: внешняя-спецификация-через-YAML
+- id: CAP-LIM-003
+  service: limit_campaign
+  description: Показывать потери и использование лимитов
+  product_model_status: specified
+  production_status: not_release_verified
+  source_spec: внешняя-спецификация-через-YAML
+- id: CAP-AGENT-001
+  service: agent_risks
+  description: Регистрировать и просматривать агентов и версии
+  product_model_status: specified
+  production_status: not_release_verified
+  source_spec: внешняя-спецификация-через-YAML
+- id: CAP-AGENT-002
+  service: agent_risks
+  description: Запускать и проверять оценку риска агента
+  product_model_status: specified
+  production_status: not_release_verified
+  source_spec: внешняя-спецификация-через-YAML
+- id: CAP-AGENT-003
+  service: agent_risks
+  description: Работать с рекомендациями и связями мер
+  product_model_status: specified
+  production_status: not_release_verified
+  source_spec: внешняя-спецификация-через-YAML
+- id: CAP-PROD-001
+  service: product_risks
+  description: Вести реестр и карточки продуктов
+  product_model_status: specified
+  production_status: not_release_verified
+  source_spec: внешняя-спецификация-через-YAML
+- id: CAP-PROD-002
+  service: product_risks
+  description: Оценивать поведенческие риски продукта и результаты
+  product_model_status: specified
+  production_status: not_release_verified
+  source_spec: внешняя-спецификация-через-YAML
+- id: CAP-PROD-003
+  service: product_risks
+  description: Скачивать отчёт об оценке
+  product_model_status: specified
+  production_status: not_release_verified
+  source_spec: внешняя-спецификация-через-YAML
+- id: CAP-CONT-001
+  service: contractors
+  description: Вести контрагентов и договоры
+  product_model_status: specified
+  production_status: not_release_verified
+  source_spec: внешняя-спецификация-через-YAML
+- id: CAP-CONT-002
+  service: contractors
+  description: Проводить проверки контрагента/договора
+  product_model_status: specified
+  production_status: not_release_verified
+  source_spec: внешняя-спецификация-через-YAML
+- id: CAP-CONT-003
+  service: contractors
+  description: Показывать задолженность и результаты проверок
+  product_model_status: specified
+  production_status: not_release_verified
+  source_spec: внешняя-спецификация-через-YAML
+- id: CAP-ORG-001
+  service: company_access
+  description: Управлять профилем компании и tenant
+  product_model_status: specified
+  production_status: not_release_verified
+  source_spec: внешняя-спецификация-через-YAML
+- id: CAP-ORG-002
+  service: company_access
+  description: Учитывать тарифы, квоты и права сотрудников
+  product_model_status: specified
+  production_status: not_release_verified
+  source_spec: внешняя-спецификация-через-YAML
+- id: CAP-DICT-001
+  service: dictionaries_administration
+  description: Просматривать и редактировать линейные/древовидные справочники
+  product_model_status: specified
+  production_status: not_release_verified
+  source_spec: внешняя-спецификация-через-YAML
+- id: CAP-DICT-002
+  service: dictionaries_administration
+  description: Сохранять изменения с версионированием и историей
+  product_model_status: specified
+  production_status: not_release_verified
+  source_spec: внешняя-спецификация-через-YAML
+- id: CAP-PLAT-001
+  service: platform_services
+  description: Управлять типизированными связями объектов
+  product_model_status: specified
+  production_status: not_release_verified
+  source_spec: внешняя-спецификация-через-YAML
+- id: CAP-PLAT-002
+  service: platform_services
+  description: Обеспечивать поиск, tenant, сессии и shell
+  product_model_status: specified
+  production_status: not_release_verified
+  source_spec: внешняя-спецификация-через-YAML
+- id: CAP-DOC-001
+  service: sources
+  description: Прикреплять файлы к объектам
+  product_model_status: specified
+  production_status: not_release_verified
+  source_spec: внешняя-спецификация-через-YAML
+- id: CAP-DOC-002
+  service: sources
+  description: Работать с каталогом базы знаний
+  product_model_status: specified
+  production_status: not_release_verified
+  source_spec: внешняя-спецификация-через-YAML
+unknowns_by_service:
+  risk_analysis:
+  - конкретный алгоритм оценки
+  - поля, статусы и workflow
+  incidents:
+  - форма регистрации
+  - обязательные поля
+  - workflow согласования
+  - фактические интеграции
+  measures:
+  - набор статусов
+  - правила дедлайнов и эскалаций
+  - схема приёмки
+  sources:
+  - поддерживаемые форматы
+  - лимиты
+  - права
+  - lifecycle документа
+  monitoring:
+  - источники мониторинга
+  - частота обновления
+  - алгоритм релевантности
+  ai_assistant:
+  - полный набор инструментов
+  - доступные действия
+  - модель прав
+  - production-ограничения

@@ -27,6 +27,12 @@ Analytics существует ради ответа на пользовател
 
 Подробный компактный runtime contract: `runtime/situational-overview.md`.
 
+## Evidence
+
+- `03_ux/ux_patterns.md` — Dashboard: обзор, мониторинг, comparison, attention zones, обязательный drill-down/action;
+- NORM контрагенты — summary + распределение задолженности + detailed list;
+- продуктовые UX-принципы требуют дать первичное понимание ситуации без чтения всех деталей.
+
 ## Не фиксирует
 
 - конкретный chart type;

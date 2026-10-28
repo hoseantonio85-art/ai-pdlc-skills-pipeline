@@ -1,3 +1,12 @@
-# Визуальные референсы
+# UI reference registry
 
-В комплекте доступен только синтетический HTML-starter для событий и AI-запусков (`../starter/`). Исторические HTML-сцены и внутренние скриншоты вынесены во внешний реестр `~/.gigacode/product-evidence.yaml`. См. `reference-registry.yaml`: запись внешнего источника не доказывает его доступность.
+Этот слой связывает реальные/целевые UI references с конкретными аспектами продуктовой системы.
+
+## Правило
+
+Не считать whole-screen reference универсальным шаблоном. Читай `reference-registry.yaml`, выбери 1–3 references только по нужному aspect и применяй их вместе с UX/visual/pattern rules. Unrelated parts экрана не копируются автоматически.
+
+Authority: `canonical | preferred | allowed | specialized | reference_only`.
+Lifecycle: `current | target | legacy`.
+
+Raw Pixso/HTML exports являются evidence-only и не должны автоматически загружаться в model context. Registry хранит нормализованное назначение references.

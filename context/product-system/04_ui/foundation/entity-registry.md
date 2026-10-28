@@ -19,6 +19,7 @@ Default/loading/filtered empty/error взаимоисключающие; geometr
 AI run = самостоятельная запись: title=document, status/date/time, result, ID/author, explanation/error. Не подменять историю overwrite при retry: новый ID и parent link. Новая аналитика optional above controls если это all-domain overview; если ниже controls, явно пометить scope «Обзор всех запусков», чтобы не выдавать общие числа за filtered counts.
 
 ## Эталоны / запреты
+event-list first card content #2395_101301 и title #2395_101315 (идентификаторы в исходном event-list export; raw evidence хранится отдельно от runtime context); RiskCard/styles.module.scss; MeasureCard/MeasureCard.tsx + styles. Запрещены: старый starter row92/pad18 22 как точная event-card реализация; filled CTA в каждой строке; длинный контент в фиксированной высоте; одинаковые карточки во всех типах collections. Reusable: Norm.card supplies event/AI slots; risk/measure variants описаны, но их полная компонентная реализация — следующий этап.
 
 ## Открытие и независимые действия (7.0.2)
 

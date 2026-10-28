@@ -1,8 +1,10 @@
 schema_version: 8
-package_version: 7.0.3-transfer
+package_version: 7.0.3-precise-clean
 context_id: norm
 label: NORM
-status: working_context_not_runtime_verified
+context_type: product_knowledge_ux_visual_and_engineering_system
+status: complete_local_context_external_sources_optional_not_embedded
+language: ru
 skill_profiles:
   01-formulate-product-intent-and-brief: for_product_intent_and_brief
   02-design-ux-solution: for_ux_solution
@@ -13,129 +15,183 @@ skill_profiles:
   frontend-implementer: for_frontend_implementation
   frontend-reviewer: for_frontend_review
 documents:
+  context_status:
+  - product-system/07_business_context/context_status.md
+  source_authority:
+  - product-system/07_business_context/source_authority.md
   foundation:
-  - product-system/01_foundation/mission.md
-  - product-system/01_foundation/product_philosophy.md
-  - product-system/01_foundation/service_goal.md
+  - product-system/01_product_foundation/mission.md
+  - product-system/01_product_foundation/product_philosophy.md
+  - product-system/01_product_foundation/service_goal.md
   services:
-  - product-system/02_domain/services/services_map.md
-  - product-system/02_domain/registry/service_registry.yaml
-  roles_and_rules:
-  - product-system/02_domain/registry/role_registry.yaml
-  - product-system/02_domain/registry/capability_registry.yaml
-  - product-system/02_domain/registry/common_business_rules.md
+  - product-system/02_services/services_map.md
   ux:
   - product-system/03_ux/ux_principles.md
   - product-system/03_ux/ux_patterns.md
   visual:
   - product-system/04_ui/visual/visual-language.md
+  - product-system/04_ui/visual/product-likeness.md
+  - product-system/04_ui/visual/layout-and-density.md
+  - product-system/04_ui/visual/pattern-selection.md
   - product-system/04_ui/visual/composition-adaptation.md
+  - product-system/04_ui/visual/modal-and-drawer.md
+  visual_profile:
+  - product-system/04_ui/visual/norm-visual-dna.md
+  ui_pattern_index:
   - product-system/04_ui/patterns/pattern-registry.yaml
+  ui_organism_index:
   - product-system/04_ui/organisms/organism-registry.yaml
-  engineering_standards:
-  - product-system/06_engineering/engineering-standards.md
-  - product-system/06_engineering/component-structure-and-handoff.md
-  source_policy:
-  - product-system/05_external/source_policy.md
-  - product-system/02_domain/registry/source_authority.md
+  ui_kit:
+  - product-system/04_ui/ui-kit/component-index.yaml
+  - product-system/04_ui/ui-kit/ui_base.md
+  business_context:
+  - product-system/07_business_context/service_registry.yaml
+  - product-system/07_business_context/role_registry.yaml
+  - product-system/07_business_context/capability_registry.yaml
+  - product-system/07_business_context/glossary.md
+  - product-system/07_business_context/common_business_rules.md
+  - product-system/07_business_context/product_decisions.md
+  - product-system/07_business_context/released_features.md
+  - product-system/07_business_context/known_constraints.md
+  - product-system/07_business_context/source_registry.yaml
   current_product:
-  - product-system/02_domain/registry/current_product_state.md
-  - product-system/02_domain/registry/released_features.md
-  ui_composition_index:
-  - product-system/04_ui/foundation/composition-index.json
+  - product-system/07_business_context/current_product_state.md
+  - product-system/07_business_context/current_product_sources.yaml
   ui_reference_index:
   - product-system/04_ui/references/reference-registry.yaml
-  stage_registry:
-  - product-system/02_domain/registry/stage_access_matrix.yaml
-  - product-system/02_domain/registry/skill_compatibility.yaml
-  source_registry:
-  - product-system/02_domain/registry/source_registry.yaml
-  domain_navigation:
-  - product-system/02_domain/README.md
-  - product-system/02_domain/registry/current_product_sources.yaml
-  ui_source_navigation:
-  - product-system/04_ui/ui_sources.yaml
-  local_html_reference_scenes:
-  - product-system/04_ui/references/html/README.md
 loading:
   always:
-  - product-system/02_domain/registry/context_status.md
-  - product-system/02_domain/registry/source_authority.md
-  - product-system/01_foundation/mission.md
+  - product-system/07_business_context/context_status.md
+  - product-system/07_business_context/source_authority.md
+  - product-system/01_product_foundation/mission.md
+  - product-system/07_business_context/known_constraints.md
   for_product_intent_and_brief:
-  - product-system/01_foundation/product_philosophy.md
-  - product-system/02_domain/registry/service_registry.yaml
-  - product-system/02_domain/registry/role_registry.yaml
-  - product-system/02_domain/registry/capability_registry.yaml
-  - product-system/02_domain/registry/current_product_state.md
+  - product-system/01_product_foundation/product_philosophy.md
+  - product-system/01_product_foundation/service_goal.md
+  - product-system/07_business_context/service_registry.yaml
+  - product-system/07_business_context/role_registry.yaml
+  - product-system/07_business_context/glossary.md
+  - product-system/07_business_context/common_business_rules.md
+  - product-system/07_business_context/capability_registry.yaml
+  - product-system/07_business_context/product_decisions.md
+  - product-system/07_business_context/released_features.md
   for_ux_solution:
+  - product-system/01_product_foundation/product_philosophy.md
+  - product-system/07_business_context/service_registry.yaml
+  - product-system/07_business_context/role_registry.yaml
+  - product-system/07_business_context/glossary.md
+  - product-system/07_business_context/common_business_rules.md
+  - product-system/07_business_context/capability_registry.yaml
+  - product-system/07_business_context/product_decisions.md
+  - product-system/07_business_context/released_features.md
+  - product-system/07_business_context/current_product_state.md
+  - product-system/07_business_context/current_product_sources.yaml
   - product-system/03_ux/ux_principles.md
   - product-system/03_ux/ux_patterns.md
-  - product-system/02_domain/registry/service_registry.yaml
   - product-system/04_ui/patterns/pattern-registry.yaml
-  - product-system/02_domain/registry/current_product_state.md
-  for_visual_html_prototype:
-  - product-system/04_ui/foundation/starter-contract.md
-  - product-system/03_ux/ux_principles.md
-  - product-system/03_ux/ux_patterns.md
-  - product-system/04_ui/visual/visual-language.md
   - product-system/04_ui/visual/composition-adaptation.md
-  - product-system/04_ui/patterns/pattern-registry.yaml
-  - product-system/04_ui/organisms/organism-registry.yaml
+  for_visual_html_prototype:
+  - product-system/07_business_context/service_registry.yaml
+  - product-system/04_ui/foundation/visual-dna.md
   - product-system/04_ui/foundation/composition-index.json
+  - product-system/04_ui/foundation/source-policy.md
+  - product-system/03_ux/ux_principles.md
+  - product-system/03_ux/ux_patterns.md
+  - product-system/04_ui/ui_context_status.md
+  - product-system/04_ui/visual/visual-language.md
+  - product-system/04_ui/visual/product-likeness.md
+  - product-system/04_ui/visual/layout-and-density.md
+  - product-system/04_ui/visual/pattern-selection.md
+  - product-system/04_ui/visual/composition-adaptation.md
+  - product-system/04_ui/visual/norm-visual-dna.md
+  - product-system/04_ui/patterns/pattern-registry.yaml
   - product-system/04_ui/references/reference-registry.yaml
-  - product-system/04_ui/prototype_ui_rules.md
-  - product-system/04_ui/ui_sources.yaml
+  - product-system/04_ui/organisms/organism-registry.yaml
   for_ux_sync:
   - product-system/03_ux/ux_principles.md
   - product-system/03_ux/ux_patterns.md
   for_sdd_specification:
-  - product-system/02_domain/registry/service_registry.yaml
-  - product-system/02_domain/registry/capability_registry.yaml
-  - product-system/02_domain/registry/common_business_rules.md
-  - product-system/02_domain/registry/current_product_state.md
+  - product-system/01_product_foundation/product_philosophy.md
+  - product-system/07_business_context/service_registry.yaml
+  - product-system/07_business_context/role_registry.yaml
+  - product-system/07_business_context/glossary.md
+  - product-system/07_business_context/common_business_rules.md
+  - product-system/07_business_context/capability_registry.yaml
+  - product-system/07_business_context/product_decisions.md
+  - product-system/07_business_context/known_constraints.md
   for_frontend_planning:
-  - product-system/06_engineering/engineering-standards.md
-  - product-system/06_engineering/component-structure-and-handoff.md
   - product-system/03_ux/ux_principles.md
+  - product-system/03_ux/ux_patterns.md
+  - product-system/04_ui/visual/norm-visual-dna.md
   - product-system/04_ui/patterns/pattern-registry.yaml
-  - product-system/05_external/source_policy.md
-  - product-system/04_ui/foundation/composition-index.json
-  - product-system/04_ui/references/reference-registry.yaml
+  - product-system/04_ui/organisms/organism-registry.yaml
   - product-system/04_ui/frontend_prototype_rules.md
-  - product-system/02_domain/registry/current_product_sources.yaml
+  - sources/frontend-rules/component-structure-data-barrels-ui-kit.md
+  - sources/frontend-rules/frontend-standards-subagent.md
   for_frontend_implementation:
-  - product-system/06_engineering/engineering-standards.md
-  - product-system/06_engineering/component-structure-and-handoff.md
   - product-system/04_ui/patterns/pattern-registry.yaml
-  - product-system/05_external/source_policy.md
+  - product-system/04_ui/organisms/organism-registry.yaml
   - product-system/04_ui/frontend_prototype_rules.md
+  - sources/frontend-rules/component-structure-data-barrels-ui-kit.md
+  - sources/frontend-rules/frontend-standards-subagent.md
   for_frontend_review:
-  - product-system/06_engineering/engineering-standards.md
-  - product-system/06_engineering/component-structure-and-handoff.md
   - product-system/04_ui/patterns/pattern-registry.yaml
-  - product-system/05_external/source_policy.md
+  - product-system/04_ui/organisms/organism-registry.yaml
   - product-system/04_ui/frontend_prototype_rules.md
+  - sources/frontend-rules/component-structure-data-barrels-ui-kit.md
+  - sources/frontend-rules/frontend-standards-subagent.md
   on_demand:
-    service_documents: product-system/02_domain/services/*.md
-    ui_patterns: product-system/04_ui/patterns/*.md
-    ui_runtime: product-system/04_ui/patterns/runtime/*.md
-    ui_specs: product-system/04_ui/patterns/specs/*.md
-    ui_visual: product-system/04_ui/visual/*.md
+    service_documents: product-system/02_services/*.md
+    current_product_sources: product-system/07_business_context/current_product_sources.yaml
+    modal_and_drawer: product-system/04_ui/visual/modal-and-drawer.md
+    ui_pattern_specs: product-system/04_ui/patterns/*.md
+    ui_runtime_patterns: product-system/04_ui/patterns/runtime/*.md
+    ui_shell_specs: product-system/04_ui/patterns/specs/*.md
     ui_organisms: product-system/04_ui/organisms/*.md
-    ui_content_examples: product-system/04_ui/patterns/specs/drawer-content-guide.md
-    engineering_standards: product-system/06_engineering/*.md
+    html_references: product-system/04_ui/references/html/**
+    ui_kit_docs: product-system/04_ui/ui-kit/ui_base.md
+    frontend_rules: sources/frontend-rules/*.md
+    ui_reference_registry: product-system/04_ui/references/reference-registry.yaml
+    service_map: product-system/02_services/services_map.md
+    business_source_registry: product-system/07_business_context/source_registry.yaml
 prototype:
   starter:
-    path: product-system/04_ui/starter/index.html
-    status: restored_product_html_prototype
-    scenarios:
-    - event
-    - ai
-    contract: product-system/04_ui/foundation/starter-contract.md
     type: html_css_js
+    path: product-system/04_ui/references/html/starter
     required_for: 03-build-visual-html-prototype
-    directory: product-system/04_ui/starter
+  reference_scenes:
+    norm_vertical_slice:
+      path: product-system/04_ui/references/html/norm-vertical-slice/index.html
+      surfaces:
+      - registry-page
+      - entity-card
+      - object-modal-view
+      - drawer
+      - registry-page-controls
+      - object-action-meta-zone
+      loading: on_demand
+      status: historical_composition_only
+      authority: Relationships only; current geometry/tokens/interactions come from Foundation + starter.
+    situational_overview:
+      path: product-system/04_ui/references/html/situational-overview/index.html
+      surfaces:
+      - registry-page
+      - dashboard
+      - situational-overview
+      - interactive-analytics
+      loading: on_demand
+      status: historical_composition_only
+      authority: Relationships only; current geometry/tokens/interactions come from Foundation + starter.
+    current_starter:
+      path: product-system/04_ui/references/html/starter/index.html
+      surfaces:
+      - registry-page
+      - entity-card
+      - object-modal-view
+      - drawer
+      - modal-form
+      loading: on_demand
+      status: current_prototype_implementation
   fidelity_modes:
     default: Product Fidelity
     supported:
@@ -150,74 +206,40 @@ prototype:
     pattern_registry: product-system/04_ui/patterns/pattern-registry.yaml
     organism_registry: product-system/04_ui/organisms/organism-registry.yaml
     visual_profile: product-system/04_ui/visual/norm-visual-dna.md
-    aspect_reference_registry: product-system/04_ui/references/reference-registry.yaml
-  reference_scenes:
-    current_starter:
-      path: product-system/04_ui/starter/index.html
-      surfaces:
-      - registry-page
-      - entity-card
-      - object-modal-view
-      - drawer
-      loading: on_demand
-      status: working_prototype_demo
-    other_scenes:
-      status: external_not_bundled
-      source: products.norm.design_references
-      loading: on_demand_verified_only
-    norm_vertical_slice:
-      path: product-system/04_ui/references/html/norm-vertical-slice/index.html
-      surfaces:
-      - registry-page
-      - entity-card
-      - object-modal-view
-      - drawer
-      - registry-page-controls
-      - object-action-meta-zone
-      loading: on_demand
-      status: historical_composition_only
-      authority: relationships only; styling and behavior per current Foundation/starter
-    situational_overview:
-      path: product-system/04_ui/references/html/situational-overview/index.html
-      surfaces:
-      - registry-page
-      - dashboard
-      - situational-overview
-      - interactive-analytics
-      loading: on_demand
-      status: historical_composition_only
-      authority: relationships only, no production claim
-context_type: product_knowledge_ux_visual_and_engineering_system
-language: ru
-context_version: 7
 profile_exclusions:
   01-formulate-product-intent-and-brief:
+  - product-system/03_ux/**
   - product-system/04_ui/**
   02-design-ux-solution:
-  - external_ui_kit
-  - all_repositories
+  - product-system/04_ui/ui-kit/**
   03-build-visual-html-prototype:
-  - external_ui_kit
-  - engineering_repositories
-  - all_external_specifications
+  - product-system/04_ui/ui-kit/**
+  - sources/frontend-rules/**
   03-5-sync-ux-decisions:
-  - external_ui_kit
+  - product-system/04_ui/ui-kit/**
   04-build-sdd-specification:
-  - raw_html_scene_bulk_load
-  - external_ui_kit
-  frontend-planner:
-  - unrelated_external_specs
-  frontend-implementer:
-  - unrelated_external_specs
-  frontend-reviewer:
-  - unrelated_external_specs
+  - product-system/04_ui/visual/**
+  - product-system/04_ui/ui-kit/**
+  - sources/frontend-rules/**
+  frontend-planner: []
+  frontend-implementer: []
+  frontend-reviewer: []
 limitations:
-- NORM is the default context only when declared in user product-contexts registry or chosen project selector.
-- Product model does not itself prove the current production release.
-- External product specifications and repositories are attached through user-authorized product-evidence.yaml and opened
-  selectively.
-- UI Kit is external and its actual APIs must be inspected before engineering.
-- Bundled HTML starter demonstrates UX/visual behavior and does not define production architecture.
-- Pattern compositions are strong defaults with permitted adaptation; exact screenshots/visual sources require separate
-  access.
-- Frontend engineering follows TARGET_REPO-first implementation evidence and explicit approval gates.
+- NORM is the default configured product context for this distribution; another product may be selected explicitly
+  through the context registry/selector.
+- Product knowledge describes the intended/stable product model and does not by itself prove production behavior
+  or release state.
+- Current product state is documented-partial; frontend/backend repositories and release registry remain task-specific/external
+  evidence unless explicitly connected.
+- Visual rules are an MVP synthesis from verified product repositories and authored pattern documents.
+- Screenshots are not available to GigaCode as canonical runtime context; task-specific screenshots remain evidence
+  only.
+- HTML prototypes are UX/visual evidence, not production UI Kit implementations.
+- External OpenSpec/analytics/UI Kit code and repositories are not packaged; verify exact files, versions and permissions
+  through product-evidence.yaml before claiming access.
+context_version: 7
+external_sources:
+  configuration: ~/.gigacode/product-evidence.yaml
+  required_status: verified_before_use
+  availability: not_bundled
+  source_routing: verify_each_user_configured_source_before_use

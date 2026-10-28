@@ -1,0 +1,173 @@
+schema_version: 2
+context_id: norm
+context_version: 7
+authority: historical_normalized_product_model_recheck_external_evidence
+owner: unknown
+last_reviewed: '2026-10-14'
+status_note: Предметная модель сохранена из исторически исследованных материалов. External specs не упакованы; актуальность
+  production требует проверки на компьютере пользователя.
+services:
+  risk_registry:
+    label: Реестр рисков
+    status: documented_product_model_external_check_required
+    production_status: not_release_verified
+    primary_document: product-system/02_services/risk_registry.md
+    canonical_map: product-system/02_services/services_map.md
+    source_specs_status: external_not_bundled
+  risk_analysis:
+    label: Анализ рисковой ситуации
+    status: product_model_documented_partial_openspec
+    production_status: not_release_verified
+    primary_document: product-system/02_services/risk_analysis.md
+    canonical_map: product-system/02_services/services_map.md
+    roles:
+    - risk_manager
+    - executive
+    - methodologist
+    receives_from:
+    - incidents
+    - sources
+    - monitoring
+    continues_to:
+    - measures
+    - ai_assistant
+    source_specs_status: external_not_bundled
+  limit_campaign:
+    label: Лимитная кампания
+    status: documented_product_model_external_check_required
+    production_status: not_release_verified
+    primary_document: product-system/02_services/limit_campaign.md
+    canonical_map: product-system/02_services/services_map.md
+    source_specs_status: external_not_bundled
+  incidents:
+    label: События
+    status: documented_product_model_external_check_required
+    production_status: not_release_verified
+    primary_document: product-system/02_services/incidents.md
+    canonical_map: product-system/02_services/services_map.md
+    roles:
+    - risk_manager
+    - incident_initiator
+    - executive
+    continues_to:
+    - risk_analysis
+    - measures
+    - ai_assistant
+    source_specs_status: external_not_bundled
+  measures:
+    label: Меры
+    status: documented_as_is_from_code_snapshot
+    production_status: not_release_verified
+    primary_document: product-system/02_services/measures.md
+    canonical_map: product-system/02_services/services_map.md
+    questions_document: product-system/07_business_context/measures_questions.md
+    authority_for_as_is: reviewed_fe_be_snapshots_2026_10_23
+    snapshot_frontend: external-product-frontend
+    snapshot_backend: external-product-backend
+    source_note: Current behavior is evidenced only for supplied code snapshots; runtime/deployment not verified.
+      OpenSpec remains normative requirements and a comparison source.
+    load_rule: read_relevant_sections_of_primary_document_before_measures_requirements_ux_or_prototype
+    roles:
+    - risk_manager
+    - measure_executor
+    - executive
+    receives_from:
+    - risk_analysis
+    - incidents
+    - ai_assistant
+    returns_to:
+    - risk_analysis
+    source_specs_status: external_not_bundled
+  agent_risks:
+    label: ИИ-агенты
+    status: documented_product_model_external_check_required
+    production_status: not_release_verified
+    primary_document: product-system/02_services/agent_risks.md
+    canonical_map: product-system/02_services/services_map.md
+    source_specs_status: external_not_bundled
+  product_risks:
+    label: Продукты
+    status: documented_product_model_external_check_required
+    production_status: not_release_verified
+    primary_document: product-system/02_services/product_risks.md
+    canonical_map: product-system/02_services/services_map.md
+    source_specs_status: external_not_bundled
+  contractors:
+    label: Контрагенты
+    status: documented_product_model_external_check_required
+    production_status: not_release_verified
+    primary_document: product-system/02_services/contractors.md
+    canonical_map: product-system/02_services/services_map.md
+    source_specs_status: external_not_bundled
+  company_access:
+    label: Компания, тарифы и сотрудники
+    status: documented_product_model_external_check_required
+    production_status: not_release_verified
+    primary_document: product-system/02_services/company_access.md
+    canonical_map: product-system/02_services/services_map.md
+    source_specs_status: external_not_bundled
+  dictionaries_administration:
+    label: Справочники
+    status: documented_product_model_external_check_required
+    production_status: not_release_verified
+    primary_document: product-system/02_services/dictionaries_administration.md
+    canonical_map: product-system/02_services/services_map.md
+    source_specs_status: external_not_bundled
+  sources:
+    label: Источники и документы
+    status: documented_product_model_external_check_required
+    production_status: not_release_verified
+    primary_document: product-system/02_services/sources.md
+    canonical_map: product-system/02_services/services_map.md
+    roles:
+    - risk_manager
+    - methodologist
+    - knowledge_owner
+    continues_to:
+    - risk_analysis
+    - ai_assistant
+    source_specs_status: external_not_bundled
+  monitoring:
+    label: Мониторинг новостей и законов
+    status: product_model_documented_partial_openspec
+    production_status: not_release_verified
+    primary_document: product-system/02_services/monitoring.md
+    canonical_map: product-system/02_services/services_map.md
+    roles:
+    - risk_manager
+    - methodologist
+    - executive
+    continues_to:
+    - risk_analysis
+    - ai_assistant
+    - sources
+    source_specs_status: external_not_bundled
+  ai_assistant:
+    label: AI-ассистент
+    status: product_model_documented_partial_openspec
+    production_status: not_release_verified
+    primary_document: product-system/02_services/ai_assistant.md
+    canonical_map: product-system/02_services/services_map.md
+    roles:
+    - risk_manager
+    - executive
+    - methodologist
+    - measure_executor
+    uses:
+    - risk_analysis
+    - incidents
+    - measures
+    - sources
+    - monitoring
+    source_specs_status: external_not_bundled
+  platform_services:
+    label: Платформенные службы
+    status: documented_product_model_external_check_required
+    production_status: not_release_verified
+    primary_document: product-system/02_services/platform_services.md
+    canonical_map: product-system/02_services/services_map.md
+    source_specs_status: external_not_bundled
+domain_terms_not_standalone_services:
+- id: assessment_objects
+  label: Объекты оценки
+  note: Концепт домена risk-cloud, не подтверждение отдельного пользовательского сервиса

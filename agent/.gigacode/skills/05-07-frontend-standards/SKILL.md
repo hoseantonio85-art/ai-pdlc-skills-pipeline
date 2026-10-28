@@ -33,7 +33,7 @@ Standalone нельзя использовать как обход отсутс�
 
 Для `TARGET_REPO` между пунктами 3 и 4 действует фактический target repo: stack, runtime, package versions, APIs и local conventions; он выше generic guidance.
 
-Для реализации опирайся на проверенный целевой репозиторий и выбранный внешний UI Kit; внутренние имена и версии в публичном комплекте отсутствуют.
+Для `STANDALONE_ENGINEERING` implementation baseline составляют approved reference repo patterns, selected product engineering context и фактический доступный `@example/ui-kit` package/API. Они не доказывают production runtime integration и не позволяют придумывать production contracts.
 
 ## Обязательный порядок чтения
 
@@ -68,19 +68,15 @@ Standalone нельзя использовать как обход отсутс�
 - integration gaps явно фиксируются в 05/06/07 artifacts;
 - local package `.tgz` допустим как dependency source, но его source не копируется в приложение и file-path dependency не переносится в production handoff.
 
-## Подключение полного инженерного стандарта
-
-При выбранном product context после разрешения manifest для текущего `frontend-*` профиля прочитай **оба** документа:
-
-- `product-system/06_engineering/engineering-standards.md` — полный engineering standard.
-- `product-system/06_engineering/component-structure-and-handoff.md` — компоненты, data, публичные barrels, UI Kit, i18n, runtime, preview/handoff и checks.
-
-Это **встроенные** нормы, не внешние спецификации; не надо подключать их через пользовательский YAML. Если manifest/context не загрузился, не говори, что проверил product-specific standard: `BLOCKED_BY_CONTEXT` при обязательном контексте. Для другого продукта используй его выбранный manifest и engineering rules, не подменяй NORM автоматически. Для Stage 01–04 этот раздел не применяй.
-
-Внешний toolchain, разрешённые package names, реальный UI Kit и source repositories (при наличии) подключаются **отдельно** через `~/.gigacode/product-evidence.yaml`. Пример содержит `products.<id>.frontend_rules` только для **дополнительных** локальных корпоративных правил и toolchain evidence, не для замены встроенного стандарта. Проверяй фактическую доступность, versions/config resolution, не доверяй заполненному пути как доказательству чтения.
-
 ## Target/reference family
 
-- `TARGET_REPO`: выбранный repo определяет stack/runtime, package manager, exports, UI Kit API, TS/Biome conventions, i18n format и tests. Просмотри фактические версии и как минимум один живой образец; не переписывай существующие conventions только ради унификации.
-- `STANDALONE_ENGINEERING`: используй **разрешённый** reference baseline, реальный пакет/UI Kit types, известный test/toolchain и typed mocks. Изолируй sandbox shell, перечисли integration gaps и `Integration verification: NOT_PERFORMED`.
-- Если обязательные sources недоступны — фиксируй blocker/decision, не заменяй их вымышленной версией или параллельной архитектурой.
+Основные ориентиры, если они доступны в рабочем окружении:
+- `external-product-frontend`
+- `external-product-frontend`
+- `external-product-frontend`
+- `external-product-frontend`
+- `external-product-frontend`
+- `external-product-frontend/mifes/*`
+
+В `TARGET_REPO` фактический target repo остаётся источником истины; ориентиры не используются для насильственной унификации legacy-проектов.
+В `STANDALONE_ENGINEERING` ориентиры используются для reference-first reconnaissance и portability, но не дают права заявлять production integration.

@@ -39,3 +39,7 @@ last_reviewed: 2026-09-30
 - связи достаточно одной ссылки/ID без дополнительного смысла;
 - preview начинает показывать все domain fields;
 - full object открывается в Drawer вместо approved Object Modal без отдельного UX rationale.
+
+## Evidence
+
+Measure View, Event View и Risk View подтверждают recurring relationship between risks, measures, events and other entities.

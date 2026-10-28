@@ -40,7 +40,7 @@ Mock fields, variable names, endpoint names, DTO fields, DB columns, hardcoded l
 
 Не загружай все analytical specs.
 
-1. Открой `product-system/05_external/source_policy.md`.
+1. Открой `внешняя-спецификация-через-YAML`.
 2. Определи 1–3 capability specs, непосредственно связанные со scope.
 3. Проверь status. `unknown` — usable evidence with caution; `needs-review` — ненормативный источник без дополнительного подтверждения.
 4. Извлекай только факты, влияющие на наблюдаемое поведение:

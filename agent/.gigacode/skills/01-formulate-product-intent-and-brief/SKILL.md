@@ -27,7 +27,7 @@ description: >-
 
 Не заменяй selector + registry поиском соседних папок. При недоступном обязательном источнике верни `BLOCKED_BY_CONTEXT` и перечисли проверенные пути. Не загружай UX, UI Kit и frontend rules без необходимости.
 
-Разделяй сведения на `source-confirmed`, `owner-stated`, `assumption` и `unknown`. Stable `CAP-*`, `BR-продукт-*` и `PD-продукт-*` ID используй для traceability, но не трактуй как API/technical IDs.
+Разделяй сведения на `source-confirmed`, `owner-stated`, `assumption` и `unknown`. Stable `CAP-*`, `BR-NORM-*` и `PD-NORM-*` ID используй для traceability, но не трактуй как API/technical IDs.
 
 ## Выбор режима диалога
 

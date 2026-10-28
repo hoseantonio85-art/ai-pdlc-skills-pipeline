@@ -181,6 +181,42 @@ Empty results и error загрузки списка принадлежат ро
 - Ошибки draft fields связаны с controls; Apply ведёт к первой ошибке или summary.
 - Focus trap, возврат фокуса, Escape и screen-reader title advanced surface делегированы `drawer-surface`, но интеграция обязана передать trigger и понятный title.
 
+## UI Kit dependencies
+
+Проверены по текущему `component-index.yaml`; props не нормируются по product code.
+
+```yaml
+- component: Row
+  purpose: filter bar and action-region layout
+  api_status: verified
+- component: Col
+  purpose: responsive grouping when required
+  api_status: verified
+- component: Button
+  purpose: search, advanced-filter and filter-action intents
+  api_status: verified
+- component: Icon
+  purpose: supporting filter/search iconography
+  api_status: verified
+- component: Text
+  purpose: labels and supporting state copy
+  api_status: verified
+- component: Title
+  purpose: filter-group headings when needed
+  api_status: verified
+- component: FieldSearch
+  purpose: optional search slot
+  api_status: verified
+- component: RadioChips
+  purpose: optional single-choice quick filters
+  api_status: verified
+- component: CheckboxChips
+  purpose: optional multi-choice quick filters
+  api_status: verified
+```
+
+`Drawer` в references импортируется из `@example/components`, а не из подтверждённых exports UI Kit. Surface обязателен по approved UX rule, но конкретная dependency остаётся open до утверждения shared ownership/API.
+
 ## Design tokens
 
 - Использовать только реальные UI Kit/theme tokens для цвета, spacing, typography, borders и state indication.
@@ -227,6 +263,19 @@ Empty results и error загрузки списка принадлежат ро
 - Query state синхронизировать с URL только когда это предусмотрено navigation contract.
 - Перед JSX проверять exports/types установленного UI Kit; не переносить props из references по памяти.
 
+## Evidence
+
+| Repository | Revision | File | Что подтверждает | Ограничения |
+|---|---|---|---|---|
+| external-product-backend/external-product-frontend | [редакция исходника удалена] | `src/pages/Measures/components/Filters/Filters.tsx`; `QuickFilters/QuickFilters.tsx`; `src/components/FilterFieldView/FilterFieldView.tsx`; `src/stores/models/Filters.ts`; colocated styles; `src/pages/Measures/Measures.tsx` | Два уровня фильтрации; quick chips, disclosed search, advanced Drawer, draft/applied copies, group reset, Apply и active indication | Store/tracking встроены; reset commit не полностью ясен; Drawer через shared facade; размеры и красная точка локальны |
+| external-product-backend/external-product-frontend | [редакция исходника удалена] | `src/pages/Risks/components/Filters/Filters.tsx`; `QuickFilters/QuickFilters.tsx`; `src/components/FilterFieldView/FilterFieldView.tsx`; `src/stores/models/Filters.ts`; colocated styles; `src/pages/Risks/Risks.tsx` | Повтор той же композиции и draft restore; pending Apply/Reset; dependent-option refresh; связь с page/list | Attention-zone animation доменна; reset применяется немедленно; Drawer/shared field renderer не подтверждены как UI Kit; active dot недоступна сама по себе |
+
+## Reference implementation
+
+Основной reference — Measures `src/pages/Measures/components/Filters/Filters.tsx` вместе с `QuickFilters`, `FilterFieldView` и `Filters` model: наиболее нейтральная реализация двухуровневой фильтрации. Дополнительный reference — Risks для pending actions, dependent refresh и подтверждения повторяемости.
+
+Reference implementation является доказательством и примером реализации. Его код, props, geometry, store, tracking и domain-specific решения не копируются автоматически и не становятся нормативными, если это отдельно не указано в паттерне.
+
 ## Conflicts and decisions
 
 ### Commit расширенного фильтра
@@ -239,6 +288,7 @@ Empty results и error загрузки списка принадлежат ро
 
 **Reason:** повторяемый production evidence согласован с понятной обратимостью действия.
 
+**Evidence:** Measures и Risks `Filters.tsx`, `src/stores/models/Filters.ts`.
 
 ### Reset
 
@@ -250,10 +300,11 @@ Empty results и error загрузки списка принадлежат ро
 
 **Reason:** implementations расходятся, а approved rule не задаёт commit timing.
 
+**Evidence:** оба `Filters.tsx`.
 
 ### Advanced surface dependency
 
-**Found:** approved UX rule задаёт Drawer; оба references используют `Drawer` из `[источник не включён]`, которого нет среди проверенных UI Kit exports.
+**Found:** approved UX rule задаёт Drawer; оба references используют `Drawer` из `@example/components`, которого нет среди проверенных UI Kit exports.
 
 **Decision:** Drawer как surface семантически normative для текущего pattern, но package/export и внутренний surface contract делегированы.
 
@@ -261,6 +312,7 @@ Empty results и error загрузки списка принадлежат ро
 
 **Reason:** UX rule выше repository facade; frontend rules требуют проверять export и не создавать facade.
 
+**Evidence:** `ux_patterns.md`, оба `Filters.tsx`, `component-index.yaml`.
 
 ### Mobile quick filters
 
@@ -296,3 +348,4 @@ Empty results и error загрузки списка принадлежат ро
 - [ ] Responsive вариант сохраняет доступ к критичным критериям.
 - [ ] Только engineering stages: UI Kit exports проверены; Drawer dependency не выдумана.
 - [ ] Store, payload, geometry и domain fields references не стали нормативными.
+

@@ -47,7 +47,7 @@ Page
 - spacious top area;
 - entity cards radius 16 / ~24px padding;
 - bottom floating create/chat surface допустим как NORM-specific behavior;
-- reference: `../../starter/index.html` (restored working Event/AI HTML-starter); `external approved product reference (see ~/.gigacode/product-evidence.yaml)#registry` (historical composition only).
+- reference: `../../references/html/starter/index.html` (current implementation); `../../references/html/norm-vertical-slice/index.html#registry` (historical composition only).
 
 
 ## Measured Foundation refinement (4.0.1)

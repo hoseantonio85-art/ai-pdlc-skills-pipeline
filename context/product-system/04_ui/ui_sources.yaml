@@ -1,39 +1,105 @@
-schema_version: 3
+schema_version: 2
 context_id: norm
 sources:
-  visual_rulebook:
-    status: bundled
-    path: product-system/04_ui/visual/norm-visual-dna.md
-    loading: stage_selective
   ui_reference_registry:
-    status: bundled_index_only
+    status: ready
     path: product-system/04_ui/references/reference-registry.yaml
-    loading: aspect_selective
-  composition_index:
-    status: bundled
-    path: product-system/04_ui/foundation/composition-index.json
-    loading: index_first
-  starter:
-    status: bundled
-    path: product-system/04_ui/starter/index.html
-    loading: copy_then_adapt
-  ui_kit:
-    status: external_user_authorized
-    config: ~/.gigacode/product-evidence.yaml
-    fields:
-    - products.norm.ui_kit.package_path
-    - products.norm.ui_kit.docs_root
-    - products.norm.ui_kit.docs_url
-    loading: exact_components_only_at_engineering_time
-  owner_visual_evidence:
-    status: external_user_authorized
-    config: ~/.gigacode/product-evidence.yaml
-    fields:
-    - products.norm.design_references.local_root
-    - products.norm.design_references.index_url
-    loading: on_demand_after_reference_index
+    loading: auto_for_visual_html_prototype
+    note: Aspect-level normalized owner evidence; raw external exports are not runtime-required.
+  external_owner_ui_evidence:
+    status: normalized_not_packaged
+    loading: prohibited_by_default
+    note: Pixso/HTML exports supplied by owner are represented through the aspect registry; do not bulk-load raw
+      exports.
+  ui_kit_component_index:
+    status: ready
+    path: product-system/04_ui/ui-kit/component-index.yaml
+    loading: on_demand_for_future_implementation
+  ui_kit_docs:
+    status: ready
+    path: product-system/04_ui/ui-kit/ui_base.md
+    loading: on_demand_fragments
+  ui_kit_package:
+    status: external_not_connected
+    path: ''
+    package: '@example/ui-kit'
+    version: verify_from_target
+    loading: only_after_verification
+    evidence_config: ~/.gigacode/product-evidence.yaml
+  frontend_rules_full:
+    status: normative_engineering_reference
+    path: sources/frontend-rules/frontend-standards-subagent.md
+    sha256: f77b48cc43452f287194d20da047ba155b0e690c5514b94a27ca66b4afb05dbc
+    loading: stages_05_07_via_manifest
+    note: provenance/reference source, not an active agent definition; retained because compact 05-07-frontend-standards
+      is not yet semantic-lossless
+  component_structure_full:
+    status: normative_engineering_reference
+    path: sources/frontend-rules/component-structure-data-barrels-ui-kit.md
+    sha256: 092dc6745c1cde9f3f5602cbcd99f0a4e01cf1fa806c54940c12cfdfc88eaea3
+    loading: stages_05_07_via_manifest
+    note: contains NORM-specific component/runtime/handoff rules not fully duplicated in compact 05-07-frontend-standards
+  composite_patterns:
+    status: ready_mvp
+    registry: product-system/04_ui/patterns/pattern-registry.yaml
+    runtime: product-system/04_ui/patterns/runtime/*.md
+    loading: index_first_then_selected_runtime
+  organisms:
+    status: ready_mvp
+    registry: product-system/04_ui/organisms/organism-registry.yaml
+    runtime: product-system/04_ui/organisms/*.md
+    loading: index_first_then_selected_runtime
+  visual_profile:
+    status: ready_mvp
+    path: product-system/04_ui/visual/norm-visual-dna.md
+    loading: stage_03_and_frontend_planning
+  html_starter:
+    status: ready
+    path: product-system/04_ui/references/html/starter
+    loading: stage_03_required_via_manifest
+  html_reference_scenes:
+    status: ready_mvp
+    root: product-system/04_ui/references/html
+    loading: on_demand_max_2_per_task
+  product_repository_evidence:
+    status: historical_review_only_no_repositories_embedded
+    loading: audit_only_not_runtime
+    evidence_config: ~/.gigacode/product-evidence.yaml
+  screenshot_evidence:
+    status: task_specific_not_packaged
+    period: 09-2026
+    domains:
+    - risks
+    - measures
+    - operational-risk-events
+    - modal
+    - drawer
+  to_be_evidence:
+    status: owner_provided_target_reference
+    item: risk-Modals.png
+    accepted_decision: unified_right_action_meta_zone_for_object_view
+  authoring_evidence_archive:
+    status: not_packaged_in_runtime_distribution
+    loading: external_maintenance_only
+    note: Historical visual audit reports/screenshots were intentionally removed from Skills Pipeline v7; canonical
+      conclusions remain in visual/pattern/organism rules.
 rules:
-- No bundled UI Kit package or downloaded archives
-- Do not claim a reference is visible until accessed and checked
-- Design patterns are editable strong defaults, not fixed templates
-- UI evidence does not prove current production behavior
+- Select owner UI references by aspect; never copy a whole screen automatically.
+- Read UX/visual rules and pattern/organism registries before selecting UI references.
+- Read component-index first.
+- Read only selected component documentation and exact type declarations.
+- Do not unpack or scan entire packages into the model context.
+- Load registries before any runtime pattern or organism.
+- Do not bulk-load HTML references or audit evidence.
+- Absence of a product-specific pattern may allow a documented UX hypothesis, but do not silently copy NORM-only
+  composition into another product profile.
+context_version: 7
+visual_foundation_extension:
+  version: 4.0.1
+  index: product-system/04_ui/foundation/composition-index.json
+  visual_facts_from:
+    ui_kit: 0.307.0
+    components: 0.269.0
+  engineering_package_upgrade: false
+  raw_export_runtime_loading: selected_aspect_only
+  note: Newer local packages inform normalized visual facts; old engineering package remains pinned.

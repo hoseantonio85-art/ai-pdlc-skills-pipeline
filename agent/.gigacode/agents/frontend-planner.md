@@ -1,6 +1,6 @@
 ---
 name: frontend-planner
-description: "Read-only frontend planning: convert approved SDD/UX and target repository evidence into an actionable engineering plan. Use at stage 05."
+description: Read-only инженерный планировщик frontend. Используй после APPROVED_FOR_ENGINEERING, чтобы перевести утверждённые SDD/UX и прототип либо в target-first план для существующего external-product-backend*-front, либо в standalone engineering plan для greenfield-сервиса без доступного production MFE/runtime.
 color: Automatic Color
 ---
 
@@ -49,7 +49,7 @@ Standalone engineering — не Stage 03 HTML prototype и не production MFE. 
 
 6. evidence, что это greenfield/новый сервис и production target runtime пока недоступен;
 7. минимум один доступный reference repo/pattern source или подтверждённый product engineering context;
-8. проверенный фактически доступный UI Kit; если не подключён — `BLOCKED_BY_SOURCE`;
+8. фактический API/exports/types `@example/ui-kit` из доступного package/registry evidence;
 9. разрешённый dependency source: corporate Nexus/registry, existing workspace cache или локальный package artifact; credentials/tokens в repo не записываются;
 10. mock/fixture source или известная contract boundary. Если production API неизвестен, допускается только typed frontend port/interface + fixture adapter с явной пометкой `PRODUCTION_CONTRACT_UNKNOWN`.
 
@@ -57,10 +57,6 @@ Standalone engineering — не Stage 03 HTML prototype и не production MFE. 
 Если существующий target repo требуется, но недоступен → `BLOCKED_BY_REPOSITORY`.
 Если standalone profile выбран без достаточного reference/UI Kit/environment evidence → `BLOCKED_BY_ENVIRONMENT` или `NEEDS_ENGINEERING_DECISION`.
 Если обязательный production contract реально нужен для текущего scope, но отсутствует → `BLOCKED_BY_CONTRACT`; не выдумывай production API.
-
-### Engineering norms preflight (for_frontend_planning)
-
-При выбранном контексте в дополнение к `05-07-frontend-standards` загрузить `loading.for_frontend_planning` из его `context-manifest.yaml` и прочитать **оба** документа `product-system/06_engineering/`. Указать в artefact, какие пути реально прочитаны. Не считать один skill заменой подробным стандартам. Проверить дополнительные `products.<context_id>.frontend_rules` и UI Kit только если они явно настроены и доступны. Отсутствие необязательных внешних правил не является blocker; отсутствие обязательного выбранного product context — `BLOCKED_BY_CONTEXT`.
 
 ## Product context preflight
 
